@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <title>Proposta de Atendimento - DPA</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container tab-pane active"><br>
+        <div class="card-body">
+            <h4 class="card-header text-center font-weight-bold text-info">Proposta de Atendimento - PDA</h4>
+            <br>
+    
+            <form method="post" target="_blank" action="/deme/funcionalidades/PC-API-SIRC.php">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="input-group mb-3">
+                                <div class="input-group">
+                                    <label class="ml-2 font-weight-bold text-info">Sistema:</label>
+                                </div>
+                                <input type="text" class="form-control bg-white" name="sistema" id="sistema" placeholder="Ex:SUB-Sistema Único de Benefícios" value="" maxlength="100">
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="input-group mb-3">
+                                <div class="input-group">
+                                    <label class="ml-2 font-weight-bold text-info">Inquilino:</label>
+                                </div>
+                                <input type="text" class="form-control bg-white" name="inquilino" id="inquilino" placeholder="Ex:INSS/Multimercados" value="" maxlength="100">
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="input-group mb-3">
+                                <div class="input-group">
+                                    <label class="ml-2 font-weight-bold text-info">Demanda:</label>
+                                </div>
+                                <input type="text" class="form-control bg-white" name="demanda" id="demanda" placeholder="Ex:DM.088742" value="" maxlength="100">
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="input-group mb-3">
+                                <div class="input-group">
+                                    <label class="ml-2 font-weight-bold text-info">Sub Projeto de Demanda:</label>
+                                </div>
+                                <input type="text" class="form-control bg-white" name="sub_demanda" id="sub_demanda" placeholder="Ex:DTP.XXXXX" value="" maxlength="100">
+                            </div>
+                        </div>
+                    </div>
+                                    
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="input-group mb-3">
+                                <div class="input-group">
+                                    <label class="ml-2 font-weight-bold text-info">Descrição do Produto:</label>
+                                </div>
+                                <textarea class="form-control bg-white" name="des_produto" id="des_produto" rows="3" placeholder="Ex:Descrição da solução, quantidade de entregas, cronograma de cada entrega, Requisitos Funcionais e Não Funcionais de cada entrega a ser implantada, quais Clientes, etc " maxlength="255"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <label class="ml-2 h5 font-weight-bold text-info">Informações Contratuais</label>
+                    <div class="row">
+                        <div class="col-lg">
+                            <div class="input-group mb-3">
+                                <div class="input-group">
+                                    <label class="ml-2 font-weight-bold text-info">Número:</label>
+                                </div>
+                                <input type="text" class="form-control bg-white" name="n_contrato" id="n_contrato" placeholder="Ex:CJF N. 017/2019" value="" maxlength="100">
+                            </div>
+                        </div>          
+                        <div class="col-lg">
+                            <div class="input-group mb-3">
+                                <div class="input-group">
+                                    <label class="ml-2 font-weight-bold text-info">Aditivo:</label>
+                                </div>
+                                <input type="text" class="form-control bg-white" name="aditivo" id="aditivo" placeholder="Ex:001" value="" maxlength="100">
+                            </div>
+                        </div>                        
+                            <div class="col-sm">
+                                <div class="input-group mb-3">
+                                    <div class="input-group">
+                                        <label class="ml-2 font-weight-bold text-info">ANS:</label>
+                                    </div>
+                                    <textarea class="form-control bg-white" name="ans" id="ans" rows="1" maxlength="255"></textarea>
+                                </div>
+                            </div>                         
+                    </div>               
+                    
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="input-group mb-3">
+                                <div class="input-group">
+                                    <label class="ml-2 font-weight-bold text-info">Necessidades Identificadas:</label>
+                                </div>                                
+                                <textarea class="form-control bg-white" name="necessidades" id="necessidades" rows="3" 
+                                placeholder="Ex:Resumo das atividades necessárias para implantação
+- Cadastro de usuários
+- Criação de catálogo de serviços
+- Capacitação" value="" maxlength="255">
+</textarea>                              
+                           </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="input-group mb-3">
+                                <div class="input-group">
+                                    <label class="ml-2 font-weight-bold text-info">Requisitos de cadastramento no LDAP:</label>
+                                </div>
+                                <textarea class="form-control bg-white" rows="3" name="requisitos_LDPA" id="requisitos_LDPA" placeholder="Descrição detalhada dos requisitos do LDAP" value="" maxlength="255"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="input-group mb-3">
+                                <div class="input-group">
+                                    <label class="ml-2 font-weight-bold text-info">Soluções Impactadas ou interdependentes:</label>
+                                </div>                                
+                                <textarea class="form-control bg-white" name="solucoes_impactadas" id="solucoes_impactadas" rows="3" 
+                                placeholder="Ex:-Integração dom GERID, Notificações, etc" maxlength="255">
+</textarea>                              
+                           </div>
+                        </div>
+                    </div>       
+                    
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="input-group">
+                                <div class="input-group">
+                                    <label class="ml-2 font-weight-bold text-info">Anexo de contexto:</label>
+                                </div>
+                                <input type="file" accept="image/*" class="form-control bg-white" name="anexo_contexto" id="anexo_contexto" value="" disabled>
+                            </div>
+                            <div class="input-group mb-3">
+                            <small id="passwordHelpBlock" class="form-text text-muted">
+                                Insira no campo acima os anexos de contexto.
+                              </small>
+                            </div>
+                        </div>
+                    </div>                 
+                
+                    <div class="row">
+                            <div class="col-sm">
+                                <div class="input-group">
+                                    <div class="input-group">
+                                        <label class="ml-2 font-weight-bold text-info">Telas do sistema:</label>
+                                    </div>
+                                    <input type="file" accept="image/*" class="form-control bg-white" name="telas_sistema" id="telas_sistema" value="" disabled>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <small id="passwordHelpBlock" class="form-text text-muted">
+                                        Insira no campo acima os anexo com as imagens de telas do sistema.
+                                      </small>
+                                    </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md">
+                                <div class="input-group">
+                                    <div class="input-group">
+                                        <label class="ml-2 font-weight-bold text-info">Cronograma de Implantação da Solução:</label>
+                                    </div>
+                                    <input type="file" accept="image/*" class="form-control bg-white" name="cronograma_implantacao" id="cronograma_implantacao" value="" disabled>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <small id="passwordHelpBlock" class="form-text text-muted">
+                                        Insira no campo acima o anexo com o cronograma detalhado com as entregas.
+                                      </small>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                <div class="row">
+                    <div class="col-md mb-3">
+                        <div class="input-group">
+                            <div class="input-group">
+                                <label class="ml-2 font-weight-bold text-info">Canais de Atendimento:</label>
+                            </div>
+                            <input type="text" class="form-control bg-white" name="canais" id="canais" placeholder="Ex:Pronto" value="" maxlength="100">
+                        </div>
+                    </div>
+                </div>
+
+                <label class="ml-2 h5 font-weight-bold text-info">Grupos de Atendimento</label>
+                <div class="row">                             
+                    <div class="col-lg">
+                        <div class="input-group mb-3">
+                            <div class="input-group">
+                                <label class="ml-2 font-weight-bold text-info">Nível 1:</label>
+                            </div>
+                            <input type="text" class="form-control bg-white" name="n1" id="n1" placeholder="Ex:N1.Gerid" value="" maxlength="100">
+                        </div>
+                    </div>
+                    <div class="col-lg">
+                        <div class="input-group mb-3">
+                            <div class="input-group">
+                                <label class="ml-2 font-weight-bold text-info">Nível 2:</label>
+                            </div>
+                            <input type="text" class="form-control bg-white" name="n2" id="n2" placeholder="Ex:GSCXX" value="" maxlength="100">
+                        </div>
+                    </div>                    
+                </div>           
+                
+                <hr class="mt-2 mb-2">
+
+                <div class="row">
+                    <div class="col-md d-inline-flex">
+                        <div class="input-group mb-3">
+                            <div class="input-group">
+                                <label class="ml-2 font-weight-bold text-info h4">Adequação da Ferramenta de Atendimento</label>
+                            </div>
+                            <div class="form-check form-check-inline">                                
+                                <label class="ml-2 font-weight-bold text-info">É necessário alguma especificação adicional?</label>
+                            </div>
+                            <div class="form-check form-check-inline">                                
+                                <input class="form-check-input" type="radio" name="adequacao" id="adequacao1" value="adequacao1">
+                                <label class="form-check-label" for="adequaçao1">Sim</label>                                
+                              </div>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="adequacao" id="adequacao2" value="adequacao2" checked>
+                                <label class="form-check-label" for="adequaçao2">Não</label>
+
+                              </div>                                                     
+                        </div>
+                    </div>                    
+                </div>
+
+                <!-- <div class="col-12 col-sm ml-2 mb-3 font-weight-bold text-info">
+                    <div class="input-group">
+                        <label class="font-weight-bold text-info">É necessário alguma especificação adicional?</label>
+                    </div>
+                    <div class="form-check-inline">
+                        <input class="form-check-input" type="radio" name="PremiumBasico" value="Premium" id="Radio">
+                        <label class="form-check-label" for="RadioPremium">
+                            Premium
+                        </label>
+                    </div>
+                    <div class="form-check-inline ml-2">
+                        <input class="form-check-input" type="radio" name="PremiumBasico" value="Basico" id="RadioBasico" checked>
+                        <label class="form-check-label" for="RadioBasico">
+                            Básico
+                        </label>
+                    </div>
+                </div>
+            </div> -->
+
+                <label class="ml-2 font-weight-bold text-info h5">Cliente</label>
+                <div class="row">
+                    <div class="col-lg">
+                        <div class="input-group mb-3">
+                            <div class="input-group">
+                                <label class="ml-2 font-weight-bold text-info">Área Solicitante:</label>
+                            </div>
+                            <input type="text" class="form-control bg-white" name="area_solicitante_cliente" id="area_solicitante_cliente" placeholder="" value="" maxlength="100">
+                        </div>
+                    </div>          
+                    <div class="col-lg">
+                        <div class="input-group mb-3">
+                            <div class="input-group">
+                                <label class="ml-2 font-weight-bold text-info">Observações:</label>
+                            </div>
+                            <textarea class="form-control bg-white" name="obs_solicitante_cliente" id="obs_solicitante_cliente" rows="1" maxlength="255"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg">
+                        <div class="input-group mb-3">
+                            <div class="input-group">
+                                <label class="ml-2 font-weight-bold text-info">Área Executora:</label>
+                            </div>
+                            <input type="text" class="form-control bg-white" name="area_executora" id="area_executora_cliente" placeholder="" value="" maxlength="100">
+                        </div>
+                    </div>          
+                    <div class="col-lg">
+                        <div class="input-group mb-3">
+                            <div class="input-group">
+                                <label class="ml-2 font-weight-bold text-info">Observações:</label>
+                            </div>
+                            <textarea class="form-control bg-white" name="obs_executora_cliente" id="obs_executora_cliente" rows="1" maxlength="255"></textarea>
+                        </div>
+                    </div>
+                </div> 
+
+                <label class="ml-2 font-weight-bold text-info h5">Usuário</label>
+                <div class="row">
+                    <div class="col-lg">
+                        <div class="input-group mb-3">
+                            <div class="input-group">
+                                <label class="ml-2 font-weight-bold text-info">Área Solicitante:</label>
+                            </div>
+                            <input type="text" class="form-control bg-white" name="area_solicitante_usuario" id="area_solicitante_usuario" placeholder="" value="" maxlength="100">
+                        </div>
+                    </div>          
+                    <div class="col-lg">
+                        <div class="input-group mb-3">
+                            <div class="input-group">
+                                <label class="ml-2 font-weight-bold text-info">Observações:</label>
+                            </div>
+                            <textarea class="form-control bg-white" name="obs_solicitante_usuario" id="obs_solicitante_usuario" rows="1" maxlength="255"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg">
+                        <div class="input-group mb-3">
+                            <div class="input-group">
+                                <label class="ml-2 font-weight-bold text-info">Área Executora:</label>
+                            </div>
+                            <input type="text" class="form-control bg-white" name="area_executora_usuario" id="area_executora_usuario" placeholder="" value="" maxlength="100">
+                        </div>
+                    </div>          
+                    <div class="col-lg">
+                        <div class="input-group mb-3">
+                            <div class="input-group">
+                                <label class="ml-2 font-weight-bold text-info">Observações:</label>
+                            </div>
+                            <textarea class="form-control bg-white" name="obs_executora_usuario" id="obs_executora_usuario" rows="1" maxlength="255"></textarea>
+                        </div>
+                    </div>
+                </div>
+                    
+                    <label class="ml-2 font-weight-bold text-info h5">Base de Conhecimento</label>
+                    <div class="row">
+                        <div class="col-lg">
+                            <div class="input-group mb-3">
+                                <div class="input-group">
+                                    <label class="ml-2 font-weight-bold text-info">Área Solicitante:</label>
+                                </div>
+                                <input type="text" class="form-control bg-white" name="area_solicitante_base" id="area_solicitante_base" placeholder="" value="" maxlength="100">
+                            </div>
+                        </div>
+                        <div class="col-lg">
+                            <div class="input-group mb-3">
+                                <div class="input-group">
+                                    <label class="ml-2 font-weight-bold text-info">Publicação:</label>
+                                </div>
+                                <input type="date" class="form-control bg-white" name="publicacao_solicitante_base" id="publicacao_solicitante_base" placeholder="Ex:30/01/2000" value="">
+                            </div>
+                        </div>          
+                        <div class="col-lg">
+                            <div class="input-group mb-3">
+                                <div class="input-group">
+                                    <label class="ml-2 font-weight-bold text-info">Observações:</label>
+                                </div>
+                                <textarea class="form-control bg-white" name="obs_solicitante_base" id="obs_solicitante_base" rows="1" maxlength="255"></textarea>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg">
+                                <div class="input-group mb-3">
+                                    <div class="input-group">
+                                        <label class="ml-2 font-weight-bold text-info">Área Executora:</label>
+                                    </div>
+                                    <input type="text" class="form-control bg-white" name="area_executora_base" id="area_executora_base" placeholder="" value="" maxlength="100">
+                                </div>
+                            </div>
+                            <div class="col-lg">
+                                <div class="input-group mb-3">
+                                    <div class="input-group">
+                                        <label class="ml-2 font-weight-bold text-info">Publicação:</label>
+                                    </div>
+                                    <input type="date" class="form-control bg-white" name="publicacão_executora_base" id="publicacão_executora_base" placeholder="Ex:30/01/2000" value="">
+                                </div>
+                            </div>          
+                            <div class="col-lg">
+                                <div class="input-group mb-3">
+                                    <div class="input-group">
+                                        <label class="ml-2 font-weight-bold text-info">Observações:</label>
+                                    </div>
+                                    <textarea class="form-control bg-white" name="obs_executora_base" id="obs_executora_base" rows="1" maxlength="255"></textarea>
+                                </div>
+                            </div>
+                            </div>
+
+                        <label class="ml-2 font-weight-bold text-info h5">Cadastramento de Itens de Catálogo</label>
+                        <div class="row">
+                            <div class="col-lg">
+                                <div class="input-group mb-3">
+                                    <div class="input-group">
+                                        <label class="ml-2 font-weight-bold text-info">Área Solicitante:</label>
+                                    </div>
+                                    <input type="text" class="form-control bg-white" name="area_solicitante_itens" id="area_solicitante_itens" placeholder="" value="" maxlength="100">
+                                </div>
+                            </div>          
+                            <div class="col-lg">
+                                <div class="input-group mb-3">
+                                    <div class="input-group">
+                                        <label class="ml-2 font-weight-bold text-info">Observações:</label>
+                                    </div>
+                                    <textarea class="form-control bg-white" id="obs_solicitante_itens" rows="1" maxlength="255"></textarea>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <div class="row">
+                            <div class="col-lg">
+                                <div class="input-group mb-3">
+                                    <div class="input-group">
+                                        <label class="ml-2 font-weight-bold text-info">Área Executora:</label>
+                                    </div>
+                                    <input type="text" class="form-control bg-white" name="area_executora_itens" id="area_executora_itens" placeholder="" value="" maxlength="100">
+                                </div>
+                            </div>          
+                            <div class="col-lg">
+                                <div class="input-group mb-3">
+                                    <div class="input-group">
+                                        <label class="ml-2 font-weight-bold text-info">Observações:</label>
+                                    </div>
+                                    <textarea class="form-control bg-white" name="area_executora_itens" id="obs_executora_itens" rows="1" maxlength="255"></textarea>
+                                </div>
+                            </div>
+                        </div> 
+
+                        <label class="ml-2 font-weight-bold text-info h5">Cadastramento de Cliente</label>
+                        <div class="row">
+                            <div class="col-lg">
+                                <div class="input-group mb-3">
+                                    <div class="input-group">
+                                        <label class="ml-2 font-weight-bold text-info">Área Solicitante:</label>
+                                    </div>
+                                    <input type="text" class="form-control bg-white" name="area_solicitante_cadastro_cliente" id="area_solicitante_cadastro_cliente" placeholder="" value="" maxlength="100">
+                                </div>
+                            </div>          
+                            <div class="col-lg">
+                                <div class="input-group mb-3">
+                                    <div class="input-group">
+                                        <label class="ml-2 font-weight-bold text-info">Observações:</label>
+                                    </div>
+                                    <textarea class="form-control bg-white" name="obs_solicitante_cadastro_cliente" id="obs_solicitante_cadastro_cliente" rows="1" maxlength="255"></textarea>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <div class="row">
+                            <div class="col-lg">
+                                <div class="input-group mb-3">
+                                    <div class="input-group">
+                                        <label class="ml-2 font-weight-bold text-info">Área Executora:</label>
+                                    </div>
+                                    <input type="text" class="form-control bg-white" name="area_executora_cadastro_cliente" id="area_executora_cadastro_cliente" placeholder="" value="" maxlength="100">
+                                </div>
+                            </div>          
+                            <div class="col-lg">
+                                <div class="input-group mb-3">
+                                    <div class="input-group">
+                                        <label class="ml-2 font-weight-bold text-info">Observações:</label>
+                                    </div>
+                                    <textarea class="form-control bg-white" name="obs_executora_cadastro_cliente" id="obs_executora_cadastro_cliente" rows="1" maxlength="255"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <label class="ml-2 font-weight-bold text-info h5">Cadastramento de Base de Conhecimento</label>
+                    <div class="row">
+                        <div class="col-lg">
+                            <div class="input-group mb-3">
+                                <div class="input-group">
+                                    <label class="ml-2 font-weight-bold text-info">Área Solicitante:</label>
+                                </div>
+                                <input type="text" class="form-control bg-white" name="area_solicitante_cadastro_base" id="area_solicitante_cadastro_base" placeholder="" value="" maxlength="100">
+                            </div>
+                        </div>
+                        <div class="col-lg">
+                            <div class="input-group mb-3">
+                                <div class="input-group">
+                                    <label class="ml-2 font-weight-bold text-info">Publicação:</label>
+                                </div>
+                                <input type="date" class="form-control bg-white" name="publicacão_solicitante_cadastro_base" id="publicacão_solicitante_cadastro_base" placeholder="Ex:30/01/2000" value="">
+                            </div>
+                        </div>          
+                        <div class="col-lg">
+                            <div class="input-group mb-3">
+                                <div class="input-group">
+                                    <label class="ml-2 font-weight-bold text-info">Observações:</label>
+                                </div>
+                                <textarea class="form-control bg-white" name="obs_solicitante_cadastro_base" id="obs_solicitante_cadastro_base" rows="1" maxlength="255"></textarea>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg">
+                                <div class="input-group mb-3">
+                                    <div class="input-group">
+                                        <label class="ml-2 font-weight-bold text-info">Área Executora:</label>
+                                    </div>
+                                    <input type="text" class="form-control bg-white" name="area_executora_cadastro_base" id="area_executora_cadastro_base" placeholder="" value="" maxlength="100">
+                                </div>
+                            </div>
+                            <div class="col-lg">
+                                <div class="input-group mb-3">
+                                    <div class="input-group">
+                                        <label class="ml-2 font-weight-bold text-info">Publicação:</label>
+                                    </div>
+                                    <input type="date" class="form-control bg-white" name="publicacão_base" id="publicacão_executora_cadastro_base" placeholder="Ex:30/01/2000" value="">
+                                </div>
+                            </div>          
+                            <div class="col-lg">
+                                <div class="input-group mb-3">
+                                    <div class="input-group">
+                                        <label class="ml-2 font-weight-bold text-info">Observações:</label>
+                                    </div>
+                                    <textarea class="form-control bg-white" name="obs_executora_cadastro_base" id="obs_executora_cadastro_base" rows="1" maxlength="255"></textarea>
+                                </div>
+                            </div>
+                            </div>
+
+                        <hr class="mt-4 mb-4">
+                        <div class="row">
+                            <div class="col-md">
+                                <div class="input-group mb-3">
+                                    <div class="input-group">
+                                        <label class="ml-2 h4 font-weight-bold text-info h4">Capacitação:</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">                                
+                                        <label class="ml-2 font-weight-bold text-info">É necessário alguma especificação adicional?</label>
+                                    </div>
+                                    <div class="ml-2 form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="capacitacao" id="capacitacao1" value="capacitacao1">
+                                        <label class="form-check-label" for="inlineRadio1">Sim</label>
+                                      </div>
+                                      <div class="ml-2 form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="capacitacao" id="capacitacao2" value="capacitacao2" checked>
+                                        <label class="form-check-label" for="inlineRadio2">Não</label>
+                                      </div>                                                   
+                                    </div>                             
+                                </div>
+                            </div>                    
+                        
+                            
+                            <div class="row">
+                                <div class="col-md">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group">
+                                            <label class="ml-2 font-weight-bold text-info">Área responsavel:</label>
+                                        </div>
+                                        <input type="text" class="form-control bg-white" name="area_responsavel_capacitacao" id="area_responsavel_capacitacao" placeholder="Gestao de Serviço" value="" maxlength="100">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group">
+                                            <label class="ml-2 font-weight-bold text-info">Grupos de Atendimento:</label>
+                                        </div>
+                                        <input type="text" class="form-control bg-white" name="atendimento" id="atendimento" placeholder="Gerid" value="" maxlength="100">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group">
+                                            <label class="ml-2 font-weight-bold text-info">Carga Horária:</label>
+                                        </div>
+                                        <input type="text" class="form-control bg-white" name="carga_horaria" id="carga_horaria" placeholder="8h" value="" maxlength="100">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group">
+                                            <label class="ml-2 font-weight-bold text-info">Cronograma:</label>
+                                        </div>
+                                        <input type="file" class="form-control bg-white" name="cronograma" id="cronograma" placeholder="" value="" disabled>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group">
+                                            <label class="ml-2 font-weight-bold text-info">Observações de risco e impacto:</label>
+                                        </div>
+                                        <textarea class="form-control bg-white" name="obs_risco" id="obs_risco" rows="3" maxlength="255"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    <div class="row d-flex justify-content-center mb-3 mr-2">
+                        <button type="submit" class="col-12 col-md-4 btn btn-info ml-2 mt-2" id="Enviar">Gerar Proposta</button>
+                        <button type="reset" class="col-12 col-md-4 btn btn-info ml-2 mt-2">Limpar Todos os Campos</button>
+                    </div>
+    
+                </div>
+                <label class="form-text text-muted">O documento gerado por essa funcionalidade é somente um rascunho. O documento a ser apresentado ao cliente deverá ser conferido criteriosamente antes da assinatura.</label>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $('#tel_ger_exe').mask('(00) 0000-00000');
+        });
+    </script>
+
+</body>
+</html>
