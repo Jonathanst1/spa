@@ -19,12 +19,14 @@ from Atendimento import views
 from django.conf import settings
 from django.conf.urls.static import static
 
+
 urlpatterns = [
     path('login/', views.Login.as_view(), name='login'),
     path('admin/', admin.site.urls),
     path('pdas/', views.IndexView.as_view(), name='index'),
     path('novoplano/', views.CreateView.as_view(), name='criarPlano'),
-    path('<int:pda_id>/', views.ver, name='ver')
+    path('<int:pda_id>/', views.ver, name='ver'),
+    path('editar/<int:pk>', views.editar, name='editar')
 
     ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

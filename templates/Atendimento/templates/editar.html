@@ -1,13 +1,16 @@
 <!DOCTYPE html>
+ {% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Visualizar Plano</title>
+    <title>Editar</title>
 </head>
 <body>
-  <h1>Visualizar Plano</h1>
+
+    <h1>Modificar Plano</h1>
     <p>{{ id }}</p>
     <p>{{ sistema }}</p>
-<a href="{% url 'index' %}">Voltar para a página inicial</a>
+  <a href="{% url 'index' %}">Voltar para a página inicial</a>
+
 </body>
 </html>
