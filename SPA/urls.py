@@ -26,7 +26,9 @@ urlpatterns = [
     path('pdas/', views.IndexView.as_view(), name='index'),
     path('novoplano/', views.CreateView.as_view(), name='criarPlano'),
     path('<int:pda_id>/', views.ver, name='ver'),
-    path('editar/<int:pk>', views.editar, name='editar')
+    path('editar/<int:pk>', views.editar, name='editar'),
+    path('world/<int:pk>', views.download_world, name='world')
+
 
     ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

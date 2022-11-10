@@ -2,7 +2,21 @@ from django.shortcuts import render
 from django.views import generic
 from .models import plano
 from django.template import loader
-from django.http import HttpResponse
+from django.http import HttpResponse, FileResponse
+
+import mimetypes
+import os
+from docx import Document
+from docx.shared import Inches
+
+
+# Import mimetypes module
+import mimetypes
+# import os module
+import os
+# Import HttpResponse module
+from django.http.response import HttpResponse
+
 
 # Create your views here.
 
@@ -33,9 +47,11 @@ def ver(request, pda_id):
     pda = pda[0]
     template = loader.get_template('Atendimento/templates/pda.html')
     context = {
-               'id': pda.id,
-                'sistema': pda.sistema
-               }
+        'id': pda.id,
+        'sistema': pda.sistema,
+        'inquilino': pda.inquilino,
+        'desc_produto': pda.desc_produto
+    }
     return HttpResponse(template.render(context, request))
 
 
@@ -43,9 +59,52 @@ def ver(request, pda_id):
 
 def editar(request, pk):
     pda_ed = plano.objects.filter(id=pk)
+    template = loader.get_template('Atendimento/templates/editar.html')
     pda_ed = pda_ed[0]
+    context = {
+        'id': pda_ed.id,
+        'sistema': pda_ed.sistema,
+        'inquilino': pda_ed.inquilino,
+        'desc_produto': pda_ed.desc_produto
+    }
+
+    return HttpResponse(template.render(context, request))
+
+
+'''def criaWord(request,pk):
+    pda_ed = plano.objects.filter(id=pk)
+    pda_ed = pda_ed[0]
+
     context = {
         'id': pda_ed.id,
         'sistema': pda_ed.sistema
     }
-    return render(request, 'Atendimento/templates/editar.html', context)
+    document = Document()
+    document.add_heading('sistema', 0)
+    document.save('demo.docx')
+
+    template = loader.get_template('Atendimento/templates/editar.html')
+
+    return HttpResponse(template.render(context, request))'''
+
+def download_world(request,pk):
+    pda_ed = plano.objects.filter(id=pk)
+    pda_ed = pda_ed[0]
+    context = {
+        'id': pda_ed.id,
+        'sistema': pda_ed.sistema
+
+    }
+
+    document = Document()
+    document.add_heading('Proposta de atendimento', 0)
+    document.add_paragraph('Sistema')
+    document.add_paragraph( pda_ed.sistema)
+    document.save('proposta.docx')
+
+    template = loader.get_template('Atendimento/templates/download.html')
+    return HttpResponse(template.render(context, request))
+
+
+
+
