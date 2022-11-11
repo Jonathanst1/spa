@@ -2,22 +2,15 @@ from django.shortcuts import render
 from django.views import generic
 from .models import plano
 from django.template import loader
-from django.http import HttpResponse, FileResponse
 
-import mimetypes
-import os
 from docx import Document
-from docx.shared import Inches
 
-
-# Import mimetypes module
-import mimetypes
-# import os module
-import os
-# Import HttpResponse module
 from django.http.response import HttpResponse
 
+from django.views.generic import ListView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
+from django.urls import reverse_lazy
 # Create your views here.
 
 class Login(generic.ListView):
@@ -32,13 +25,20 @@ class IndexView(generic.ListView):
     def get_queryset(self):
         return plano.objects.order_by('-created')
 
-class CreateView(generic.ListView):
+'''class CreateView(generic.ListView):
     model = plano
     template_name = 'Atendimento/templates/criarPlano.html'
     def get_queryset(self):
+        return plano.objects.order_by('-created')'''
+
+
+class CreatePdaView(CreateView):
+    model = plano
+    template_name = 'Atendimento/templates/criarPlano.html'
+    fields = ['inquilino','sistema','demanda']
+    success_url = reverse_lazy('index')
+    def get_queryset(self):
         return plano.objects.order_by('-created')
-
-
 
 
 
