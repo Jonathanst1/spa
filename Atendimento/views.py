@@ -41,7 +41,7 @@ class CreatePdaView(CreateView):
         return plano.objects.order_by('-created')
 
 
-
+# função para visualização
 def ver(request, pda_id):
     pda = plano.objects.filter(id=pda_id)
     pda = pda[0]
@@ -50,7 +50,67 @@ def ver(request, pda_id):
         'id': pda.id,
         'sistema': pda.sistema,
         'inquilino': pda.inquilino,
-        'desc_produto': pda.desc_produto
+        'desc_produto': pda.desc_produto,
+        'CHOICES': pda.CHOICES,
+        'CHOICES2': pda.CHOICES2,
+        'versao': pda.versao,
+        'status': pda.status,
+        'created': pda.created,
+        'modified': pda.modified,
+        'demanda': pda.demanda,
+        'sub_demanda': pda.sub_demanda,
+        'n_contrato' : pda.n_contrato,
+        'aditivo': pda.aditivo,
+        'ans': pda.ans,
+        'necessidades': pda.necessidades,
+        'requisitos_LDPA': pda.requisitos_LDPA,
+        'solucoes_impactadas': pda.solucoes_impactadas,
+        'anexo_contexto': pda.anexo_contexto,
+        'telas_sistema' : pda.telas_sistema,
+        'cronograma_implantacao' : pda.cronograma_implantacao,
+        'canais' : pda.canais,
+        'n1': pda.n1,
+        'n2' : pda.n2,
+        'adequacao': pda.adequacao,
+        'area_solicitante_cliente': pda.area_solicitante_cliente,
+        'obs_solicitante_cliente': pda.obs_solicitante_cliente,
+        'area_executora_cliente': pda.area_executora_cliente,
+        'obs_executora_cliente': pda.obs_executora_cliente,
+        'area_solicitante_usuario': pda.area_solicitante_usuario,
+        'obs_solicitante_usuario': pda.obs_solicitante_usuario,
+        'area_executora_usuario': pda.area_executora_usuario,
+        'obs_executora_usuario': pda.obs_executora_usuario,
+        'area_solicitante_base': pda.area_solicitante_base,
+        'publicacao_solicitante_base' : pda.publicacao_solicitante_base,
+        'obs_solicitante_base': pda.obs_solicitante_base,
+        'area_executora_base': pda.area_executora_base,
+        'publicacao_executora_base': pda.publicacao_executora_base,
+        'obs_executora_base': pda.obs_executora_base,
+        'area_solicitante_itens': pda.area_solicitante_itens,
+        'obs_solicitante_itens': pda.obs_solicitante_itens,
+        'area_executora_itens': pda.area_executora_itens,
+        'area_solicitante_cadastro_clientes': pda.area_solicitante_cadastro_clientes,
+        'area_executora_cadastro_clientes': pda.area_executora_cadastro_clientes,
+        'obs_executora_cadastro_clientes': pda.obs_executora_cadastro_clientes,
+        'area_solicitante_cadastro_base': pda.area_solicitante_cadastro_base,
+        'publicacao_solicitante_cadastro_base': pda.publicacao_solicitante_cadastro_base,
+        'obs_solicitante_cadastro_base':pda.obs_solicitante_cadastro_base,
+        'area_executora_cadastro_base':pda.area_executora_cadastro_base,
+        'publicacao_executora_cadastro_base': pda.publicacao_executora_cadastro_base,
+        'obs_executora_cadastro_base': pda.obs_executora_cadastro_base,
+        'capacitacao': pda.capacitacao,
+        'area_responsavel_capacitacao': pda.area_responsavel_capacitacao,
+        'atendimento': pda.atendimento,
+        'carga_horaria': pda.carga_horaria,
+        'cronograma': pda.cronograma,
+        'obs_risco': pda.obs_risco,
+
+
+
+
+
+
+
     }
     return HttpResponse(template.render(context, request))
 
