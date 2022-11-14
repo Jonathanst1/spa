@@ -20,14 +20,18 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 
+
 urlpatterns = [
     path('login/', views.Login.as_view(), name='login'),
     path('admin/', admin.site.urls),
     path('pdas/', views.IndexView.as_view(), name='index'),
     path('novoplano/', views.CreatePdaView.as_view(), name='criarPlano'),
     path('<int:pda_id>/', views.ver, name='ver'),
-    path('editar/<int:pk>', views.editar, name='editar'),
-    path('world/<int:pk>', views.download_world, name='world')
+    path('<int:pk>/atualizar/',views.UpdatePda.as_view(),  name='atualizar'),
+    path('world/<int:pk>', views.download_world, name='world'),
+    path('<int:pk>/delete/', views.DeletePda.as_view(), name='del_pda')
+
+
 
 
     ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

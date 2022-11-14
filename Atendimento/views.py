@@ -16,8 +16,7 @@ from django.urls import reverse_lazy
 class Login(generic.ListView):
     model = plano
     template_name = 'Atendimento/templates/login.html'
-    def get_queryset(self):
-        return plano.objects.order_by('-created')
+
 
 class IndexView(generic.ListView):
     model = plano
@@ -31,11 +30,11 @@ class IndexView(generic.ListView):
     def get_queryset(self):
         return plano.objects.order_by('-created')'''
 
-
+# classe para criar o pda
 class CreatePdaView(CreateView):
     model = plano
     template_name = 'Atendimento/templates/criarPlano.html'
-    fields = ['inquilino','sistema','demanda']
+    fields = ['inquilino','sistema','demanda','desc_produto','sub_demanda','requisitos_LDPA','canais']
     success_url = reverse_lazy('index')
     def get_queryset(self):
         return plano.objects.order_by('-created')
@@ -107,28 +106,23 @@ def ver(request, pda_id):
 
 
 
-
-
-
-
     }
     return HttpResponse(template.render(context, request))
 
+# classe para atualizar o pda
+class UpdatePda(UpdateView):
+    model = plano
+    template_name = 'Atendimento/templates/atualizar.html'
+    fields = ['sistema','inquilino','demanda','sub_demanda',
+              'desc_produto']
+
+    success_url = reverse_lazy('index')
 
 
-
-def editar(request, pk):
-    pda_ed = plano.objects.filter(id=pk)
-    template = loader.get_template('Atendimento/templates/editar.html')
-    pda_ed = pda_ed[0]
-    context = {
-        'id': pda_ed.id,
-        'sistema': pda_ed.sistema,
-        'inquilino': pda_ed.inquilino,
-        'desc_produto': pda_ed.desc_produto
-    }
-
-    return HttpResponse(template.render(context, request))
+class DeletePda(DeleteView):
+    model = plano
+    template_name = 'Atendimento/templates/deletar.html'
+    success_url = reverse_lazy('index')
 
 
 '''def criaWord(request,pk):

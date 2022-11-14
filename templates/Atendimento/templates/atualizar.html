@@ -1,7 +1,8 @@
 <!DOCTYPE html>
+
 <html lang="pt">
 <head>
-  <title>Proposta de Atendimento - DPA</title>
+  <title>Editar Proposta de Atendimento - DPA</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -12,12 +13,14 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 </head>
 <body>
+
     <div class="container tab-pane active"><br>
         <div class="card-body">
-            <h4 class="card-header text-center font-weight-bold text-info">Proposta de Atendimento - PDA</h4>
+            <h4 class="card-header text-center font-weight-bold text-info">Editar Proposta de Atendimento - PDA</h4>
             <br>
-    
+
             <form method="post" target="_blank" action="">
+
                 {% csrf_token %}
                 <div class="container">
                     <div class="row">
@@ -26,23 +29,30 @@
                                 <div class="input-group">
                                     <label class="ml-2 font-weight-bold text-info">Sistema:</label>
                                 </div>
-                                <input type="text" class="form-control bg-white" name="sistema" id="sistema" placeholder="Ex:SUB-Sistema Único de Benefícios" value="" maxlength="100">
+                                <input type="text" class="form-control bg-white" name="sistema" id="sistema"   value="{{ plano.sistema}}" maxlength="100">
                             </div>
                         </div>
+
                         <div class="col-sm">
                             <div class="input-group mb-3">
+
                                 <div class="input-group">
                                     <label class="ml-2 font-weight-bold text-info">Inquilino:</label>
+
+
                                 </div>
-                                <input type="text" class="form-control bg-white" name="inquilino" id="inquilino" placeholder="Ex:INSS/Multimercados" value="" maxlength="100">
+                                <input type="text" class="form-control bg-white" name="inquilino" id="inquilino" placeholder="ex" value="{{ plano.inquilino }}"   maxlength="100">
+
                             </div>
+
                         </div>
+
                         <div class="col-sm">
                             <div class="input-group mb-3">
                                 <div class="input-group">
                                     <label class="ml-2 font-weight-bold text-info">Demanda:</label>
                                 </div>
-                                <input type="text" class="form-control bg-white" name="demanda" id="demanda" placeholder="Ex:DM.088742" value="" maxlength="100">
+                                <input type="text" class="form-control bg-white" name="demanda" id="demanda" placeholder="Ex:DM.088742" value="{{ plano.demanda }}" maxlength="100">
                             </div>
                         </div>
                         <div class="col-sm">
@@ -50,18 +60,18 @@
                                 <div class="input-group">
                                     <label class="ml-2 font-weight-bold text-info">Sub Projeto de Demanda:</label>
                                 </div>
-                                <input type="text" class="form-control bg-white" name="sub_demanda" id="sub_demanda" placeholder="Ex:DTP.XXXXX" value="" maxlength="100">
+                                <input type="text" class="form-control bg-white" name="sub_demanda" id="sub_demanda" placeholder="Ex:DTP.XXXXX" value="{{ plano.sub_demanda }}" maxlength="100">
                             </div>
                         </div>
                     </div>
-                                    
+
                     <div class="row">
                         <div class="col-sm">
                             <div class="input-group mb-3">
                                 <div class="input-group">
                                     <label class="ml-2 font-weight-bold text-info">Descrição do Produto:</label>
                                 </div>
-                                <textarea class="form-control bg-white" name="desc_produto" id="desc_produto" rows="3" placeholder="Ex:Descrição da solução, quantidade de entregas, cronograma de cada entrega, Requisitos Funcionais e Não Funcionais de cada entrega a ser implantada, quais Clientes, etc " maxlength="255"></textarea>
+                                <textarea class="form-control bg-white" name="desc_produto" id="desc_produto" rows="3" placeholder="Ex:Descrição da solução, quantidade de entregas, cronograma de cada entrega, Requisitos Funcionais e Não Funcionais de cada entrega a ser implantada, quais Clientes, etc "   maxlength="255">{{ plano.desc_produto}}</textarea>
                             </div>
                         </div>
                     </div>
@@ -75,7 +85,7 @@
                                 </div>
                                 <input type="text" class="form-control bg-white" name="n_contrato" id="n_contrato" placeholder="Ex:CJF N. 017/2019" value="" maxlength="100">
                             </div>
-                        </div>          
+                        </div>
                         <div class="col-lg">
                             <div class="input-group mb-3">
                                 <div class="input-group">
@@ -83,7 +93,7 @@
                                 </div>
                                 <input type="text" class="form-control bg-white" name="aditivo" id="aditivo" placeholder="Ex:001" value="" maxlength="100">
                             </div>
-                        </div>                        
+                        </div>
                             <div class="col-sm">
                                 <div class="input-group mb-3">
                                     <div class="input-group">
@@ -91,21 +101,21 @@
                                     </div>
                                     <textarea class="form-control bg-white" name="ans" id="ans" rows="1" maxlength="255"></textarea>
                                 </div>
-                            </div>                         
-                    </div>               
-                    
+                            </div>
+                    </div>
+
                     <div class="row">
                         <div class="col-sm">
                             <div class="input-group mb-3">
                                 <div class="input-group">
                                     <label class="ml-2 font-weight-bold text-info">Necessidades Identificadas:</label>
-                                </div>                                
-                                <textarea class="form-control bg-white" name="necessidades" id="necessidades" rows="3" 
+                                </div>
+                                <textarea class="form-control bg-white" name="necessidades" id="necessidades" rows="3"
                                 placeholder="Ex:Resumo das atividades necessárias para implantação
 - Cadastro de usuários
 - Criação de catálogo de serviços
 - Capacitação" value="" maxlength="255">
-</textarea>                              
+</textarea>
                            </div>
                         </div>
                     </div>
@@ -126,14 +136,14 @@
                             <div class="input-group mb-3">
                                 <div class="input-group">
                                     <label class="ml-2 font-weight-bold text-info">Soluções Impactadas ou interdependentes:</label>
-                                </div>                                
-                                <textarea class="form-control bg-white" name="solucoes_impactadas" id="solucoes_impactadas" rows="3" 
+                                </div>
+                                <textarea class="form-control bg-white" name="solucoes_impactadas" id="solucoes_impactadas" rows="3"
                                 placeholder="Ex:-Integração dom GERID, Notificações, etc" maxlength="255">
-</textarea>                              
+</textarea>
                            </div>
                         </div>
-                    </div>       
-                    
+                    </div>
+
                     <div class="row">
                         <div class="col-sm">
                             <div class="input-group">
@@ -148,8 +158,8 @@
                               </small>
                             </div>
                         </div>
-                    </div>                 
-                
+                    </div>
+
                     <div class="row">
                             <div class="col-sm">
                                 <div class="input-group">
@@ -195,7 +205,7 @@
                 </div>
 
                 <label class="ml-2 h5 font-weight-bold text-info">Grupos de Atendimento</label>
-                <div class="row">                             
+                <div class="row">
                     <div class="col-lg">
                         <div class="input-group mb-3">
                             <div class="input-group">
@@ -211,9 +221,9 @@
                             </div>
                             <input type="text" class="form-control bg-white" name="n2" id="n2" placeholder="Ex:GSCXX" value="" maxlength="100">
                         </div>
-                    </div>                    
-                </div>           
-                
+                    </div>
+                </div>
+
                 <hr class="mt-2 mb-2">
 
                 <div class="row">
@@ -222,20 +232,20 @@
                             <div class="input-group">
                                 <label class="ml-2 font-weight-bold text-info h4">Adequação da Ferramenta de Atendimento</label>
                             </div>
-                            <div class="form-check form-check-inline">                                
+                            <div class="form-check form-check-inline">
                                 <label class="ml-2 font-weight-bold text-info">É necessário alguma especificação adicional?</label>
                             </div>
-                            <div class="form-check form-check-inline">                                
+                            <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="adequacao" id="adequacao1" value="adequacao1">
-                                <label class="form-check-label" for="adequaçao1">Sim</label>                                
+                                <label class="form-check-label" for="adequaçao1">Sim</label>
                               </div>
                               <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="adequacao" id="adequacao2" value="adequacao2" checked>
                                 <label class="form-check-label" for="adequaçao2">Não</label>
 
-                              </div>                                                     
+                              </div>
                         </div>
-                    </div>                    
+                    </div>
                 </div>
 
                 <!-- <div class="col-12 col-sm ml-2 mb-3 font-weight-bold text-info">
@@ -266,7 +276,7 @@
                             </div>
                             <input type="text" class="form-control bg-white" name="area_solicitante_cliente" id="area_solicitante_cliente" placeholder="" value="" maxlength="100">
                         </div>
-                    </div>          
+                    </div>
                     <div class="col-lg">
                         <div class="input-group mb-3">
                             <div class="input-group">
@@ -285,7 +295,7 @@
                             </div>
                             <input type="text" class="form-control bg-white" name="area_executora" id="area_executora_cliente" placeholder="" value="" maxlength="100">
                         </div>
-                    </div>          
+                    </div>
                     <div class="col-lg">
                         <div class="input-group mb-3">
                             <div class="input-group">
@@ -294,7 +304,7 @@
                             <textarea class="form-control bg-white" name="obs_executora_cliente" id="obs_executora_cliente" rows="1" maxlength="255"></textarea>
                         </div>
                     </div>
-                </div> 
+                </div>
 
                 <label class="ml-2 font-weight-bold text-info h5">Usuário</label>
                 <div class="row">
@@ -305,7 +315,7 @@
                             </div>
                             <input type="text" class="form-control bg-white" name="area_solicitante_usuario" id="area_solicitante_usuario" placeholder="" value="" maxlength="100">
                         </div>
-                    </div>          
+                    </div>
                     <div class="col-lg">
                         <div class="input-group mb-3">
                             <div class="input-group">
@@ -324,7 +334,7 @@
                             </div>
                             <input type="text" class="form-control bg-white" name="area_executora_usuario" id="area_executora_usuario" placeholder="" value="" maxlength="100">
                         </div>
-                    </div>          
+                    </div>
                     <div class="col-lg">
                         <div class="input-group mb-3">
                             <div class="input-group">
@@ -334,7 +344,7 @@
                         </div>
                     </div>
                 </div>
-                    
+
                     <label class="ml-2 font-weight-bold text-info h5">Base de Conhecimento</label>
                     <div class="row">
                         <div class="col-lg">
@@ -352,7 +362,7 @@
                                 </div>
                                 <input type="date" class="form-control bg-white" name="publicacao_solicitante_base" id="publicacao_solicitante_base" placeholder="Ex:30/01/2000" value="">
                             </div>
-                        </div>          
+                        </div>
                         <div class="col-lg">
                             <div class="input-group mb-3">
                                 <div class="input-group">
@@ -378,7 +388,7 @@
                                     </div>
                                     <input type="date" class="form-control bg-white" name="publicacão_executora_base" id="publicacão_executora_base" placeholder="Ex:30/01/2000" value="">
                                 </div>
-                            </div>          
+                            </div>
                             <div class="col-lg">
                                 <div class="input-group mb-3">
                                     <div class="input-group">
@@ -398,7 +408,7 @@
                                     </div>
                                     <input type="text" class="form-control bg-white" name="area_solicitante_itens" id="area_solicitante_itens" placeholder="" value="" maxlength="100">
                                 </div>
-                            </div>          
+                            </div>
                             <div class="col-lg">
                                 <div class="input-group mb-3">
                                     <div class="input-group">
@@ -408,7 +418,7 @@
                                 </div>
                             </div>
                         </div>
-        
+
                         <div class="row">
                             <div class="col-lg">
                                 <div class="input-group mb-3">
@@ -417,7 +427,7 @@
                                     </div>
                                     <input type="text" class="form-control bg-white" name="area_executora_itens" id="area_executora_itens" placeholder="" value="" maxlength="100">
                                 </div>
-                            </div>          
+                            </div>
                             <div class="col-lg">
                                 <div class="input-group mb-3">
                                     <div class="input-group">
@@ -426,7 +436,7 @@
                                     <textarea class="form-control bg-white" name="area_executora_itens" id="obs_executora_itens" rows="1" maxlength="255"></textarea>
                                 </div>
                             </div>
-                        </div> 
+                        </div>
 
                         <label class="ml-2 font-weight-bold text-info h5">Cadastramento de Cliente</label>
                         <div class="row">
@@ -437,7 +447,7 @@
                                     </div>
                                     <input type="text" class="form-control bg-white" name="area_solicitante_cadastro_cliente" id="area_solicitante_cadastro_cliente" placeholder="" value="" maxlength="100">
                                 </div>
-                            </div>          
+                            </div>
                             <div class="col-lg">
                                 <div class="input-group mb-3">
                                     <div class="input-group">
@@ -447,7 +457,7 @@
                                 </div>
                             </div>
                         </div>
-        
+
                         <div class="row">
                             <div class="col-lg">
                                 <div class="input-group mb-3">
@@ -456,7 +466,7 @@
                                     </div>
                                     <input type="text" class="form-control bg-white" name="area_executora_cadastro_cliente" id="area_executora_cadastro_cliente" placeholder="" value="" maxlength="100">
                                 </div>
-                            </div>          
+                            </div>
                             <div class="col-lg">
                                 <div class="input-group mb-3">
                                     <div class="input-group">
@@ -466,7 +476,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <label class="ml-2 font-weight-bold text-info h5">Cadastramento de Base de Conhecimento</label>
                     <div class="row">
                         <div class="col-lg">
@@ -484,7 +494,7 @@
                                 </div>
                                 <input type="date" class="form-control bg-white" name="publicacão_solicitante_cadastro_base" id="publicacão_solicitante_cadastro_base" placeholder="Ex:30/01/2000" value="">
                             </div>
-                        </div>          
+                        </div>
                         <div class="col-lg">
                             <div class="input-group mb-3">
                                 <div class="input-group">
@@ -510,7 +520,7 @@
                                     </div>
                                     <input type="date" class="form-control bg-white" name="publicacão_base" id="publicacão_executora_cadastro_base" placeholder="Ex:30/01/2000" value="">
                                 </div>
-                            </div>          
+                            </div>
                             <div class="col-lg">
                                 <div class="input-group mb-3">
                                     <div class="input-group">
@@ -528,7 +538,7 @@
                                     <div class="input-group">
                                         <label class="ml-2 h4 font-weight-bold text-info h4">Capacitação:</label>
                                     </div>
-                                    <div class="form-check form-check-inline">                                
+                                    <div class="form-check form-check-inline">
                                         <label class="ml-2 font-weight-bold text-info">É necessário alguma especificação adicional?</label>
                                     </div>
                                     <div class="ml-2 form-check form-check-inline">
@@ -538,12 +548,12 @@
                                       <div class="ml-2 form-check form-check-inline">
                                         <input class="form-check-input" type="radio" name="capacitacao" id="capacitacao2" value="capacitacao2" checked>
                                         <label class="form-check-label" for="inlineRadio2">Não</label>
-                                      </div>                                                   
-                                    </div>                             
+                                      </div>
+                                    </div>
                                 </div>
-                            </div>                    
-                        
-                            
+                            </div>
+
+
                             <div class="row">
                                 <div class="col-md">
                                     <div class="input-group mb-3">
@@ -565,7 +575,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="row">
                                 <div class="col-md">
                                     <div class="input-group mb-3">
@@ -576,7 +586,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="row">
                                 <div class="col-md">
                                     <div class="input-group mb-3">
@@ -587,7 +597,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="row">
                                 <div class="col-md">
                                     <div class="input-group mb-3">
@@ -604,7 +614,7 @@
                         <button type="submit" class="col-12 col-md-4 btn btn-info ml-2 mt-2" id="Enviar">Salvar Proposta</button>
                         <button type="reset" class="col-12 col-md-4 btn btn-info ml-2 mt-2">Cancelar</button>
                     </div>
-    
+
                 </div>
                 <label class="form-text text-muted">O documento gerado por essa funcionalidade é somente um rascunho. O documento a ser apresentado ao cliente deverá ser conferido criteriosamente antes da assinatura.</label>
             </form>
