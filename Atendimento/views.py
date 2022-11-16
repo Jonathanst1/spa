@@ -133,8 +133,10 @@ class UpdatePda(UpdateView):
 
 class DeletePda(DeleteView):
     model = plano
-    template_name = 'Atendimento/templates/deletar.html'
+    template_name = 'Atendimento/templates/deletado.html'
     success_url = reverse_lazy('index')
+
+
 
 
 '''def criaWord(request,pk):
