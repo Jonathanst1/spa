@@ -168,7 +168,7 @@ def download_world(request,pk):
     document.add_heading('Proposta de atendimento', 0)
     document.add_paragraph('Sistema')
     document.add_paragraph( pda_ed.sistema)
-    document.save('proposta.docx')
+    document.save('proposta.docx' )
 
     template = loader.get_template('Atendimento/templates/download.html')
     return HttpResponse(template.render(context, request))
