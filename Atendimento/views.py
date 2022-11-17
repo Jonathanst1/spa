@@ -158,20 +158,20 @@ class DeletePda(DeleteView):
 def download_world(request,pk):
     pda_ed = plano.objects.filter(id=pk)
     pda_ed = pda_ed[0]
-    context = {
-        'id': pda_ed.id,
-        'sistema': pda_ed.sistema
 
-    }
 
     document = Document()
-    document.add_heading('Proposta de atendimento', 0)
-    document.add_paragraph('Sistema')
-    document.add_paragraph( pda_ed.sistema)
-    document.save('proposta.docx' )
 
-    template = loader.get_template('Atendimento/templates/download.html')
-    return HttpResponse(template.render(context, request))
+    document.add_heading('Proposta de Atendimento', 0)
+    document.add_paragraph(pda_ed.sistema)
+
+    response = HttpResponse(content_type='application/vnd.openxmlformats-officedocument.wordprocessingml.document')
+    response['Content-Disposition'] = 'attachment; filename=proposta.docx'
+    document.save(response)
+    return response
+
+
+
 
 
 
