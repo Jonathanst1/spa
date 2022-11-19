@@ -236,12 +236,12 @@
                                 <label class="ml-2 font-weight-bold text-info">É necessário alguma especificação adicional?</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="adequacao" id="adequacao1" value="adequacao1">
-                                <label class="form-check-label" for="adequaçao1">Sim</label>
+                                <input class="form-check-input" type="radio" name="adequacao" id="adequacao" value="Sim">
+                                <label class="form-check-label" for="adequacao">Sim</label>
                               </div>
                               <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="adequacao" id="adequacao2" value="adequacao2" checked>
-                                <label class="form-check-label" for="adequaçao2">Não</label>
+                                <input class="form-check-input" type="radio" name="adequacao" id="adequacao2" value="Não">
+                                <label class="form-check-label" for="adequacao">Não</label>
 
                               </div>
                         </div>
@@ -541,13 +541,14 @@
                                     <div class="form-check form-check-inline">
                                         <label class="ml-2 font-weight-bold text-info">É necessário alguma especificação adicional?</label>
                                     </div>
+
                                     <div class="ml-2 form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="capacitacao" id="capacitacao1" value="capacitacao1">
-                                        <label class="form-check-label" for="inlineRadio1">Sim</label>
+                                        <input class="form-check-input" type="radio"  id="capacitacao" value="{{ plano.capacitacao}}">
+                                        <label class="form-check-label" for="capacitacao">Sim</label>
                                       </div>
                                       <div class="ml-2 form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="capacitacao" id="capacitacao2" value="capacitacao2" checked>
-                                        <label class="form-check-label" for="inlineRadio2">Não</label>
+                                        <input class="form-check-input" type="radio"  id="capacitacao2" value="{{ plano.capacitacao }}" >
+                                        <label class="form-check-label" for="capacitacao2">Não</label>
                                       </div>
                                     </div>
                                 </div>

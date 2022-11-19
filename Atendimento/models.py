@@ -3,7 +3,10 @@ from datetime import datetime
 # Create your models here.
 
 class plano(models.Model):
-    CHOICES = [('Sim', 'sim') , ('Nao', 'nao')]
+    CHOICES = (
+        ('Sim', 'Sim'),
+        ('Nao', 'Nao'))
+
     CHOICES2 = [('1', 'Ativo'), ('2', 'Em Elaboracao'), ('3', 'Inativo')]
     versao = models.CharField(max_length=5, blank=True)
     status = models.CharField(max_length=13, choices = CHOICES2, default='Ativo')
@@ -26,7 +29,6 @@ class plano(models.Model):
     canais = models.CharField(max_length=100, blank=True)
     n1 = models.CharField(max_length=100, blank=True)
     n2 = models.CharField(max_length=100, blank=True)
-    adequacao = models.CharField(max_length=3, choices = CHOICES, default='Nao')
     area_solicitante_cliente = models.CharField(max_length=100, blank=True)
     obs_solicitante_cliente = models.TextField(blank=True,max_length=500)
     area_executora_cliente = models.CharField(max_length=10, blank=True)
@@ -54,12 +56,22 @@ class plano(models.Model):
     area_executora_cadastro_base = models.CharField(max_length=100, blank=True)
     publicacao_executora_cadastro_base = models.DateField(blank=True, null=True)
     obs_executora_cadastro_base = models.TextField(blank=True,max_length=500)
-    capacitacao = models.CharField(max_length=3, choices = CHOICES, default='Nao')
     area_responsavel_capacitacao = models.CharField(max_length=100, blank=True)
     atendimento = models.CharField(max_length=100, blank=True)
     carga_horaria = models.CharField(max_length=100, blank=True)
     cronograma = models.FileField(upload_to='files', max_length=255, blank=True)
     obs_risco = models.TextField(blank=True,max_length=500)
+    capacitacao = models.TextField(max_length=3,  choices=CHOICES, blank=True ,default="Nao")
+    adequacao = models.TextField(max_length=3, choices=CHOICES, blank=True, default="Nao")
+
+
+
+
+
+
+
+
+
 
     def __str__(self):
         if not self.id:
