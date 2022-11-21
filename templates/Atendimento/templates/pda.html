@@ -10,12 +10,13 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <title>Visualização de plano de Atendimento</title>
 </head>
+{% load static %}
 <body class="bg-secondary container-fluid">
     <div class="row bg-secondary justify-content-center mt-5 mb-5">
-        <img src="logo.png" class="" alt="Logo Dataprev" style="width: 130px">
+        <img src="{% static 'logo.png' %}" class="" alt="Logo Dataprev" style="width: 130px">
       </div>
         <h1 class="text-white mb-5 text-center">Sistema de Planejamento de Atendimento</h1>
-        <h2 class="text-white mb-5 text-center">Visualização do Plano {{ sistema }} #{{ id }}</h2>
+        <h2 class="text-white mb-5 text-center">Visualização do Plano {{ sistema }}</h2>
 
     <div class="d-flex bd-highlight mb-3">
           <div class="p-2 bd-highlight">

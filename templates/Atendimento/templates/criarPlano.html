@@ -24,9 +24,9 @@
                         <div class="col-sm">
                             <div class="input-group mb-3">
                                 <div class="input-group">
-                                    <label class="ml-2 font-weight-bold text-info">Sistema:</label>
+                                    <label class="ml-2 font-weight-bold text-info" >Sistema:</label>
                                 </div>
-                                <input type="text" class="form-control bg-white" name="sistema" id="sistema" placeholder="Ex:SUB-Sistema Único de Benefícios" value="" maxlength="100">
+                                <input type="text" class="form-control bg-white" name="sistema"  id="sistema" placeholder="Ex:SUB-Sistema Único de Benefícios" value="" maxlength="100" required>
                             </div>
                         </div>
                         <div class="col-sm">
@@ -34,7 +34,7 @@
                                 <div class="input-group">
                                     <label class="ml-2 font-weight-bold text-info">Inquilino:</label>
                                 </div>
-                                <input type="text" class="form-control bg-white" name="inquilino" id="inquilino" placeholder="Ex:INSS/Multimercados" value="" maxlength="100">
+                                <input type="text" class="form-control bg-white" name="inquilino" id="inquilino" placeholder="Ex:INSS/Multimercados" value="" maxlength="100" required>
                             </div>
                         </div>
                         <div class="col-sm">
@@ -140,10 +140,10 @@
                                 <div class="input-group">
                                     <label class="ml-2 font-weight-bold text-info">Anexo de contexto:</label>
                                 </div>
-                                <input type="file" accept="image/*" class="form-control bg-white" name="anexo_contexto" id="anexo_contexto" value="" disabled>
+                                <input type="file" accept="image/*" class="form-control bg-white" name="anexo_contexto" id="anexo_contexto" value="" enabled>
                             </div>
                             <div class="input-group mb-3">
-                            <small id="passwordHelpBlock" class="form-text text-muted">
+                            <small id="passwordHelpBlock1" class="form-text text-muted">
                                 Insira no campo acima os anexos de contexto.
                               </small>
                             </div>
@@ -156,7 +156,7 @@
                                     <div class="input-group">
                                         <label class="ml-2 font-weight-bold text-info">Telas do sistema:</label>
                                     </div>
-                                    <input type="file" accept="image/*" class="form-control bg-white" name="telas_sistema" id="telas_sistema" value="" disabled>
+                                    <input type="file" accept="image/*" class="form-control bg-white" name="telas_sistema" id="telas_sistema" value="" enabled>
                                 </div>
                                 <div class="input-group mb-3">
                                     <small id="passwordHelpBlock" class="form-text text-muted">
@@ -172,10 +172,10 @@
                                     <div class="input-group">
                                         <label class="ml-2 font-weight-bold text-info">Cronograma de Implantação da Solução:</label>
                                     </div>
-                                    <input type="file" accept="image/*" class="form-control bg-white" name="cronograma_implantacao" id="cronograma_implantacao" value="" disabled>
+                                    <input type="file" accept="image/*" class="form-control bg-white" name="cronograma_implantacao" id="cronograma_implantacao" value="" enabled>
                                 </div>
                                 <div class="input-group mb-3">
-                                    <small id="passwordHelpBlock" class="form-text text-muted">
+                                    <small id="passwordHelpBlock2" class="form-text text-muted">
                                         Insira no campo acima o anexo com o cronograma detalhado com as entregas.
                                       </small>
                                     </div>
@@ -225,7 +225,8 @@
                             <div class="form-check form-check-inline">                                
                                 <label class="ml-2 font-weight-bold text-info">É necessário alguma especificação adicional?</label>
                             </div>
-                            <div class="form-check form-check-inline">                                
+
+                            <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="adequacao" id="adequacao" value="Sim">
                                 <label class="form-check-label" for="adequacao">Sim</label>
                               </div>
@@ -233,7 +234,8 @@
                                 <input class="form-check-input" type="radio" name="adequacao" id="adequacao2" value="Nao">
                                 <label class="form-check-label" for="adequacao2">Não</label>
 
-                              </div>                                                     
+                              </div>
+
                         </div>
                     </div>                    
                 </div>
@@ -583,7 +585,7 @@
                                         <div class="input-group">
                                             <label class="ml-2 font-weight-bold text-info">Cronograma:</label>
                                         </div>
-                                        <input type="file" class="form-control bg-white" name="cronograma" id="cronograma" placeholder="" value="" disabled>
+                                        <input type="file" class="form-control bg-white" name="cronograma" id="cronograma" placeholder="" value="" enabled>
                                     </div>
                                 </div>
                             </div>
@@ -602,10 +604,17 @@
 
                     <div class="row d-flex justify-content-center mb-3 mr-2">
                         <button type="submit" class="col-12 col-md-4 btn btn-info ml-2 mt-2" id="Enviar">Salvar Proposta</button>
-                        <button type="reset" class="col-12 col-md-4 btn btn-info ml-2 mt-2">Cancelar</button>
+
+                            <a href="{% url 'index' %}">
+                        <button type="button" class="col-12 col-md-4 btn btn-info ml-2 mt-2">Cancelar</button>
+                            </a>
                     </div>
-    
+
+            </form>
+        </div>
+
                 </div>
+
                 <label class="form-text text-muted">O documento gerado por essa funcionalidade é somente um rascunho. O documento a ser apresentado ao cliente deverá ser conferido criteriosamente antes da assinatura.</label>
             </form>
         </div>
