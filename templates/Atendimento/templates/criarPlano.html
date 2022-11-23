@@ -54,7 +54,31 @@
                             </div>
                         </div>
                     </div>
-                                    
+                    
+                    
+                        <div class="row">
+                            <div class="col-sm">
+                                <div class="input-group mb-3">
+                                    <div class="input-group">
+                                        <label class="ml-2 font-weight-bold text-info" >Versão:</label>
+                                    </div>
+                                    <input type="text" class="form-control bg-white" name="versao"  id="versao" placeholder="Ex:1.0" value="" maxlength="100">
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="input-group mb-3">
+                                    <div class="input-group">
+                                        <label class="ml-2 font-weight-bold text-info">Status:</label>
+                                    </div>
+                                    <select class="custom-select mr-sm-2" id="status">
+                                        <option selected>Escolha o Status do Plano</option>
+                                        <option value="Ativo">Ativo</option>
+                                        <option value="Em Elaboracao">Em Elaboração</option>
+                                        <option value="Inativo">Inativo</option>
+                                      </select>
+                                </div>
+                            </div>
+                            </div>                
                     <div class="row">
                         <div class="col-sm">
                             <div class="input-group mb-3">
@@ -226,7 +250,7 @@
                                 <label class="ml-2 font-weight-bold text-info">É necessário alguma especificação adicional?</label>
                             </div>
 
-                            <div class="form-check form-check-inline">
+                            <div class="form-check form-check-inline">                                
                                 <input class="form-check-input" type="radio" name="adequacao" id="adequacao" value="Sim">
                                 <label class="form-check-label" for="adequacao">Sim</label>
                               </div>
@@ -603,13 +627,10 @@
                         </div>
 
                     <div class="row d-flex justify-content-center mb-3 mr-2">
-                        <button type="submit" class="col-12 col-md-4 btn btn-info ml-2 mt-2" id="Enviar">Salvar Proposta</button>
-
-                            <a href="{% url 'index' %}">
-                        <button type="button" class="col-12 col-md-4 btn btn-info ml-2 mt-2">Cancelar</button>
-                            </a>
+                        <button type="submit" class="col-12 col-md-4 btn btn-info ml-2 mt-2 mr-2" id="Enviar">Salvar Proposta</button>
+                        <a href="{% url 'index' %}" class="btn col-12 col-md-4 btn btn-info ml-2 mt-2 mr-2" tabindex="-1" role="button" aria-disabled="true">Cancelar</a>                            
                     </div>
-
+                    
             </form>
         </div>
 

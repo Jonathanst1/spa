@@ -146,6 +146,10 @@ class UpdatePda(UpdateView):
     success_url = reverse_lazy('index')
 
 
+
+
+
+
 class DeletePda(DeleteView):
     model = plano
     template_name = 'Atendimento/templates/deletado.html'
