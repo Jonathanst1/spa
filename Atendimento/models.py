@@ -10,6 +10,7 @@ class plano(models.Model):
     CHOICES2 = [('1', 'Ativo'), ('2', 'Em Elaboracao'), ('3', 'Inativo')]
     versao = models.CharField(max_length=5, blank=True)
     status = models.CharField(max_length=13, choices = CHOICES2, default='Ativo')
+    responsavel = models.CharField(max_length=100, blank=True)
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
     sistema = models.CharField(max_length=100, blank=True)
@@ -63,7 +64,6 @@ class plano(models.Model):
     obs_risco = models.TextField(blank=True,max_length=500)
     capacitacao = models.TextField(max_length=3,  choices=CHOICES, blank=True ,default="Nao")
     adequacao = models.TextField(max_length=3, choices=CHOICES, blank=True, default="Nao")
-
 
 
 
