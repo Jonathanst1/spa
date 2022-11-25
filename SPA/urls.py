@@ -29,6 +29,7 @@ urlpatterns = [
     path('<int:pda_id>/', views.ver, name='ver'),
     path('<int:pk>/atualizar/',views.UpdatePda.as_view(),  name='atualizar'),
     path('world/<int:pk>', views.download_world, name='world'),
+    path('<int:pk>/desativar/', views.desativar, name='desativar'),
     path('<int:pk>/delete/', views.DeletePda.as_view(), name='del_pda')
 
 

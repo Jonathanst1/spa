@@ -158,6 +158,11 @@ class DeletePda(DeleteView):
     success_url = reverse_lazy('index')
 
 
+    
+def desativar():
+    pass
+
+
 
 
 '''def criaWord(request,pk):
