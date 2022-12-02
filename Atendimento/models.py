@@ -7,7 +7,7 @@ class plano(models.Model):
         ('Sim', 'Sim'),
         ('Nao', 'Nao'))
 
-    CHOICES2 = [('1', 'Ativo'), ('2', 'Em Elaboracao'), ('3', 'Inativo')]
+    CHOICES2 = [('1', 'Ativo'), ('2', 'Em Elaboracao'), ('3', 'Inativo'),('4', 'Desativado')]
     versao = models.CharField(max_length=5, blank=True)
     status = models.CharField(max_length=13, choices = CHOICES2, default='Ativo')
     responsavel = models.CharField(max_length=100, blank=True)

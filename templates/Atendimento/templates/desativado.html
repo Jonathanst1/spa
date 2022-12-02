@@ -7,7 +7,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <title>Deletar</title>
+    <title>Desativar</title>
 </head>
 <body  class="bg-secondary bg-secondary"  >
     <!--<form method="post">
@@ -20,15 +20,26 @@
 
     <!-- Button trigger modal -->
 
-
+   
   <!-- Modal -->
   <form method="post">
+   
     {% csrf_token %}
     <div  class="modal-show" id="deleteModal" tabindex="-1" role="" aria-labelledby="ModalCenterDelete" aria-hidden="true">
+
+       
     <div  class="modal-dialog modal-dialog-centered" role="document">
       <div  class="modal-content">
+        {% if messages %}
+        <div class="alert alert-success" role="alert">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </div>
+        {% endif %} 
         <div class="modal-header">
-          <h5 class="modal-title" id="modalCenterDelete">Deletar Plano de Atendimento {{ plano.sistema}}</h5>
+           
+          <h5 class="modal-title" id="modalCenterDelete">Desativar Plano de Atendimento {{ sistema }}</h5>
             <a href="{% url 'index' %}">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -36,14 +47,20 @@
             </a>
         </div>
         <div class="modal-body">
-          Tem certeza que deseja deletar esse plano de atendimento {{ plano.sistema }} {{ plano.inquilino }}  ? Após confirmar a exclusão, não é possivel recuperar os dados!
+          Tem certeza que deseja desativar esse plano de atendimento {{ sistema}} {{ inquilino }}  ? Após a confirmação, somente o <b>administrador</b> poderá ativar o plano novamente!.
         </div>
         <div class="modal-footer">
             <a href="{% url 'index' %}">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Voltar</button>
             </a>
-          <button type="submit" class="btn btn-danger">Deletar</button>
-
+            <div>
+        <a href="{% url 'index' %}">
+          <button type="submit" class="btn btn-danger">Desativar</button>
+        </a>
+       
+           
+        
+       
 
 
         </div>
@@ -51,6 +68,7 @@
     </div>
   </div>
 </form>
+
 
 </body>
 </html>
