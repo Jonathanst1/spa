@@ -11,7 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <title>Sistema de Plano de Atendimento</title>
-   
+    
 </head>
 
 <body class="bg-secondary container-fluid">
@@ -33,9 +33,9 @@
   </div>
 </div>
 {% if plano_list %}
-<div>
-    <table class="table table-sm table-light table-hover table-bordered" >
-      <thead class="thead-dark" align="center" >
+<div >
+    <table  class="table table-sm table-light table-hover table-bordered" >
+      <thead  class="thead-dark" align="center" >
         <tr >
           <th scope="col">#Id</th>
           <th scope="col">Sistema</th>
@@ -50,13 +50,17 @@
 
       <tbody >
     {% for pl in plano_list %}
-              <tr >
+    {% if pl.status == '4' %}
+              <tr style="display: none;">
+                {% endif %}
                 <th scope="row" >{{ pl.id }}</th>
                 <td>{{ pl.sistema }}</td>
                 <td>{{ pl.created }}</td>
                 <td>{{ pl.modified }}</td>
                 {% if pl.status == '1' %}
+                
                 <td>
+                  
                   <div class="d-flex justify-content-center mt-2">
 
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" class="bi bi-circle-fill d-flex align-content-center" viewBox="0 0 16 16">
@@ -89,7 +93,16 @@
                     </svg>
                   </div>
                 </td>
+                {% elif pl.status == '4' %}
+                <td>
+                  <div id="desativado2" class="d-flex justify-content-center mt-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-circle-fill d-flex align-content-center" viewBox="0 0 16 16">
+                      <circle cx="8" cy="8" r="8"/>
+                    </svg>
+                  </div>
+                </td>
                 {% endif %}
+                
                 <!--<td> {{ pl.status }}</td>-->
                 <td>
                   <div class="d-flex justify-content-center mt-2">{{ pl.versao }}</div>
@@ -98,8 +111,10 @@
                 </td>
                 <td>
                   <div class="d-flex justify-content-center mt-2">{{ pl.responsavel }}</div>
+
                 </td>
                 <td>
+                  
 
                   <div class="d-flex justify-content-end bd-highlight">
 
@@ -117,6 +132,7 @@
                     </button>
 
                     </a>
+                    
 
                     <a href="{% url 'atualizar' pl.pk %}">
                     <button type="button" class="btn btn-outline-dark ml-2" title="Modificar Plano">
@@ -136,33 +152,22 @@
                     </button>
                       </a>
 
-
                       <a href="{% url 'desativar' pl.id %}">
-                        <button type="button" class="btn btn-outline-dark ml-2"  title="Desativar Documento">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-minus" viewBox="0 0 16 16">
-                            <path d="M5.5 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1-.5-.5z"/>
-                            <path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"/>
-                          </svg>
-                        </button>
-                          </a>
                       
-
-                    <a href="{% url 'del_pda' pl.id %}">
-                    <button type="button" class="btn btn-outline-danger ml-2 mr-2" title="Excluir Plano" data-toggle="modal" data-target="#deleteModal">
-                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                      <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-                      <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-                      </svg>
-                      </button>
+                        <button type="button" class="btn btn-outline-danger ml-2 mr-2" title="Excluir Plano" data-toggle="modal" data-target="#deleteModal" name="status" id="status"   value="4">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                           <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                           <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                           </svg>
+                           </button>
+                          
                       </a>
-
-
 
                 </div>
 
               </tr>
 
-
+              
     {% endfor %}
     </tbody>
   </table>

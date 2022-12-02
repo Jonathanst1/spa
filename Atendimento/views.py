@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views import generic
 from .models import plano
 from django.template import loader
+from django.contrib import messages
 
 from docx import Document
 
@@ -159,10 +160,54 @@ class DeletePda(DeleteView):
 
 
     
-def desativar():
-    pass
+
+def desativar(request, pk):
+    template = loader.get_template('Atendimento/templates/desativado.html')
+    pda = plano.objects.filter(id=pk)
+    pda = pda[0]
+    context = {
+        'sistema': pda.sistema,
+        'inquilino': pda.inquilino,
+        
+        }
+    if (request.method == 'POST'):
+        plano.objects.filter(id=pk).update(status = '4')
+        print('Desativado')
+        reverse_lazy('index')
+        messages.info(request, 'Plano desativado com sucesso!')    
+    else:
+        print('Não desativado')
+
+    
+
+    return HttpResponse(template.render( context,request))
 
 
+
+'''def Mudando(request, pk):
+    template = loader.get_template('Atendimento/templates/desativado.html')
+    context = {
+        'sistema': plano.sistema,
+        'inquilino': plano.inquilino,
+        'desc_produto': plano.desc_produto,
+        
+        
+        }
+    
+    plano.objects.filter(id=pk).update(status = '4')
+    print('Desativado')
+   
+
+    return HttpResponse(template.render( context,request))'''
+
+
+
+#plano.objects.filter(id=pk).update(status = '4')
+
+
+    
+    
+  
 
 
 '''def criaWord(request,pk):
