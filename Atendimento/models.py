@@ -12,7 +12,7 @@ class plano(models.Model):
     status = models.CharField(max_length=13, choices = CHOICES2, default='Ativo')
     responsavel = models.CharField(max_length=100, blank=True)
     created = models.DateTimeField(auto_now_add=True)
-    modified = models.DateTimeField(auto_now=True)
+    modified = models.DateTimeField(auto_now=True )
     sistema = models.CharField(max_length=100, blank=True)
     inquilino = models.CharField(max_length=100, blank=True)
     demanda = models.CharField(max_length=100, blank=True)
@@ -32,7 +32,7 @@ class plano(models.Model):
     n2 = models.CharField(max_length=100, blank=True)
     area_solicitante_cliente = models.CharField(max_length=100, blank=True)
     obs_solicitante_cliente = models.TextField(blank=True,max_length=500)
-    area_executora_cliente = models.CharField(max_length=10, blank=True)
+    area_executora_cliente = models.CharField(max_length=20, blank=True)
     obs_executora_cliente = models.TextField(blank=True,max_length=500)
     area_solicitante_usuario = models.CharField(max_length=100, blank=True)
     obs_solicitante_usuario = models.TextField(blank=True,max_length=500)
@@ -51,6 +51,7 @@ class plano(models.Model):
     area_solicitante_cadastro_clientes = models.CharField(max_length=100, blank=True)
     area_executora_cadastro_clientes = models.CharField(max_length=100, blank=True)
     obs_executora_cadastro_clientes = models.TextField(blank=True,max_length=500)
+    obs_solicitante_cadastro_clientes = models.TextField(blank=True,max_length=500)
     area_solicitante_cadastro_base = models.CharField(max_length=100, blank=True)
     publicacao_solicitante_cadastro_base = models.DateField(blank=True, null=True)
     obs_solicitante_cadastro_base = models.TextField(blank=True,max_length=500)
@@ -62,8 +63,8 @@ class plano(models.Model):
     carga_horaria = models.CharField(max_length=100, blank=True)
     cronograma = models.FileField(upload_to='files', max_length=255, blank=True)
     obs_risco = models.TextField(blank=True,max_length=500)
-    capacitacao = models.TextField(max_length=3,  choices=CHOICES, blank=True ,default="Nao")
-    adequacao = models.TextField(max_length=3, choices=CHOICES, blank=True, default="Nao")
+    capacitacao = models.TextField(max_length=20,  choices=CHOICES, blank=True ,default="Nao")
+    adequacao = models.TextField(max_length=20, choices=CHOICES, blank=True, default="Nao")
 
 
 

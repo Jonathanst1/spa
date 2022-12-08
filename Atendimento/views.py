@@ -39,15 +39,15 @@ class CreatePdaView(CreateView):
     fields = ['versao', 'sistema', 'inquilino',  'sub_demanda','demanda',
               'desc_produto', 'n_contrato', 'aditivo', 'ans',
               'necessidades', 'requisitos_LDPA', 'solucoes_impactadas',
-              'anexo_contexto', 'telas_sistema', 'cronograma_implantacao','area_solicitante_cliente',
+              'anexo_contexto', 'telas_sistema', 'cronograma_implantacao','canais','n1','n2','area_solicitante_cliente',
               'obs_solicitante_cliente','area_executora_cliente','obs_executora_cliente',
               'area_solicitante_usuario','obs_solicitante_usuario','area_executora_usuario',
-              'obs_executora_usuario','area_solicitante_base','obs_solicitante_base',
+              'obs_executora_usuario','area_solicitante_base','publicacao_solicitante_base','obs_solicitante_base',
               'area_executora_base','publicacao_executora_base','obs_executora_base','area_solicitante_itens',
               'obs_solicitante_itens','area_executora_itens','obs_executora_itens','area_solicitante_cadastro_clientes',
-              'area_executora_cadastro_clientes','obs_executora_cliente','area_solicitante_cadastro_base',
-              'publicacao_executora_cadastro_base','obs_solicitante_cadastro_base','area_executora_cadastro_base',
-              'publicacao_executora_cadastro_base','area_responsavel_capacitacao','atendimento','carga_horaria','cronograma','obs_risco',
+              'area_executora_cadastro_clientes','obs_executora_cliente','obs_executora_cadastro_clientes','obs_solicitante_cadastro_clientes','area_solicitante_cadastro_base',
+              'publicacao_executora_cadastro_base','publicacao_solicitante_cadastro_base','obs_solicitante_cadastro_base','area_executora_cadastro_base',
+              'obs_executora_cadastro_base','area_responsavel_capacitacao','atendimento','carga_horaria','cronograma','obs_risco',
                 'adequacao','capacitacao','responsavel']
 
     success_url = reverse_lazy('index')
