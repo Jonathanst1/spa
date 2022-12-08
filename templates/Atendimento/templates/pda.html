@@ -1,293 +1,716 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <title>Visualização de plano de Atendimento</title>
-</head>
-{% load static %}
-<body class="bg-secondary container-fluid">
-    <div class="row bg-secondary justify-content-center mt-5 mb-5">
-        <img src="{% static 'logo.png' %}" class="" alt="Logo Dataprev" style="width: 130px">
-      </div>
-        <h1 class="text-white mb-5 text-center">Sistema de Planejamento de Atendimento</h1>
-        <h2 class="text-white mb-5 text-center">Visualização do Plano {{ sistema }}</h2>
 
-    <div class="d-flex bd-highlight mb-3">
-          <div class="p-2 bd-highlight">
-            <a href="{% url 'index' %}" type="button" class="btn btn-light" title="Voltar">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left mr-2" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
-              </svg>Voltar              
-            </a>
-          </div>
+<html lang="pt">
+<head>
+  <title>Visualizar Proposta de Atendimento - DPA</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+</head>
+<body>
+
+
+    <div class="container tab-pane active"><br>
+        <div class="card-body">
+            <h4 class="card-header text-center font-weight-bold text-info">Visualizar Proposta de Atendimento - PDA</h4>
+            <br>
+
+            <form method="post" target="_blank" action="">
+
+                {% csrf_token %}
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="input-group mb-3">
+                                <div class="input-group">
+                                    <label class="ml-2 font-weight-bold text-info">Sistema:</label>
+                                </div>
+                                <input type="text" class="form-control bg-white" name="sistema" id="sistema"   value="{{ sistema }}" maxlength="100" disabled >
+                            </div>
+                        </div>
+
+                        <div class="col-sm">
+                            <div class="input-group mb-3">
+
+                                <div class="input-group">
+                                    <label class="ml-2 font-weight-bold text-info">Inquilino:</label>
+
+
+                                </div>
+                                <input type="text" class="form-control bg-white" name="inquilino" id="inquilino" placeholder="ex" value="{{ plano.inquilino }}"   maxlength="100">
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-sm">
+                            <div class="input-group mb-3">
+                                <div class="input-group">
+                                    <label class="ml-2 font-weight-bold text-info">Demanda:</label>
+                                </div>
+                                <input type="text" class="form-control bg-white" name="demanda" id="demanda" placeholder="Ex:DM.088742" value="{{ plano.demanda }}" maxlength="100">
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="input-group mb-3">
+                                <div class="input-group">
+                                    <label class="ml-2 font-weight-bold text-info">Sub Projeto de Demanda:</label>
+                                </div>
+                                <input type="text" class="form-control bg-white" name="sub_demanda" id="sub_demanda" placeholder="Ex:DTP.XXXXX" value="{{ plano.sub_demanda }}" maxlength="100">
+                            </div>
+                        </div>
+                    </div>
+
+                     <div class="row">
+                            <div class="col-sm">
+                                <div class="input-group mb-3">
+                                    <div class="input-group">
+                                        <label class="ml-2 font-weight-bold text-info" >Versão:</label>
+                                    </div>
+                                    <input type="text" class="form-control bg-white" name="versao"  id="versao" placeholder="Ex:1.0" value="{{ plano.versao }}" maxlength="100">
+                                </div>
+                            </div>
+
+                            <div class="col-sm">
+                                <div class="input-group mb-3">
+                                    <div class="input-group">
+                                        <label class="ml-2 font-weight-bold text-info">Status:</label>
+                                    </div>
+                                    <select class="custom-select mr-sm-2" id="status">
+                                        <option selected>Escolha o Status do Plano</option>
+                                        <option value="Ativo">Ativo</option>
+                                        <option value="Em Elaboracao">Em Elaboração</option>
+                                        <option value="Inativo">Inativo</option>
+                                      </select>
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="input-group mb-3">
+                                    <div class="input-group">
+                                        <label class="ml-2 font-weight-bold text-info" >Responsável:</label>
+                                    </div>
+                                    <input type="text" class="form-control bg-white" name="responsavel"  id="responsavel" placeholder="Ex:Jõao Carlos" value="{{ plano.responsavel }}" maxlength="100">
+                                </div>
+                            </div>
+                            </div>
+
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="input-group mb-3">
+                                <div class="input-group">
+                                    <label class="ml-2 font-weight-bold text-info">Descrição do Produto:</label>
+                                </div>
+                                <textarea class="form-control bg-white" name="desc_produto" id="desc_produto" rows="3" placeholder="Ex:Descrição da solução, quantidade de entregas, cronograma de cada entrega, Requisitos Funcionais e Não Funcionais de cada entrega a ser implantada, quais Clientes, etc "   maxlength="255">{{ plano.desc_produto}}</textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <label class="ml-2 h5 font-weight-bold text-info">Informações Contratuais</label>
+                    <div class="row">
+                        <div class="col-lg">
+                            <div class="input-group mb-3">
+                                <div class="input-group">
+                                    <label class="ml-2 font-weight-bold text-info">Número:</label>
+                                </div>
+                                <input type="text" class="form-control bg-white" name="n_contrato" id="n_contrato" placeholder="Ex:CJF N. 017/2019" value="{{plano.n_contrato}}" maxlength="100">
+                            </div>
+                        </div>
+                        <div class="col-lg">
+                            <div class="input-group mb-3">
+                                <div class="input-group">
+                                    <label class="ml-2 font-weight-bold text-info">Aditivo:</label>
+                                </div>
+                                <input type="text" class="form-control bg-white" name="aditivo" id="aditivo" placeholder="Ex:001" value="{{plano.aditivo}}" maxlength="100">
+                            </div>
+                        </div>
+                            <div class="col-sm">
+                                <div class="input-group mb-3">
+                                    <div class="input-group">
+                                        <label class="ml-2 font-weight-bold text-info">ANS:</label>
+                                    </div>
+                                    <textarea class="form-control bg-white" name="ans" id="ans" rows="1" maxlength="255">{{plano.ans}}</textarea>
+                                </div>
+                            </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="input-group mb-3">
+                                <div class="input-group">
+                                    <label class="ml-2 font-weight-bold text-info">Necessidades Identificadas:</label>
+                                </div>
+                                <textarea class="form-control bg-white" name="necessidades" id="necessidades" rows="3"
+                                placeholder="Ex:Resumo das atividades necessárias para implantação
+- Cadastro de usuários
+- Criação de catálogo de serviços
+- Capacitação" maxlength="255">{{plano.necessidades}}
+                                </textarea>
+                           </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="input-group mb-3">
+                                <div class="input-group">
+                                    <label class="ml-2 font-weight-bold text-info">Requisitos de cadastramento no LDAP:</label>
+                                </div>
+                                <textarea class="form-control bg-white" rows="3" name="requisitos_LDPA" id="requisitos_LDPA" placeholder="Descrição detalhada dos requisitos do LDAP" maxlength="255">{{plano.requisitos_LDPA}}</textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="input-group mb-3">
+                                <div class="input-group">
+                                    <label class="ml-2 font-weight-bold text-info">Soluções Impactadas ou interdependentes:</label>
+                                </div>
+                                <textarea class="form-control bg-white" name="solucoes_impactadas" id="solucoes_impactadas" rows="3"
+                                placeholder="Ex:-Integração dom GERID, Notificações, etc" maxlength="255">{{plano.solucoes_impactadas}}
+</textarea>
+                           </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="input-group">
+                                <div class="input-group">
+                                    <label class="ml-2 font-weight-bold text-info">Anexo de contexto:</label>
+                                </div>
+                                <input type="file" accept="image/*" class="form-control bg-white" name="anexo_contexto" id="anexo_contexto" value="" disabled>
+                            </div>
+                            <div class="input-group mb-3">
+                            <small id="HelpBlock" class="form-text text-muted">
+                                Insira no campo acima os anexos de contexto.
+                              </small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                            <div class="col-sm">
+                                <div class="input-group">
+                                    <div class="input-group">
+                                        <label class="ml-2 font-weight-bold text-info">Telas do sistema:</label>
+                                    </div>
+                                    <input type="file" accept="image/*" class="form-control bg-white" name="telas_sistema" id="telas_sistema" value="" disabled>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <small id="HelpBlock2" class="form-text text-muted">
+                                        Insira no campo acima os anexo com as imagens de telas do sistema.
+                                      </small>
+                                    </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md">
+                                <div class="input-group">
+                                    <div class="input-group">
+                                        <label class="ml-2 font-weight-bold text-info">Cronograma de Implantação da Solução:</label>
+                                    </div>
+                                    <input type="file" accept="image/*" class="form-control bg-white" name="cronograma_implantacao" id="cronograma_implantacao" value="" disabled>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <small id="passwordHelpBlock" class="form-text text-muted">
+                                        Insira no campo acima o anexo com o cronograma detalhado com as entregas.
+                                      </small>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                <div class="row">
+                    <div class="col-md mb-3">
+                        <div class="input-group">
+                            <div class="input-group">
+                                <label class="ml-2 font-weight-bold text-info">Canais de Atendimento:</label>
+                            </div>
+                            <input type="text" class="form-control bg-white" name="canais" id="canais" placeholder="Ex:Pronto" value="{{plano.canais}}" maxlength="100">
+                        </div>
+                    </div>
+                </div>
+
+                <label class="ml-2 h5 font-weight-bold text-info">Grupos de Atendimento</label>
+                <div class="row">
+                    <div class="col-lg">
+                        <div class="input-group mb-3">
+                            <div class="input-group">
+                                <label class="ml-2 font-weight-bold text-info">Nível 1:</label>
+                            </div>
+                            <input type="text" class="form-control bg-white" name="n1" id="n1" placeholder="Ex:N1.Gerid" value="{{plano.n1}}" maxlength="100">
+                        </div>
+                    </div>
+                    <div class="col-lg">
+                        <div class="input-group mb-3">
+                            <div class="input-group">
+                                <label class="ml-2 font-weight-bold text-info">Nível 2:</label>
+                            </div>
+                            <input type="text" class="form-control bg-white" name="n2" id="n2" placeholder="Ex:GSCXX" value="{{plano.n2}}" maxlength="100">
+                        </div>
+                    </div>
+                </div>
+
+                   <hr class="mt-4 mb-4">
+                        <div class="row">
+                            <div class="col-md">
+                                <div class="input-group mb-3">
+                                    <div class="input-group">
+                                        <label class="ml-2 h4 font-weight-bold text-info h4">Adequação:</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <label class="ml-2 font-weight-bold text-info">É necessário alguma especificação adicional?</label>
+                                    </div>
+
+                                {% if plano.adequacao == 'Sim' %}
+
+                                     <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="adequacao" id="adequacao" value="Sim" checked>
+                                <label class="form-check-label" for="adequacao">Sim</label>
+                              </div>
+
+                                    <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="adequacao" id="adequacao3" value="Nao" >
+                                <label class="form-check-label" for="capacitacao2">Não</label>
+
+
+                                      </div>
+                                        {% endif %}
+
+                                    {% if plano.adequacao == 'Nao' %}
+                                       <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="adequacao" id="adequacao" value="Sim" >
+                                <label class="form-check-label" for="capacitacao">Sim</label>
+                              </div>
+
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="adequacao" id="adequacao2" value="Nao" checked>
+                                <label class="form-check-label" for="capacitacao2">Não</label>
+
+
+                                      </div>
+                                    {% endif %}
+
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+
+                <!-- <div class="col-12 col-sm ml-2 mb-3 font-weight-bold text-info">
+                    <div class="input-group">
+                        <label class="font-weight-bold text-info">É necessário alguma especificação adicional?</label>
+                    </div>
+                    <div class="form-check-inline">
+                        <input class="form-check-input" type="radio" name="PremiumBasico" value="Premium" id="Radio">
+                        <label class="form-check-label" for="RadioPremium">
+                            Premium
+                        </label>
+                    </div>
+                    <div class="form-check-inline ml-2">
+                        <input class="form-check-input" type="radio" name="PremiumBasico" value="Basico" id="RadioBasico" checked>
+                        <label class="form-check-label" for="RadioBasico">
+                            Básico
+                        </label>
+                    </div>
+                </div>
+            </div> -->
+
+                <label class="ml-2 font-weight-bold text-info h5">Cliente</label>
+                <div class="row">
+                    <div class="col-lg">
+                        <div class="input-group mb-3">
+                            <div class="input-group">
+                                <label class="ml-2 font-weight-bold text-info">Área Solicitante:</label>
+                            </div>
+                            <input type="text" class="form-control bg-white" name="area_solicitante_cliente" id="area_solicitante_cliente" placeholder="" value="{{plano.area_solicitante_cliente}}" maxlength="100">
+                        </div>
+                    </div>
+                    <div class="col-lg">
+                        <div class="input-group mb-3">
+                            <div class="input-group">
+                                <label class="ml-2 font-weight-bold text-info">Observações:</label>
+                            </div>
+                            <textarea class="form-control bg-white" name="obs_solicitante_cliente" id="obs_solicitante_cliente" rows="1" maxlength="255">{{plano.obs_solicitante_cliente}}</textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg">
+                        <div class="input-group mb-3">
+                            <div class="input-group">
+                                <label class="ml-2 font-weight-bold text-info">Área Executora:</label>
+                            </div>
+                            <input type="text" class="form-control bg-white" name="area_executora" id="area_executora_cliente" placeholder="" value="{{plano.area_executora_cliente}}" maxlength="100">
+                        </div>
+                    </div>
+                    <div class="col-lg">
+                        <div class="input-group mb-3">
+                            <div class="input-group">
+                                <label class="ml-2 font-weight-bold text-info">Observações:</label>
+                            </div>
+                            <textarea class="form-control bg-white" name="obs_executora_cliente" id="obs_executora_cliente" rows="1" maxlength="255">{{plano.obs_executora_cliente}}</textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <label class="ml-2 font-weight-bold text-info h5">Usuário</label>
+                <div class="row">
+                    <div class="col-lg">
+                        <div class="input-group mb-3">
+                            <div class="input-group">
+                                <label class="ml-2 font-weight-bold text-info">Área Solicitante:</label>
+                            </div>
+                            <input type="text" class="form-control bg-white" name="area_solicitante_usuario" id="area_solicitante_usuario" placeholder="" value="{{plano.area_solicitante_usuario}}" maxlength="100">
+                        </div>
+                    </div>
+                    <div class="col-lg">
+                        <div class="input-group mb-3">
+                            <div class="input-group">
+                                <label class="ml-2 font-weight-bold text-info">Observações:</label>
+                            </div>
+                            <textarea class="form-control bg-white" name="obs_solicitante_usuario" id="obs_solicitante_usuario" rows="1" maxlength="255">{{plano.obs_solicitante_usuario}}</textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg">
+                        <div class="input-group mb-3">
+                            <div class="input-group">
+                                <label class="ml-2 font-weight-bold text-info">Área Executora:</label>
+                            </div>
+                            <input type="text" class="form-control bg-white" name="area_executora_usuario" id="area_executora_usuario" placeholder="" value="{{plano.area_executora_usuario}}" maxlength="100">
+                        </div>
+                    </div>
+                    <div class="col-lg">
+                        <div class="input-group mb-3">
+                            <div class="input-group">
+                                <label class="ml-2 font-weight-bold text-info">Observações:</label>
+                            </div>
+                            <textarea class="form-control bg-white" name="obs_executora_usuario" id="obs_executora_usuario" rows="1" maxlength="255">{{plano.obs_executora_usuario}}</textarea>
+                        </div>
+                    </div>
+                </div>
+
+                    <label class="ml-2 font-weight-bold text-info h5">Base de Conhecimento</label>
+                    <div class="row">
+                        <div class="col-lg">
+                            <div class="input-group mb-3">
+                                <div class="input-group">
+                                    <label class="ml-2 font-weight-bold text-info">Área Solicitante:</label>
+                                </div>
+                                <input type="text" class="form-control bg-white" name="area_solicitante_base" id="area_solicitante_base" placeholder="" value="{{plano.area_solicitante_base}}" maxlength="100">
+                            </div>
+                        </div>
+                        <div class="col-lg">
+                            <div class="input-group mb-3">
+                                <div class="input-group">
+                                    <label class="ml-2 font-weight-bold text-info">Publicação:</label>
+                                </div>
+                                <input type="date" formaction="dd/mm/aaaa" class="form-control bg-white" name="publicacao_solicitante_base" id="publicacao_solicitante_base" placeholder="Ex:30/01/2000" value="{{plano.publicacao_solicitante_base}}">
+                            </div>
+                        </div>
+                        <div class="col-lg">
+                            <div class="input-group mb-3">
+                                <div class="input-group">
+                                    <label class="ml-2 font-weight-bold text-info">Observações:</label>
+                                </div>
+                                <textarea class="form-control bg-white" name="obs_solicitante_base" id="obs_solicitante_base" rows="1" maxlength="255">{{plano.obs_solicitante_base}}</textarea>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg">
+                                <div class="input-group mb-3">
+                                    <div class="input-group">
+                                        <label class="ml-2 font-weight-bold text-info">Área Executora:</label>
+                                    </div>
+                                    <input type="text" class="form-control bg-white" name="area_executora_base" id="area_executora_base" placeholder="" value="{{plano.area_executora_base}}" maxlength="100">
+                                </div>
+                            </div>
+                            <div class="col-lg">
+                                <div class="input-group mb-3">
+                                    <div class="input-group">
+                                        <label class="ml-2 font-weight-bold text-info">Publicação:</label>
+                                    </div>
+                                    <input type="date" class="form-control bg-white" name="publicacão_executora_base" id="publicacão_executora_base" placeholder="Ex:30/01/2000" value="{{plano.publicacao_executora_base}}">
+                                </div>
+                            </div>
+                            <div class="col-lg">
+                                <div class="input-group mb-3">
+                                    <div class="input-group">
+                                        <label class="ml-2 font-weight-bold text-info">Observações:</label>
+                                    </div>
+                                    <textarea class="form-control bg-white" name="obs_executora_base" id="obs_executora_base" rows="1" maxlength="255">{{plano.obs_executora_base}}</textarea>
+                                </div>
+                            </div>
+                            </div>
+
+                        <label class="ml-2 font-weight-bold text-info h5">Cadastramento de Itens de Catálogo</label>
+                        <div class="row">
+                            <div class="col-lg">
+                                <div class="input-group mb-3">
+                                    <div class="input-group">
+                                        <label class="ml-2 font-weight-bold text-info">Área Solicitante:</label>
+                                    </div>
+                                    <input type="text" class="form-control bg-white" name="area_solicitante_itens" id="area_solicitante_itens" placeholder="" value="{{plano.area_solicitante_itens}}" maxlength="100">
+                                </div>
+                            </div>
+                            <div class="col-lg">
+                                <div class="input-group mb-3">
+                                    <div class="input-group">
+                                        <label class="ml-2 font-weight-bold text-info">Observações:</label>
+                                    </div>
+                                    <textarea class="form-control bg-white" id="obs_solicitante_itens" rows="1" maxlength="255">{{plano.obs_solicitante_itens}}</textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg">
+                                <div class="input-group mb-3">
+                                    <div class="input-group">
+                                        <label class="ml-2 font-weight-bold text-info">Área Executora:</label>
+                                    </div>
+                                    <input type="text" class="form-control bg-white" name="area_executora_itens" id="area_executora_itens" placeholder="" value="{{plano.area_executora_itens}}" maxlength="100">
+                                </div>
+                            </div>
+                            <div class="col-lg">
+                                <div class="input-group mb-3">
+                                    <div class="input-group">
+                                        <label class="ml-2 font-weight-bold text-info">Observações:</label>
+                                    </div>
+                                    <textarea class="form-control bg-white" name="area_executora_itens" id="obs_executora_itens" rows="1" maxlength="255">{{plano.obs_executora_itens}}</textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <label class="ml-2 font-weight-bold text-info h5">Cadastramento de Cliente</label>
+                        <div class="row">
+                            <div class="col-lg">
+                                <div class="input-group mb-3">
+                                    <div class="input-group">
+                                        <label class="ml-2 font-weight-bold text-info">Área Solicitante:</label>
+                                    </div>
+                                    <input type="text" class="form-control bg-white" name="area_solicitante_cadastro_cliente" id="area_solicitante_cadastro_clientes" placeholder="" value="{{plano.area_solicitante_cadastro_clientes}}" maxlength="100">
+                                </div>
+                            </div>
+                            <div class="col-lg">
+                                <div class="input-group mb-3">
+                                    <div class="input-group">
+                                        <label class="ml-2 font-weight-bold text-info">Observações:</label>
+                                    </div>
+                                    <textarea class="form-control bg-white" name="obs_solicitante_cadastro_clientes" id="obs_solicitante_cadastro_clientes" rows="1" maxlength="255" value="{{plano.obs_solicitante_cadastro_clientes}}" >{{ plano.obs_solicitante_cadastro_clientes }}</textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg">
+                                <div class="input-group mb-3">
+                                    <div class="input-group">
+                                        <label class="ml-2 font-weight-bold text-info">Área Executora:</label>
+                                    </div>
+                                    <input type="text" class="form-control bg-white" name="area_executora_cadastro_clientes" id="area_executora_cadastro_clientes" placeholder="" value="{{plano.area_executora_cadastro_clientes}}" maxlength="100">
+                                </div>
+                            </div>
+                            <div class="col-lg">
+                                <div class="input-group mb-3">
+                                    <div class="input-group">
+                                        <label class="ml-2 font-weight-bold text-info">Observações:</label>
+                                    </div>
+                                    <textarea class="form-control bg-white" name="obs_executora_cadastro_clientes" id="obs_executora_cadastro_clientes" rows="1" maxlength="255">{{plano.obs_executora_cadastro_clientes}}</textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <label class="ml-2 font-weight-bold text-info h5">Cadastramento de Base de Conhecimento</label>
+                    <div class="row">
+                        <div class="col-lg">
+                            <div class="input-group mb-3">
+                                <div class="input-group">
+                                    <label class="ml-2 font-weight-bold text-info">Área Solicitante:</label>
+                                </div>
+                                <input type="text" class="form-control bg-white" name="area_solicitante_cadastro_base" id="area_solicitante_cadastro_base" placeholder="" value="{{plano.area_solicitante_cadastro_base}}" maxlength="100">
+                            </div>
+                        </div>
+                        <div class="col-lg">
+                            <div class="input-group mb-3">
+                                <div class="input-group">
+                                    <label class="ml-2 font-weight-bold text-info">Publicação:</label>
+                                </div>
+                                <input type="date" class="form-control bg-white" name="publicacão_solicitante_cadastro_base" id="publicacão_solicitante_cadastro_base" placeholder="Ex:30/01/2000" value="{{plano.publicacao_solicitante_cadastro_base}}">
+                            </div>
+                        </div>
+                        <div class="col-lg">
+                            <div class="input-group mb-3">
+                                <div class="input-group">
+                                    <label class="ml-2 font-weight-bold text-info">Observações:</label>
+                                </div>
+                                <textarea class="form-control bg-white" name="obs_solicitante_cadastro_base" id="obs_solicitante_cadastro_base" rows="1" maxlength="255">{{plano.obs_solicitante_cadastro_base}}</textarea>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg">
+                                <div class="input-group mb-3">
+                                    <div class="input-group">
+                                        <label class="ml-2 font-weight-bold text-info">Área Executora:</label>
+                                    </div>
+                                    <input type="text" class="form-control bg-white" name="area_executora_cadastro_base" id="area_executora_cadastro_base" placeholder="" value="{{plano.area_executora_cadastro_base}}" maxlength="100">
+                                </div>
+                            </div>
+                            <div class="col-lg">
+                                <div class="input-group mb-3">
+                                    <div class="input-group">
+                                        <label class="ml-2 font-weight-bold text-info">Publicação:</label>
+                                    </div>
+                                    <input type="date" class="form-control bg-white" name="publicacão_base" id="publicacão_executora_cadastro_base" placeholder="Ex:30/01/2000" value="{{plano.publicacao_executora_cadastro_base}}">
+                                </div>
+                            </div>
+                            <div class="col-lg">
+                                <div class="input-group mb-3">
+                                    <div class="input-group">
+                                        <label class="ml-2 font-weight-bold text-info">Observações:</label>
+                                    </div>
+                                    <textarea class="form-control bg-white" name="obs_executora_cadastro_base" id="obs_executora_cadastro_base" rows="1" maxlength="255">{{plano.obs_executora_cadastro_base}}</textarea>
+                                </div>
+                            </div>
+                            </div>
+
+                        <hr class="mt-4 mb-4">
+                        <div class="row">
+                            <div class="col-md">
+                                <div class="input-group mb-3">
+                                    <div class="input-group">
+                                        <label class="ml-2 h4 font-weight-bold text-info h4">Capacitação:</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <label class="ml-2 font-weight-bold text-info">É necessário alguma especificação adicional?</label>
+                                    </div>
+
+                                {% if plano.capacitacao == 'Sim' %}
+
+                                     <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="capacitacao" id="capacitacao" value="Sim" checked>
+                                <label class="form-check-label" for="capacitacao">Sim</label>
+                              </div>
+
+                                    <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="capacitacao" id="capacitacao3" value="Nao" >
+                                <label class="form-check-label" for="capacitacao2">Não</label>
+
+
+                                      </div>
+                                        {% endif %}
+
+                                    {% if plano.capacitacao == 'Nao' %}
+                                       <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="capacitacao" id="capacitacao" value="Sim" >
+                                <label class="form-check-label" for="capacitacao">Sim</label>
+                              </div>
+
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="capacitacao" id="capacitacao2" value="Nao" checked>
+                                <label class="form-check-label" for="capacitacao2">Não</label>
+
+
+                                      </div>
+                                    {% endif %}
+
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-md">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group">
+                                            <label class="ml-2 font-weight-bold text-info">Área responsavel:</label>
+                                        </div>
+                                        <input type="text" class="form-control bg-white" name="area_responsavel_capacitacao" id="area_responsavel_capacitacao" placeholder="Gestao de Serviço" value="{{plano.area_responsavel_capacitacao}}" maxlength="100">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group">
+                                            <label class="ml-2 font-weight-bold text-info">Grupos de Atendimento:</label>
+                                        </div>
+                                        <input type="text" class="form-control bg-white" name="atendimento" id="atendimento" placeholder="EX:Gerid" value="{{plano.atendimento}}" maxlength="100">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group">
+                                            <label class="ml-2 font-weight-bold text-info">Carga Horária:</label>
+                                        </div>
+                                        <input type="text" class="form-control bg-white" name="carga_horaria" id="carga_horaria" placeholder="Ex:8h" value="{{plano.carga_horaria}}" maxlength="100">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group">
+                                            <label class="ml-2 font-weight-bold text-info">Cronograma:</label>
+                                        </div>
+                                        <input type="file" class="form-control bg-white" name="cronograma" id="cronograma" placeholder="" value="{{ plano.cronograma }}" enabled>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group">
+                                            <label class="ml-2 font-weight-bold text-info">Observações de risco e impacto:</label>
+                                        </div>
+                                        <textarea class="form-control bg-white" name="obs_risco" id="obs_risco" rows="3" maxlength="255">{{plano.obs_risco}}</textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    <div class="row d-flex justify-content-center mb-3 mr-2">
+                        <button type="submit" class="col-12 col-md-4 btn btn-info ml-2 mt-2" id="Enviar">Salvar Proposta</button>
+                        <button type="reset" class="col-12 col-md-4 btn btn-info ml-2 mt-2">Cancelar</button>
+                    </div>
+
+                </div>
+                <label class="form-text text-muted">O documento gerado por essa funcionalidade é somente um rascunho. O documento a ser apresentado ao cliente deverá ser conferido criteriosamente antes da assinatura.</label>
+            </form>
+        </div>
     </div>
 
-    
-    <div class="d-flex align-content-center flex-wrap">
+    <script>
+        $(document).ready(function(){
+            $('#tel_ger_exe').mask('(00) 0000-00000');
+        });
+    </script>
 
-    <table class="table table-light table-bordered table-hover">
-        <tbody>
-          <th scope="colgroup">Versão</th>
-          <td>{{ versao }}</td>
-          <th>Status</th>
-          <td>{{ status }}</td>
-        </tbody>
-      </table>
-    
-
-        <table class="table table-light table-bordered table-hover">
-            <tbody>              
-              <tr>
-                <th scope="col">Sistema</th>
-                <td>{{ sistema }}</td>                
-              </tr>
-              <tr>
-                <th>Inquilino</th>
-                <td>{{ inquilino }}</td>                
-              </tr>
-              <tr>
-                <th>Demanda</th>
-                <td>{{ demanda }}</td>                
-              </tr>
-              <tr>
-                <th>Sub Projeto de Demanda</th>
-                <td>{{ sub_demanda }}</td>                
-              </tr>
-              <tr>
-                <th>Descriçao do produto</th>
-                <td>{{ desc_produto }}</td>                
-              </tr>     
-            </tbody>   
-          </table>     
-
-        <h3 class="text-white mt-2 mb-3 text-center">Informações Contratuais</h3>         
-
-         <table class="table table-light table-bordered table-hover">
-          <tbody>              
-            <tr>
-              <th scope="col">Número</th>
-              <td>{{ n_contrato }}</td>                
-            </tr>
-            <tr>
-              <th>Aditivo</th>
-              <td>{{ aditivo }}</td>                
-            </tr>
-            <tr>
-              <th>ANS</th>
-              <td>{{ ans }}</td>                
-            </tr>
-            <tr>
-              <th>Nessecidades Identificadas</th>
-              <td>{{ necessidades }}</td>                
-            </tr>
-            <tr>
-              <th>Requisitos de cadastramento no LDAP</th>
-              <td>{{ requisitos_LDPA }}</td>                
-            </tr>
-            <tr>
-              <th>Soluções Impactadas ou interdependentes</th>
-              <td>{{ solucoes_impactadas }}</td>                
-            </tr>
-            <tr>
-              <th>Anexo de contexto</th>
-              <td>{{ anexo_contexto }}</td>                
-            </tr>
-            <tr>
-              <th>Telas do Sistema</th>
-              <td>{{ telas_sistema }}</td>                
-            </tr>
-            <tr>
-              <th>Cronograma de Implantação da Solução</th>
-              <td>{{ cronograma_implantacao }}</td>                
-            </tr>
-            <tr>
-              <th>Canais de Atendimento</th>
-              <td>{{ canais }}</td>                
-            </tr>
-            <tr>
-              <th>Grupo de Atendimento Nível 1</th>
-              <td>{{ n1 }}</td>                
-            </tr>
-            <tr>
-              <th>Grupo de Atendimento Nível 2</th>
-              <td>{{ n2 }}</td>                
-            </tr>                      
-          </tbody>   
-        </table>
-
-        <h3 class="text-white mt-2 mb-3 text-center">Adequação da Ferramenta de Sistema</h3>        
-        
-         <table class="table table-light table-bordered table-hover">
-          <tbody>                        
-            <tr>
-              <th scope="colgroup" colspan="2">Cliente</th>                              
-            </tr>
-            <tr>
-              <th>Área Solicitante</th>
-              <td>{{ area_solicitante_cliente }}</td>
-              <th>Observações</th>
-              <td>{{ obs_solicitante_cliente }}</td>                
-            </tr>
-            <tr>
-              <th>Área Executora</th>
-              <td>{{ area_executora_cliente }}</td>
-              <th>Observações</th>
-              <td>{{ obs_executora_cliente }}</td>                
-            </tr>
-          </tbody>
-        </table>
-      
-        <table class="table table-light table-bordered table-hover">
-          <tbody>                        
-            <tr>
-              <th scope="colgroup" colspan="2">Usuário</th>                              
-            </tr>
-            <tr>
-              <th>Área Solicitante</th>
-              <td>{{ area_solicitante_usuario }}</td>
-              <th>Observações</th>
-              <td>{{ obs_solicitante_usuario }}</td>                
-            </tr>
-            <tr>
-              <th>Área Executora</th>
-              <td>{{ area_executora_usuario }}</td>
-              <th>Observações</th>
-              <td>{{ obs_executora_usuario}}</td>                
-            </tr>
-          </tbody>
-        </table>  
-
-        <table class="table table-light table-bordered table-hover">
-          <tbody>                        
-            <tr>
-              <th scope="colgroup" colspan="2" width="20%">Base de Conhecimento</th>                              
-            </tr>
-            <tr>
-              <th>Área Solicitante</th>
-              <td>{{ area_solicitante_base }}</td>
-              <th>Publicação</th>
-              <td>{{ publicacao_solicitante_base }}</td>
-              <th>Observações</th>
-              <td>{{ obs_solicitante_base }}</td>                
-            </tr>
-            <tr>
-              <th>Área Executora</th>
-              <td>{{ area_executora_base}}</td>
-              <th>Publicação</th>
-              <td>{{ publicacao_executora_base }}</td>
-              <th>Observações</th>
-              <td>{{ obs_executora_base }}</td>                
-            </tr>
-          </tbody>
-        </table>
-      
-        <table class="table table-light table-bordered table-hover">
-          <tbody>                        
-            <tr>
-              <th scope="colgroup" colspan="2" width="20%">Cadastramento de Itens de Catálogo</th>                              
-            </tr>
-            <tr>
-              <th>Área Solicitante</th>
-              <td>{{ area_solicitante_itens}}</td>
-              <th>Observações</th>
-              <td>{{ obs_solicitante_itens }}</td>                
-            </tr>
-            <tr>
-              <th>Área Executora</th>
-              <td>{{ area_executora_itens }}</td>
-              <th>Observações</th>
-              <td>{{ obs_executora_itens }}</td>                
-            </tr>
-          </tbody>
-        </table>
-
-        <table class="table table-light table-bordered table-hover">
-          <tbody>                        
-            <tr>
-              <th scope="colgroup" colspan="2" width="20%">Cadastramento de Cliente</th>                              
-            </tr>
-            <tr>
-              <th>Área Solicitante</th>
-              <td>{{ area_solicitante_cadastro_clientes }}</td>
-              <th>Observações</th>
-              <td>{{ obs_solicitante_cadastro_clientes }}</td>                
-            </tr>
-            <tr>
-              <th>Área Executora</th>
-              <td>{{ area_executora_cadastro_clientes }}</td>
-              <th>Observações</th>
-              <td>{{ obs_executora_cadastro_clientes }}</td>                
-            </tr>
-          </tbody>
-        </table>
-        
-        <table class="table table-light table-bordered table-hover">
-          <tbody>                        
-            <tr>
-              <th scope="colgroup" colspan="2" width="20%">Cadastramento de Base de Conhecimento</th>                              
-            </tr>
-            <tr>
-              <th>Área Solicitante</th>
-              <td>{{ area_solicitante_cadastro_base }}</td>
-              <th>Publicação</th>
-              <td>{{ publicacao_solicitante_cadastro_base }}</td>
-              <th>Observações</th>
-              <td>{{ obs_solicitante_cadastro_base}}</td>                
-            </tr>
-            <tr>
-              <th>Área Executora</th>
-              <td>{{ area_executora_cadastro_base}}</td>
-              <th>Publicação</th>
-              <td>{{ publicacao_executora_cadastro_base }}</td>
-              <th>Observações</th>
-              <td>{{ obs_executora_cadastro_base }}</td>                
-            </tr>
-          </tbody>
-        </table>
-
-        <h3 class="text-white text-center mt-2 mb-3">Capacitação</h3> 
-        
-        <table class="table table-light table-bordered table-hover">
-          <tbody>              
-            <tr>
-              <th scope="col">Área Resonsável</th>
-              <td>{{ area_responsavel_capacitacao }}</td>                
-            </tr>
-            <tr>
-              <th>Grupos de Atendimento</th>
-              <td>{{ atendimento }}</td>                
-            </tr>
-            <tr>
-              <th>Carga Horária</th>
-              <td>{{ carga_horaria }}</td>                
-            </tr>
-            <tr>
-              <th>Cronograma</th>
-              <td>{{ cronograma }}</td>                
-            </tr>
-            <tr>
-              <th>Observações de risco e impacto</th>
-              <td>{{ obs_risco }}</td>                
-            </tr>     
-          </tbody>   
-        </table>
-
-        <div class="d-flex bd-highlight mb-3">
-          <div class="p-2 bd-highlight">
-            <a href="{% url 'index' %}" type="button" class="btn btn-light" title="Voltar">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left mr-2" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
-              </svg>Voltar              
-            </a>
-          </div>
-        </div>
-
-    </div>    
 </body>
 </html>

@@ -30,7 +30,7 @@
                                 <div class="input-group">
                                     <label class="ml-2 font-weight-bold text-info">Sistema:</label>
                                 </div>
-                                <input type="text" class="form-control bg-white" name="sistema" id="sistema"   value="{{ plano.sistema }}" maxlength="100">
+                                <input type="text" class="form-control bg-white" name="sistema" id="sistema"   value="{{ plano.sistema }}" maxlength="100" >
                             </div>
                         </div>
 
@@ -419,7 +419,7 @@
                                 <div class="input-group">
                                     <label class="ml-2 font-weight-bold text-info">Publicação:</label>
                                 </div>
-                                <input type="date" class="form-control bg-white" name="publicacao_solicitante_base" id="publicacao_solicitante_base" placeholder="Ex:30/01/2000" value="{{plano.publicacao_solicitante_base}}">
+                                <input type="date" formaction="dd/mm/aaaa" class="form-control bg-white" name="publicacao_solicitante_base" id="publicacao_solicitante_base" placeholder="Ex:30/01/2000" value="{{plano.publicacao_solicitante_base}}">
                             </div>
                         </div>
                         <div class="col-lg">
@@ -504,7 +504,7 @@
                                     <div class="input-group">
                                         <label class="ml-2 font-weight-bold text-info">Área Solicitante:</label>
                                     </div>
-                                    <input type="text" class="form-control bg-white" name="area_solicitante_cadastro_cliente" id="area_solicitante_cadastro_cliente" placeholder="" value="{{plano.area_solicitante_cadastro_cliente}}" maxlength="100">
+                                    <input type="text" class="form-control bg-white" name="area_solicitante_cadastro_cliente" id="area_solicitante_cadastro_clientes" placeholder="" value="{{plano.area_solicitante_cadastro_clientes}}" maxlength="100">
                                 </div>
                             </div>
                             <div class="col-lg">
@@ -512,7 +512,7 @@
                                     <div class="input-group">
                                         <label class="ml-2 font-weight-bold text-info">Observações:</label>
                                     </div>
-                                    <textarea class="form-control bg-white" name="obs_solicitante_cadastro_cliente" id="obs_solicitante_cadastro_cliente" rows="1" maxlength="255">{{plano.obs_solicitante_cadastro_cliente}}</textarea>
+                                    <textarea class="form-control bg-white" name="obs_solicitante_cadastro_clientes" id="obs_solicitante_cadastro_clientes" rows="1" maxlength="255" value="{{plano.obs_solicitante_cadastro_clientes}}" >{{ plano.obs_solicitante_cadastro_clientes }}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -523,7 +523,7 @@
                                     <div class="input-group">
                                         <label class="ml-2 font-weight-bold text-info">Área Executora:</label>
                                     </div>
-                                    <input type="text" class="form-control bg-white" name="area_executora_cadastro_cliente" id="area_executora_cadastro_cliente" placeholder="" value="{{plano.area_executora_cadastro_cliente}}" maxlength="100">
+                                    <input type="text" class="form-control bg-white" name="area_executora_cadastro_clientes" id="area_executora_cadastro_clientes" placeholder="" value="{{plano.area_executora_cadastro_clientes}}" maxlength="100">
                                 </div>
                             </div>
                             <div class="col-lg">
@@ -531,7 +531,7 @@
                                     <div class="input-group">
                                         <label class="ml-2 font-weight-bold text-info">Observações:</label>
                                     </div>
-                                    <textarea class="form-control bg-white" name="obs_executora_cadastro_cliente" id="obs_executora_cadastro_cliente" rows="1" maxlength="255">{{plano.obs_executora_cadastro_cliente}}</textarea>
+                                    <textarea class="form-control bg-white" name="obs_executora_cadastro_clientes" id="obs_executora_cadastro_clientes" rows="1" maxlength="255">{{plano.obs_executora_cadastro_clientes}}</textarea>
                                 </div>
                             </div>
                         </div>
