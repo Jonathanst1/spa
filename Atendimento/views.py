@@ -119,6 +119,10 @@ def ver(request, pda_id):
         'cronograma': pda.cronograma,
         'obs_risco': pda.obs_risco,
         'responsavel': pda.responsavel,
+        'obs_executora_itens':pda.obs_executora_itens,
+        'obs_solicitante_cadastro_clientes':pda.obs_solicitante_cadastro_clientes
+        
+
 
 
     }
@@ -142,7 +146,7 @@ class UpdatePda(UpdateView):
               'publicacao_executora_cadastro_base','obs_solicitante_cadastro_base','area_executora_cadastro_base',
               'publicacao_executora_cadastro_base','obs_executora_cadastro_base','capacitacao',
               'area_responsavel_capacitacao','atendimento','carga_horaria','cronograma','obs_risco','adequacao'
-              ,'responsavel']
+              ,'responsavel','obs_solicitante_cadastro_clientes']
 
     success_url = reverse_lazy('index')
 

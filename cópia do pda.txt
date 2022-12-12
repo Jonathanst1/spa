@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Visualização de plano de Atendimento</title>
+</head>
+{% load static %}
+<body class="bg-secondary container-fluid">
+    <div class="row bg-secondary justify-content-center mt-5 mb-5">
+        <img src="{% static 'logo.png' %}" class="" alt="Logo Dataprev" style="width: 130px">
+      </div>
+        <h1 class="text-white mb-5 text-center">Sistema de Planejamento de Atendimento</h1>
+        <h2 class="text-white mb-5 text-center">Visualização do Plano {{ sistema }}</h2>
+
+    <div class="d-flex bd-highlight mb-3">
+          <div class="p-2 bd-highlight">
+            <a href="{% url 'index' %}" type="button" class="btn btn-light" title="Voltar">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left mr-2" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+              </svg>Voltar              
+            </a>
+          </div>
+    </div>
+
+    
+    <div class="d-flex align-content-center flex-wrap">
+
+    <table class="table table-light table-bordered table-hover">
+        <tbody>
+          <th scope="colgroup">Versão</th>
+          <td>{{ versao }}</td>
+          <th>Status</th>
+          <td>{{ status }}</td>
+        </tbody>
+      </table>
+    
+
+        <table class="table table-light table-bordered table-hover">
+            <tbody>              
+              <tr>
+                <th scope="col">Sistema</th>
+                <td>{{ sistema }}</td>                
+              </tr>
+              <tr>
+                <th>Inquilino</th>
+                <td>{{ inquilino }}</td>                
+              </tr>
+              <tr>
+                <th>Demanda</th>
+                <td>{{ demanda }}</td>                
+              </tr>
+              <tr>
+                <th>Sub Projeto de Demanda</th>
+                <td>{{ sub_demanda }}</td>                
+              </tr>
+              <tr>
+                <th>Descriçao do produto</th>
+                <td>{{ desc_produto }}</td>                
+              </tr>     
+            </tbody>   
+          </table>     
+
+        <h3 class="text-white mt-2 mb-3 text-center">Informações Contratuais</h3>         
+
+         <table class="table table-light table-bordered table-hover">
+          <tbody>              
+            <tr>
+              <th scope="col">Número</th>
+              <td>{{ n_contrato }}</td>                
+            </tr>
+            <tr>
+              <th>Aditivo</th>
+              <td>{{ aditivo }}</td>                
+            </tr>
+            <tr>
+              <th>ANS</th>
+              <td>{{ ans }}</td>                
+            </tr>
+            <tr>
+              <th>Nessecidades Identificadas</th>
+              <td>{{ necessidades }}</td>                
+            </tr>
+            <tr>
+              <th>Requisitos de cadastramento no LDAP</th>
+              <td>{{ requisitos_LDPA }}</td>                
+            </tr>
+            <tr>
+              <th>Soluções Impactadas ou interdependentes</th>
+              <td>{{ solucoes_impactadas }}</td>                
+            </tr>
+            <tr>
+              <th>Anexo de contexto</th>
+              <td>{{ anexo_contexto }}</td>                
+            </tr>
+            <tr>
+              <th>Telas do Sistema</th>
+              <td>{{ telas_sistema }}</td>                
+            </tr>
+            <tr>
+              <th>Cronograma de Implantação da Solução</th>
+              <td>{{ cronograma_implantacao }}</td>                
+            </tr>
+            <tr>
+              <th>Canais de Atendimento</th>
+              <td>{{ canais }}</td>                
+            </tr>
+            <tr>
+              <th>Grupo de Atendimento Nível 1</th>
+              <td>{{ n1 }}</td>                
+            </tr>
+            <tr>
+              <th>Grupo de Atendimento Nível 2</th>
+              <td>{{ n2 }}</td>                
+            </tr>                      
+          </tbody>   
+        </table>
+
+        <h3 class="text-white mt-2 mb-3 text-center">Adequação da Ferramenta de Sistema</h3>        
+        
+         <table class="table table-light table-bordered table-hover">
+          <tbody>                        
+            <tr>
+              <th scope="colgroup" colspan="2">Cliente</th>                              
+            </tr>
+            <tr>
+              <th>Área Solicitante</th>
+              <td>{{ area_solicitante_cliente }}</td>
+              <th>Observações</th>
+              <td>{{ obs_solicitante_cliente }}</td>                
+            </tr>
+            <tr>
+              <th>Área Executora</th>
+              <td>{{ area_executora_cliente }}</td>
+              <th>Observações</th>
+              <td>{{ obs_executora_cliente }}</td>                
+            </tr>
+          </tbody>
+        </table>
+      
+        <table class="table table-light table-bordered table-hover">
+          <tbody>                        
+            <tr>
+              <th scope="colgroup" colspan="2">Usuário</th>                              
+            </tr>
+            <tr>
+              <th>Área Solicitante</th>
+              <td>{{ area_solicitante_usuario }}</td>
+              <th>Observações</th>
+              <td>{{ obs_solicitante_usuario }}</td>                
+            </tr>
+            <tr>
+              <th>Área Executora</th>
+              <td>{{ area_executora_usuario }}</td>
+              <th>Observações</th>
+              <td>{{ obs_executora_usuario}}</td>                
+            </tr>
+          </tbody>
+        </table>  
+
+        <table class="table table-light table-bordered table-hover">
+          <tbody>                        
+            <tr>
+              <th scope="colgroup" colspan="2" width="20%">Base de Conhecimento</th>                              
+            </tr>
+            <tr>
+              <th>Área Solicitante</th>
+              <td>{{ area_solicitante_base }}</td>
+              <th>Publicação</th>
+              <td>{{ publicacao_solicitante_base }}</td>
+              <th>Observações</th>
+              <td>{{ obs_solicitante_base }}</td>                
+            </tr>
+            <tr>
+              <th>Área Executora</th>
+              <td>{{ area_executora_base}}</td>
+              <th>Publicação</th>
+              <td>{{ publicacao_executora_base }}</td>
+              <th>Observações</th>
+              <td>{{ obs_executora_base }}</td>                
+            </tr>
+          </tbody>
+        </table>
+      
+        <table class="table table-light table-bordered table-hover">
+          <tbody>                        
+            <tr>
+              <th scope="colgroup" colspan="2" width="20%">Cadastramento de Itens de Catálogo</th>                              
+            </tr>
+            <tr>
+              <th>Área Solicitante</th>
+              <td>{{ area_solicitante_itens}}</td>
+              <th>Observações</th>
+              <td>{{ obs_solicitante_itens }}</td>                
+            </tr>
+            <tr>
+              <th>Área Executora</th>
+              <td>{{ area_executora_itens }}</td>
+              <th>Observações</th>
+              <td>{{ obs_executora_itens }}</td>                
+            </tr>
+          </tbody>
+        </table>
+
+        <table class="table table-light table-bordered table-hover">
+          <tbody>                        
+            <tr>
+              <th scope="colgroup" colspan="2" width="20%">Cadastramento de Cliente</th>                              
+            </tr>
+            <tr>
+              <th>Área Solicitante</th>
+              <td>{{ area_solicitante_cadastro_clientes }}</td>
+              <th>Observações</th>
+              <td>{{ obs_solicitante_cadastro_clientes }}</td>                
+            </tr>
+            <tr>
+              <th>Área Executora</th>
+              <td>{{ area_executora_cadastro_clientes }}</td>
+              <th>Observações</th>
+              <td>{{ obs_executora_cadastro_clientes }}</td>                
+            </tr>
+          </tbody>
+        </table>
+        
+        <table class="table table-light table-bordered table-hover">
+          <tbody>                        
+            <tr>
+              <th scope="colgroup" colspan="2" width="20%">Cadastramento de Base de Conhecimento</th>                              
+            </tr>
+            <tr>
+              <th>Área Solicitante</th>
+              <td>{{ area_solicitante_cadastro_base }}</td>
+              <th>Publicação</th>
+              <td>{{ publicacao_solicitante_cadastro_base }}</td>
+              <th>Observações</th>
+              <td>{{ obs_solicitante_cadastro_base}}</td>                
+            </tr>
+            <tr>
+              <th>Área Executora</th>
+              <td>{{ area_executora_cadastro_base}}</td>
+              <th>Publicação</th>
+              <td>{{ publicacao_executora_cadastro_base }}</td>
+              <th>Observações</th>
+              <td>{{ obs_executora_cadastro_base }}</td>                
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 class="text-white text-center mt-2 mb-3">Capacitação</h3> 
+        
+        <table class="table table-light table-bordered table-hover">
+          <tbody>              
+            <tr>
+              <th scope="col">Área Resonsável</th>
+              <td>{{ area_responsavel_capacitacao }}</td>                
+            </tr>
+            <tr>
+              <th>Grupos de Atendimento</th>
+              <td>{{ atendimento }}</td>                
+            </tr>
+            <tr>
+              <th>Carga Horária</th>
+              <td>{{ carga_horaria }}</td>                
+            </tr>
+            <tr>
+              <th>Cronograma</th>
+              <td>{{ cronograma }}</td>                
+            </tr>
+            <tr>
+              <th>Observações de risco e impacto</th>
+              <td>{{ obs_risco }}</td>                
+            </tr>     
+          </tbody>   
+        </table>
+
+        <div class="d-flex bd-highlight mb-3">
+          <div class="p-2 bd-highlight">
+            <a href="{% url 'index' %}" type="button" class="btn btn-light" title="Voltar">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left mr-2" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+              </svg>Voltar              
+            </a>
+          </div>
+        </div>
+
+    </div>    
+</body>
+</html>

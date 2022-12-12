@@ -41,7 +41,7 @@
 
 {% if plano_list %}
 <div >
-    <table  class="table table-sm table-light table-hover table-bordered" >
+    <table  class="table table-sm table-light table-hover table-bordered "  >
       <thead  class="thead-dark" align="center" >
         <tr >
           <th scope="col">#Id</th>
@@ -79,17 +79,20 @@
                 {% elif pl.status == 'Ativo' %}
                 <td>
                   <div class="d-flex justify-content-center mt-2">
-
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" class="bi bi-circle-fill d-flex align-content-center" viewBox="0 0 16 16">
                       <circle cx="8" cy="8" r="8"/>
+                      <p>Ativo</p>
                     </svg>
                   </div>
+                  
                 </td>
                 {% elif pl.status == '2' %}
                 <td>
                   <div class="d-flex justify-content-center mt-2">
+                    
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="yellow" class="bi bi-circle-fill d-flex align-content-center" viewBox="0 0 16 16">
                       <circle cx="8" cy="8" r="8"/>
+                      <p>Em elaboração</p>
                     </svg>
                   </div>
                 </td>
@@ -97,7 +100,9 @@
                 <td>
                   <div class="d-flex justify-content-center mt-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-circle-fill d-flex align-content-center" viewBox="0 0 16 16">
+                      
                       <circle cx="8" cy="8" r="8"/>
+                      <p>Inativo</p>
                     </svg>
                   </div>
                 </td>
@@ -106,6 +111,7 @@
                   <div id="desativado2" class="d-flex justify-content-center mt-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-circle-fill d-flex align-content-center" viewBox="0 0 16 16">
                       <circle cx="8" cy="8" r="8"/>
+                      <p>Desativado</p>
                     </svg>
                   </div>
                 </td>
