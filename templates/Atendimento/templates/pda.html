@@ -42,7 +42,7 @@
 
 
                                 </div>
-                                <input type="text" class="form-control bg-white" name="inquilino" id="inquilino" placeholder="ex" value="{{ plano.inquilino }}"   maxlength="100">
+                                <input type="text" class="form-control bg-white" name="inquilino" id="inquilino" placeholder="ex" value="{{ inquilino }}"   maxlength="100" disabled>
 
                             </div>
 
@@ -53,7 +53,7 @@
                                 <div class="input-group">
                                     <label class="ml-2 font-weight-bold text-info">Demanda:</label>
                                 </div>
-                                <input type="text" class="form-control bg-white" name="demanda" id="demanda" placeholder="Ex:DM.088742" value="{{ plano.demanda }}" maxlength="100">
+                                <input type="text" class="form-control bg-white" name="demanda" id="demanda" placeholder="Ex:DM.088742" value="{{ demanda }}" maxlength="100" disabled>
                             </div>
                         </div>
                         <div class="col-sm">
@@ -61,7 +61,7 @@
                                 <div class="input-group">
                                     <label class="ml-2 font-weight-bold text-info">Sub Projeto de Demanda:</label>
                                 </div>
-                                <input type="text" class="form-control bg-white" name="sub_demanda" id="sub_demanda" placeholder="Ex:DTP.XXXXX" value="{{ plano.sub_demanda }}" maxlength="100">
+                                <input type="text" class="form-control bg-white" name="sub_demanda" id="sub_demanda" placeholder="Ex:DTP.XXXXX" value="{{ sub_demanda }}" maxlength="100" disabled>
                             </div>
                         </div>
                     </div>
@@ -72,7 +72,7 @@
                                     <div class="input-group">
                                         <label class="ml-2 font-weight-bold text-info" >Versão:</label>
                                     </div>
-                                    <input type="text" class="form-control bg-white" name="versao"  id="versao" placeholder="Ex:1.0" value="{{ plano.versao }}" maxlength="100">
+                                    <input type="text" class="form-control bg-white" name="versao"  id="versao" placeholder="Ex:1.0" value="{{ versao }}" maxlength="100" disabled>
                                 </div>
                             </div>
 
@@ -81,9 +81,9 @@
                                     <div class="input-group">
                                         <label class="ml-2 font-weight-bold text-info">Status:</label>
                                     </div>
-                                    <select class="custom-select mr-sm-2" id="status">
+                                    <select class="custom-select mr-sm-2" name="status" id="status" disabled>
                                         <option selected>Escolha o Status do Plano</option>
-                                        <option value="Ativo">Ativo</option>
+                                        <option value="{{ responsavel }}">Ativo</option>
                                         <option value="Em Elaboracao">Em Elaboração</option>
                                         <option value="Inativo">Inativo</option>
                                       </select>
@@ -94,7 +94,7 @@
                                     <div class="input-group">
                                         <label class="ml-2 font-weight-bold text-info" >Responsável:</label>
                                     </div>
-                                    <input type="text" class="form-control bg-white" name="responsavel"  id="responsavel" placeholder="Ex:Jõao Carlos" value="{{ plano.responsavel }}" maxlength="100">
+                                    <input type="text" class="form-control bg-white" name="responsavel"  id="responsavel" placeholder="Ex:Jõao Carlos" value="{{ responsavel }}" maxlength="100" disabled>
                                 </div>
                             </div>
                             </div>
@@ -105,7 +105,7 @@
                                 <div class="input-group">
                                     <label class="ml-2 font-weight-bold text-info">Descrição do Produto:</label>
                                 </div>
-                                <textarea class="form-control bg-white" name="desc_produto" id="desc_produto" rows="3" placeholder="Ex:Descrição da solução, quantidade de entregas, cronograma de cada entrega, Requisitos Funcionais e Não Funcionais de cada entrega a ser implantada, quais Clientes, etc "   maxlength="255">{{ plano.desc_produto}}</textarea>
+                                <textarea class="form-control bg-white" name="desc_produto" id="desc_produto" rows="3" placeholder="Ex:Descrição da solução, quantidade de entregas, cronograma de cada entrega, Requisitos Funcionais e Não Funcionais de cada entrega a ser implantada, quais Clientes, etc " disabled  maxlength="255">{{ desc_produto}}</textarea>
                             </div>
                         </div>
                     </div>
@@ -117,7 +117,7 @@
                                 <div class="input-group">
                                     <label class="ml-2 font-weight-bold text-info">Número:</label>
                                 </div>
-                                <input type="text" class="form-control bg-white" name="n_contrato" id="n_contrato" placeholder="Ex:CJF N. 017/2019" value="{{plano.n_contrato}}" maxlength="100">
+                                <input type="text" class="form-control bg-white" name="n_contrato" id="n_contrato" placeholder="Ex:CJF N. 017/2019" value="{{n_contrato}}" maxlength="100" disabled>
                             </div>
                         </div>
                         <div class="col-lg">
@@ -125,7 +125,7 @@
                                 <div class="input-group">
                                     <label class="ml-2 font-weight-bold text-info">Aditivo:</label>
                                 </div>
-                                <input type="text" class="form-control bg-white" name="aditivo" id="aditivo" placeholder="Ex:001" value="{{plano.aditivo}}" maxlength="100">
+                                <input type="text" class="form-control bg-white" name="aditivo" id="aditivo" placeholder="Ex:001" value="{{ aditivo }}" maxlength="100" disabled>
                             </div>
                         </div>
                             <div class="col-sm">
@@ -133,7 +133,7 @@
                                     <div class="input-group">
                                         <label class="ml-2 font-weight-bold text-info">ANS:</label>
                                     </div>
-                                    <textarea class="form-control bg-white" name="ans" id="ans" rows="1" maxlength="255">{{plano.ans}}</textarea>
+                                    <textarea class="form-control bg-white" name="ans" id="ans" rows="1" maxlength="255" disabled>{{ ans }}</textarea>
                                 </div>
                             </div>
                     </div>
@@ -148,7 +148,7 @@
                                 placeholder="Ex:Resumo das atividades necessárias para implantação
 - Cadastro de usuários
 - Criação de catálogo de serviços
-- Capacitação" maxlength="255">{{plano.necessidades}}
+- Capacitação" maxlength="255" disabled>{{necessidades}}
                                 </textarea>
                            </div>
                         </div>
@@ -160,7 +160,7 @@
                                 <div class="input-group">
                                     <label class="ml-2 font-weight-bold text-info">Requisitos de cadastramento no LDAP:</label>
                                 </div>
-                                <textarea class="form-control bg-white" rows="3" name="requisitos_LDPA" id="requisitos_LDPA" placeholder="Descrição detalhada dos requisitos do LDAP" maxlength="255">{{plano.requisitos_LDPA}}</textarea>
+                                <textarea class="form-control bg-white" rows="3" name="requisitos_LDPA" id="requisitos_LDPA" placeholder="Descrição detalhada dos requisitos do LDAP" maxlength="255" disabled>{{requisitos_LDPA}}</textarea>
                             </div>
                         </div>
                     </div>
@@ -172,7 +172,7 @@
                                     <label class="ml-2 font-weight-bold text-info">Soluções Impactadas ou interdependentes:</label>
                                 </div>
                                 <textarea class="form-control bg-white" name="solucoes_impactadas" id="solucoes_impactadas" rows="3"
-                                placeholder="Ex:-Integração dom GERID, Notificações, etc" maxlength="255">{{plano.solucoes_impactadas}}
+                                placeholder="Ex:-Integração dom GERID, Notificações, etc" maxlength="255" disabled>{{ solucoes_impactadas }}
 </textarea>
                            </div>
                         </div>
@@ -233,7 +233,7 @@
                             <div class="input-group">
                                 <label class="ml-2 font-weight-bold text-info">Canais de Atendimento:</label>
                             </div>
-                            <input type="text" class="form-control bg-white" name="canais" id="canais" placeholder="Ex:Pronto" value="{{plano.canais}}" maxlength="100">
+                            <input type="text" class="form-control bg-white" name="canais" id="canais" placeholder="Ex:Pronto" value="{{ canais }}" maxlength="100" disabled>
                         </div>
                     </div>
                 </div>
@@ -245,7 +245,7 @@
                             <div class="input-group">
                                 <label class="ml-2 font-weight-bold text-info">Nível 1:</label>
                             </div>
-                            <input type="text" class="form-control bg-white" name="n1" id="n1" placeholder="Ex:N1.Gerid" value="{{plano.n1}}" maxlength="100">
+                            <input type="text" class="form-control bg-white" name="n1" id="n1" placeholder="Ex:N1.Gerid" value="{{ n1 }}" maxlength="100" disabled>
                         </div>
                     </div>
                     <div class="col-lg">
@@ -253,7 +253,7 @@
                             <div class="input-group">
                                 <label class="ml-2 font-weight-bold text-info">Nível 2:</label>
                             </div>
-                            <input type="text" class="form-control bg-white" name="n2" id="n2" placeholder="Ex:GSCXX" value="{{plano.n2}}" maxlength="100">
+                            <input type="text" class="form-control bg-white" name="n2" id="n2" placeholder="Ex:GSCXX" value="{{ n2 }}" maxlength="100" disabled>
                         </div>
                     </div>
                 </div>
@@ -273,12 +273,12 @@
                                 {% if plano.adequacao == 'Sim' %}
 
                                      <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="adequacao" id="adequacao" value="Sim" checked>
+                                <input class="form-check-input" type="radio" name="adequacao" id="adequacao" value="Sim" checked disabled>
                                 <label class="form-check-label" for="adequacao">Sim</label>
                               </div>
 
                                     <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="adequacao" id="adequacao3" value="Nao" >
+                                <input class="form-check-input" type="radio" name="adequacao" id="adequacao3" value="Nao" disabled>
                                 <label class="form-check-label" for="capacitacao2">Não</label>
 
 
@@ -287,12 +287,12 @@
 
                                     {% if plano.adequacao == 'Nao' %}
                                        <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="adequacao" id="adequacao" value="Sim" >
+                                <input class="form-check-input" type="radio" name="adequacao" id="adequacao" value="Sim" disabled >
                                 <label class="form-check-label" for="capacitacao">Sim</label>
                               </div>
 
                               <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="adequacao" id="adequacao2" value="Nao" checked>
+                                <input class="form-check-input" type="radio" name="adequacao" id="adequacao2" value="Nao" checked disabled>
                                 <label class="form-check-label" for="capacitacao2">Não</label>
 
 
@@ -333,7 +333,7 @@
                             <div class="input-group">
                                 <label class="ml-2 font-weight-bold text-info">Área Solicitante:</label>
                             </div>
-                            <input type="text" class="form-control bg-white" name="area_solicitante_cliente" id="area_solicitante_cliente" placeholder="" value="{{plano.area_solicitante_cliente}}" maxlength="100">
+                            <input type="text" class="form-control bg-white" name="area_solicitante_cliente" id="area_solicitante_cliente" placeholder="" value="{{ area_solicitante_cliente}}" maxlength="100" disabled>
                         </div>
                     </div>
                     <div class="col-lg">
@@ -341,7 +341,7 @@
                             <div class="input-group">
                                 <label class="ml-2 font-weight-bold text-info">Observações:</label>
                             </div>
-                            <textarea class="form-control bg-white" name="obs_solicitante_cliente" id="obs_solicitante_cliente" rows="1" maxlength="255">{{plano.obs_solicitante_cliente}}</textarea>
+                            <textarea class="form-control bg-white" name="obs_solicitante_cliente" id="obs_solicitante_cliente" rows="1" maxlength="255" disabled>{{ obs_solicitante_cliente }}</textarea>
                         </div>
                     </div>
                 </div>
@@ -352,7 +352,7 @@
                             <div class="input-group">
                                 <label class="ml-2 font-weight-bold text-info">Área Executora:</label>
                             </div>
-                            <input type="text" class="form-control bg-white" name="area_executora" id="area_executora_cliente" placeholder="" value="{{plano.area_executora_cliente}}" maxlength="100">
+                            <input type="text" class="form-control bg-white" name="area_executora_cliente" id="area_executora_cliente" placeholder="" value="{{ area_executora_cliente }}" maxlength="100" disabled>
                         </div>
                     </div>
                     <div class="col-lg">
@@ -360,7 +360,7 @@
                             <div class="input-group">
                                 <label class="ml-2 font-weight-bold text-info">Observações:</label>
                             </div>
-                            <textarea class="form-control bg-white" name="obs_executora_cliente" id="obs_executora_cliente" rows="1" maxlength="255">{{plano.obs_executora_cliente}}</textarea>
+                            <textarea class="form-control bg-white" name="obs_executora_cliente" id="obs_executora_cliente" rows="1" maxlength="255" disabled>{{ obs_executora_cliente}}</textarea>
                         </div>
                     </div>
                 </div>
@@ -372,7 +372,7 @@
                             <div class="input-group">
                                 <label class="ml-2 font-weight-bold text-info">Área Solicitante:</label>
                             </div>
-                            <input type="text" class="form-control bg-white" name="area_solicitante_usuario" id="area_solicitante_usuario" placeholder="" value="{{plano.area_solicitante_usuario}}" maxlength="100">
+                            <input type="text" class="form-control bg-white" name="area_solicitante_usuario" id="area_solicitante_usuario" placeholder="" value="{{ area_solicitante_usuario}}" maxlength="100" disabled>
                         </div>
                     </div>
                     <div class="col-lg">
@@ -380,7 +380,7 @@
                             <div class="input-group">
                                 <label class="ml-2 font-weight-bold text-info">Observações:</label>
                             </div>
-                            <textarea class="form-control bg-white" name="obs_solicitante_usuario" id="obs_solicitante_usuario" rows="1" maxlength="255">{{plano.obs_solicitante_usuario}}</textarea>
+                            <textarea class="form-control bg-white" name="obs_solicitante_usuario" id="obs_solicitante_usuario" rows="1" maxlength="255" disabled>{{ obs_solicitante_usuario }}</textarea>
                         </div>
                     </div>
                 </div>
@@ -391,7 +391,7 @@
                             <div class="input-group">
                                 <label class="ml-2 font-weight-bold text-info">Área Executora:</label>
                             </div>
-                            <input type="text" class="form-control bg-white" name="area_executora_usuario" id="area_executora_usuario" placeholder="" value="{{plano.area_executora_usuario}}" maxlength="100">
+                            <input type="text" class="form-control bg-white" name="area_executora_usuario" id="area_executora_usuario" placeholder="" value="{{ area_executora_usuario }}" maxlength="100" disabled>
                         </div>
                     </div>
                     <div class="col-lg">
@@ -399,7 +399,7 @@
                             <div class="input-group">
                                 <label class="ml-2 font-weight-bold text-info">Observações:</label>
                             </div>
-                            <textarea class="form-control bg-white" name="obs_executora_usuario" id="obs_executora_usuario" rows="1" maxlength="255">{{plano.obs_executora_usuario}}</textarea>
+                            <textarea class="form-control bg-white" name="obs_executora_usuario" id="obs_executora_usuario" rows="1" maxlength="255" disabled>{{ obs_executora_usuario }}</textarea>
                         </div>
                     </div>
                 </div>
@@ -411,7 +411,7 @@
                                 <div class="input-group">
                                     <label class="ml-2 font-weight-bold text-info">Área Solicitante:</label>
                                 </div>
-                                <input type="text" class="form-control bg-white" name="area_solicitante_base" id="area_solicitante_base" placeholder="" value="{{plano.area_solicitante_base}}" maxlength="100">
+                                <input type="text" class="form-control bg-white" name="area_solicitante_base" id="area_solicitante_base" placeholder="" value="{{ area_solicitante_base }}" maxlength="100" disabled>
                             </div>
                         </div>
                         <div class="col-lg">
@@ -419,7 +419,7 @@
                                 <div class="input-group">
                                     <label class="ml-2 font-weight-bold text-info">Publicação:</label>
                                 </div>
-                                <input type="date" formaction="dd/mm/aaaa" class="form-control bg-white" name="publicacao_solicitante_base" id="publicacao_solicitante_base" placeholder="Ex:30/01/2000" value="{{plano.publicacao_solicitante_base}}">
+                                <input type="date" formaction="dd/mm/aaaa" class="form-control bg-white" name="publicacao_solicitante_base" id="publicacao_solicitante_base" placeholder="Ex:30/01/2000" value="{{ publicacao_solicitante_base }}" disabled>
                             </div>
                         </div>
                         <div class="col-lg">
@@ -427,7 +427,7 @@
                                 <div class="input-group">
                                     <label class="ml-2 font-weight-bold text-info">Observações:</label>
                                 </div>
-                                <textarea class="form-control bg-white" name="obs_solicitante_base" id="obs_solicitante_base" rows="1" maxlength="255">{{plano.obs_solicitante_base}}</textarea>
+                                <textarea class="form-control bg-white" name="obs_solicitante_base" id="obs_solicitante_base" rows="1" maxlength="255" disabled>{{ obs_solicitante_base }}</textarea>
                             </div>
                         </div>
                         </div>
@@ -437,7 +437,7 @@
                                     <div class="input-group">
                                         <label class="ml-2 font-weight-bold text-info">Área Executora:</label>
                                     </div>
-                                    <input type="text" class="form-control bg-white" name="area_executora_base" id="area_executora_base" placeholder="" value="{{plano.area_executora_base}}" maxlength="100">
+                                    <input type="text" class="form-control bg-white" name="area_executora_base" id="area_executora_base" placeholder="" value="{{ area_executora_base}}" maxlength="100" disabled>
                                 </div>
                             </div>
                             <div class="col-lg">
@@ -445,7 +445,7 @@
                                     <div class="input-group">
                                         <label class="ml-2 font-weight-bold text-info">Publicação:</label>
                                     </div>
-                                    <input type="date" class="form-control bg-white" name="publicacão_executora_base" id="publicacão_executora_base" placeholder="Ex:30/01/2000" value="{{plano.publicacao_executora_base}}">
+                                    <input type="date" class="form-control bg-white" name="publicacão_executora_base" id="publicacão_executora_base" placeholder="Ex:30/01/2000" value="{{ publicacao_executora_base }}" disabled>
                                 </div>
                             </div>
                             <div class="col-lg">
@@ -453,7 +453,7 @@
                                     <div class="input-group">
                                         <label class="ml-2 font-weight-bold text-info">Observações:</label>
                                     </div>
-                                    <textarea class="form-control bg-white" name="obs_executora_base" id="obs_executora_base" rows="1" maxlength="255">{{plano.obs_executora_base}}</textarea>
+                                    <textarea class="form-control bg-white" name="obs_executora_base" id="obs_executora_base" rows="1" maxlength="255">{{ obs_executora_base}}</textarea>
                                 </div>
                             </div>
                             </div>
@@ -465,7 +465,7 @@
                                     <div class="input-group">
                                         <label class="ml-2 font-weight-bold text-info">Área Solicitante:</label>
                                     </div>
-                                    <input type="text" class="form-control bg-white" name="area_solicitante_itens" id="area_solicitante_itens" placeholder="" value="{{plano.area_solicitante_itens}}" maxlength="100">
+                                    <input type="text" class="form-control bg-white" name="area_solicitante_itens" id="area_solicitante_itens" placeholder="" value="{{ area_solicitante_itens }}" maxlength="100" disabled>
                                 </div>
                             </div>
                             <div class="col-lg">
@@ -473,7 +473,7 @@
                                     <div class="input-group">
                                         <label class="ml-2 font-weight-bold text-info">Observações:</label>
                                     </div>
-                                    <textarea class="form-control bg-white" id="obs_solicitante_itens" rows="1" maxlength="255">{{plano.obs_solicitante_itens}}</textarea>
+                                    <textarea class="form-control bg-white" id="obs_solicitante_itens" rows="1" maxlength="255" disabled>{{ obs_solicitante_itens }}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -484,7 +484,7 @@
                                     <div class="input-group">
                                         <label class="ml-2 font-weight-bold text-info">Área Executora:</label>
                                     </div>
-                                    <input type="text" class="form-control bg-white" name="area_executora_itens" id="area_executora_itens" placeholder="" value="{{plano.area_executora_itens}}" maxlength="100">
+                                    <input type="text" class="form-control bg-white" name="area_executora_itens" id="area_executora_itens" placeholder="" value="{{ area_executora_itens }}" maxlength="100" disabled>
                                 </div>
                             </div>
                             <div class="col-lg">
@@ -492,7 +492,7 @@
                                     <div class="input-group">
                                         <label class="ml-2 font-weight-bold text-info">Observações:</label>
                                     </div>
-                                    <textarea class="form-control bg-white" name="area_executora_itens" id="obs_executora_itens" rows="1" maxlength="255">{{plano.obs_executora_itens}}</textarea>
+                                    <textarea class="form-control bg-white" name="obs_executora_itens" id="obs_executora_itens" rows="1" maxlength="255" disabled>{{ obs_executora_itens }}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -504,7 +504,7 @@
                                     <div class="input-group">
                                         <label class="ml-2 font-weight-bold text-info">Área Solicitante:</label>
                                     </div>
-                                    <input type="text" class="form-control bg-white" name="area_solicitante_cadastro_cliente" id="area_solicitante_cadastro_clientes" placeholder="" value="{{plano.area_solicitante_cadastro_clientes}}" maxlength="100">
+                                    <input type="text" class="form-control bg-white" name="area_solicitante_cadastro_cliente" id="area_solicitante_cadastro_clientes" placeholder="" value="{{ area_solicitante_cadastro_clientes}}" maxlength="100" disabled>
                                 </div>
                             </div>
                             <div class="col-lg">
@@ -512,7 +512,7 @@
                                     <div class="input-group">
                                         <label class="ml-2 font-weight-bold text-info">Observações:</label>
                                     </div>
-                                    <textarea class="form-control bg-white" name="obs_solicitante_cadastro_clientes" id="obs_solicitante_cadastro_clientes" rows="1" maxlength="255" value="{{plano.obs_solicitante_cadastro_clientes}}" >{{ plano.obs_solicitante_cadastro_clientes }}</textarea>
+                                    <textarea class="form-control bg-white"  id="obs_solicitante_cadastro_clientes" rows="1" maxlength="255"  disabled>{{ obs_solicitante_cadastro_clientes }}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -523,7 +523,7 @@
                                     <div class="input-group">
                                         <label class="ml-2 font-weight-bold text-info">Área Executora:</label>
                                     </div>
-                                    <input type="text" class="form-control bg-white" name="area_executora_cadastro_clientes" id="area_executora_cadastro_clientes" placeholder="" value="{{plano.area_executora_cadastro_clientes}}" maxlength="100">
+                                    <input type="text" class="form-control bg-white" name="area_executora_cadastro_clientes" id="area_executora_cadastro_clientes" placeholder="" value="{{ area_executora_cadastro_clientes}}" maxlength="100" disabled>
                                 </div>
                             </div>
                             <div class="col-lg">
@@ -531,7 +531,7 @@
                                     <div class="input-group">
                                         <label class="ml-2 font-weight-bold text-info">Observações:</label>
                                     </div>
-                                    <textarea class="form-control bg-white" name="obs_executora_cadastro_clientes" id="obs_executora_cadastro_clientes" rows="1" maxlength="255">{{plano.obs_executora_cadastro_clientes}}</textarea>
+                                    <textarea class="form-control bg-white" name="obs_executora_cadastro_clientes" id="obs_executora_cadastro_clientes" rows="1" maxlength="255" disabled>{{ obs_executora_cadastro_clientes}}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -543,7 +543,7 @@
                                 <div class="input-group">
                                     <label class="ml-2 font-weight-bold text-info">Área Solicitante:</label>
                                 </div>
-                                <input type="text" class="form-control bg-white" name="area_solicitante_cadastro_base" id="area_solicitante_cadastro_base" placeholder="" value="{{plano.area_solicitante_cadastro_base}}" maxlength="100">
+                                <input type="text" class="form-control bg-white" name="area_solicitante_cadastro_base" id="area_solicitante_cadastro_base" placeholder="" value="{{ area_solicitante_cadastro_base }}" maxlength="100" disabled>
                             </div>
                         </div>
                         <div class="col-lg">
@@ -551,7 +551,7 @@
                                 <div class="input-group">
                                     <label class="ml-2 font-weight-bold text-info">Publicação:</label>
                                 </div>
-                                <input type="date" class="form-control bg-white" name="publicacão_solicitante_cadastro_base" id="publicacão_solicitante_cadastro_base" placeholder="Ex:30/01/2000" value="{{plano.publicacao_solicitante_cadastro_base}}">
+                                <input type="date" class="form-control bg-white" name="publicacão_solicitante_cadastro_base" id="publicacão_solicitante_cadastro_base" placeholder="Ex:30/01/2000" value="{{ publicacao_solicitante_cadastro_base }}" disabled>
                             </div>
                         </div>
                         <div class="col-lg">
@@ -559,7 +559,7 @@
                                 <div class="input-group">
                                     <label class="ml-2 font-weight-bold text-info">Observações:</label>
                                 </div>
-                                <textarea class="form-control bg-white" name="obs_solicitante_cadastro_base" id="obs_solicitante_cadastro_base" rows="1" maxlength="255">{{plano.obs_solicitante_cadastro_base}}</textarea>
+                                <textarea class="form-control bg-white" name="obs_solicitante_cadastro_base" id="obs_solicitante_cadastro_base" rows="1" maxlength="255" disabled>{{ obs_solicitante_cadastro_base }}</textarea>
                             </div>
                         </div>
                         </div>
@@ -569,7 +569,7 @@
                                     <div class="input-group">
                                         <label class="ml-2 font-weight-bold text-info">Área Executora:</label>
                                     </div>
-                                    <input type="text" class="form-control bg-white" name="area_executora_cadastro_base" id="area_executora_cadastro_base" placeholder="" value="{{plano.area_executora_cadastro_base}}" maxlength="100">
+                                    <input type="text" class="form-control bg-white" name="area_executora_cadastro_base" id="area_executora_cadastro_base" placeholder="" value="{{ area_executora_cadastro_base}}" maxlength="100" disabled>
                                 </div>
                             </div>
                             <div class="col-lg">
@@ -577,7 +577,7 @@
                                     <div class="input-group">
                                         <label class="ml-2 font-weight-bold text-info">Publicação:</label>
                                     </div>
-                                    <input type="date" class="form-control bg-white" name="publicacão_base" id="publicacão_executora_cadastro_base" placeholder="Ex:30/01/2000" value="{{plano.publicacao_executora_cadastro_base}}">
+                                    <input type="date" class="form-control bg-white" name="publicacão_base" id="publicacão_executora_cadastro_base" placeholder="Ex:30/01/2000" value="{{plano.publicacao_executora_cadastro_base}}" disabled>
                                 </div>
                             </div>
                             <div class="col-lg">
@@ -585,7 +585,7 @@
                                     <div class="input-group">
                                         <label class="ml-2 font-weight-bold text-info">Observações:</label>
                                     </div>
-                                    <textarea class="form-control bg-white" name="obs_executora_cadastro_base" id="obs_executora_cadastro_base" rows="1" maxlength="255">{{plano.obs_executora_cadastro_base}}</textarea>
+                                    <textarea class="form-control bg-white" name="obs_executora_cadastro_base" id="obs_executora_cadastro_base" rows="1" maxlength="255" disabled>{{obs_executora_cadastro_base}}</textarea>
                                 </div>
                             </div>
                             </div>
@@ -645,7 +645,7 @@
                                         <div class="input-group">
                                             <label class="ml-2 font-weight-bold text-info">Área responsavel:</label>
                                         </div>
-                                        <input type="text" class="form-control bg-white" name="area_responsavel_capacitacao" id="area_responsavel_capacitacao" placeholder="Gestao de Serviço" value="{{plano.area_responsavel_capacitacao}}" maxlength="100">
+                                        <input type="text" class="form-control bg-white" name="area_responsavel_capacitacao" id="area_responsavel_capacitacao" placeholder="Gestao de Serviço" value="{{ area_responsavel_capacitacao}}" maxlength="100" disabled>
                                     </div>
                                 </div>
                             </div>
@@ -656,7 +656,7 @@
                                         <div class="input-group">
                                             <label class="ml-2 font-weight-bold text-info">Grupos de Atendimento:</label>
                                         </div>
-                                        <input type="text" class="form-control bg-white" name="atendimento" id="atendimento" placeholder="EX:Gerid" value="{{plano.atendimento}}" maxlength="100">
+                                        <input type="text" class="form-control bg-white" name="atendimento" id="atendimento" placeholder="EX:Gerid" value="{{ atendimento }}" disabled maxlength="100">
                                     </div>
                                 </div>
                             </div>
@@ -667,7 +667,7 @@
                                         <div class="input-group">
                                             <label class="ml-2 font-weight-bold text-info">Carga Horária:</label>
                                         </div>
-                                        <input type="text" class="form-control bg-white" name="carga_horaria" id="carga_horaria" placeholder="Ex:8h" value="{{plano.carga_horaria}}" maxlength="100">
+                                        <input type="text" class="form-control bg-white" name="carga_horaria" id="carga_horaria" placeholder="Ex:8h" disabled value="{{carga_horaria}}" maxlength="100">
                                     </div>
                                 </div>
                             </div>
@@ -689,15 +689,15 @@
                                         <div class="input-group">
                                             <label class="ml-2 font-weight-bold text-info">Observações de risco e impacto:</label>
                                         </div>
-                                        <textarea class="form-control bg-white" name="obs_risco" id="obs_risco" rows="3" maxlength="255">{{plano.obs_risco}}</textarea>
+                                        <textarea class="form-control bg-white" name="obs_risco" id="obs_risco" rows="3" maxlength="255" disabled>{{ obs_risco }}</textarea>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                     <div class="row d-flex justify-content-center mb-3 mr-2">
-                        <button type="submit" class="col-12 col-md-4 btn btn-info ml-2 mt-2" id="Enviar">Salvar Proposta</button>
-                        <button type="reset" class="col-12 col-md-4 btn btn-info ml-2 mt-2">Cancelar</button>
+                       
+                        <button type="reset" class="col-12 col-md-4 btn btn-info ml-2 mt-2">Voltar</button>
                     </div>
 
                 </div>
