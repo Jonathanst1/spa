@@ -81,13 +81,33 @@
                                     <div class="input-group">
                                         <label class="ml-2 font-weight-bold text-info">Status:</label>
                                     </div>
+                                   
                                     <select class="custom-select mr-sm-2" name="status" id="status" disabled>
-                                        <option selected>Escolha o Status do Plano</option>
-                                        <option value="{{ responsavel }}">Ativo</option>
-                                        <option value="Em Elaboracao">Em Elaboração</option>
-                                        <option value="Inativo">Inativo</option>
+                                        
+                                        {% if status == '1' %}
+                                        <option selected aria-checked="true" value="1">Ativo</option>
+                                        <option  value="2">Em Elaboração</option>
+                                        <option  value="3">Inativo</option>
+                                        {%endif%}
+
+                                        {% if status == '2' %}
+                                        <option  value="1">Ativo</option>
+                                        <option selected value="2">Em Elaboração</option>
+                                        <option  value="3">Inativo</option>
+                                        {%endif%}
+
+                                        {% if status == '3' %}
+                                        <option  value="1">Ativo</option>
+                                        <option  value="2">Em Elaboração</option>
+                                        <option selected aria-checked="true" value="3">Inativo</option>
+                                        {%endif%}
+
+
                                       </select>
+                                      
+
                                 </div>
+                                
                             </div>
                             <div class="col-sm">
                                 <div class="input-group mb-3">
@@ -270,7 +290,7 @@
                                         <label class="ml-2 font-weight-bold text-info">É necessário alguma especificação adicional?</label>
                                     </div>
 
-                                {% if plano.adequacao == 'Sim' %}
+                                {% if adequacao == 'Sim' %}
 
                                      <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="adequacao" id="adequacao" value="Sim" checked disabled>
@@ -285,7 +305,7 @@
                                       </div>
                                         {% endif %}
 
-                                    {% if plano.adequacao == 'Nao' %}
+                                    {% if adequacao == 'Nao' %}
                                        <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="adequacao" id="adequacao" value="Sim" disabled >
                                 <label class="form-check-label" for="capacitacao">Sim</label>
@@ -293,7 +313,7 @@
 
                               <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="adequacao" id="adequacao2" value="Nao" checked disabled>
-                                <label class="form-check-label" for="capacitacao2">Não</label>
+                                <label class="form-check-label" for="adequacao2">Não</label>
 
 
                                       </div>
@@ -602,29 +622,29 @@
                                         <label class="ml-2 font-weight-bold text-info">É necessário alguma especificação adicional?</label>
                                     </div>
 
-                                {% if plano.capacitacao == 'Sim' %}
+                                {% if capacitacao == 'Sim' %}
 
                                      <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="capacitacao" id="capacitacao" value="Sim" checked>
+                                <input class="form-check-input" type="radio" name="capacitacao" id="capacitacao" value="Sim" checked disabled>
                                 <label class="form-check-label" for="capacitacao">Sim</label>
                               </div>
 
                                     <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="capacitacao" id="capacitacao3" value="Nao" >
+                                <input class="form-check-input" type="radio" name="capacitacao" id="capacitacao3" value="Nao" disabled >
                                 <label class="form-check-label" for="capacitacao2">Não</label>
 
 
                                       </div>
                                         {% endif %}
 
-                                    {% if plano.capacitacao == 'Nao' %}
+                                    {% if capacitacao == 'Nao' %}
                                        <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="capacitacao" id="capacitacao" value="Sim" >
+                                <input class="form-check-input" type="radio" name="capacitacao" id="capacitacao" value="Sim" disabled >
                                 <label class="form-check-label" for="capacitacao">Sim</label>
                               </div>
 
                               <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="capacitacao" id="capacitacao2" value="Nao" checked>
+                                <input class="form-check-input" type="radio" name="capacitacao" id="capacitacao2" value="Nao" checked disabled>
                                 <label class="form-check-label" for="capacitacao2">Não</label>
 
 

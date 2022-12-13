@@ -65,19 +65,26 @@
                                     <input type="text" class="form-control bg-white" name="versao"  id="versao" placeholder="Ex:1.0" value="" maxlength="100">
                                 </div>
                             </div>
+                            
                             <div class="col-sm">
+                                
                                 <div class="input-group mb-3">
                                     <div class="input-group">
                                         <label class="ml-2 font-weight-bold text-info">Status:</label>
                                     </div>
+                                    
                                     <select class="custom-select mr-sm-2" name="status" id="status">
+
                                         <option selected>Escolha o Status do Plano</option>
-                                        <option value="1">Ativo</option>
+                                        <option value="1" >Ativo</option>
                                         <option value="2">Em Elaboração</option>
                                         <option value="3">Inativo</option>
                                       </select>
+                                     
                                 </div>
+                                
                             </div>
+                            
                             <div class="col-sm">
                                 <div class="input-group mb-3">
                                     <div class="input-group">
@@ -260,11 +267,11 @@
                             </div>
 
                             <div class="form-check form-check-inline">                                
-                                <input class="form-check-input" type="radio" name="adequacao" id="adequacao" value="Sim">
+                                <input class="form-check-input" type="radio" name="adequacao" id="adequacao" value="Sim" required>
                                 <label class="form-check-label" for="adequacao">Sim</label>
                               </div>
                               <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="adequacao" id="adequacao2" value="Nao" checked>
+                                <input class="form-check-input" type="radio" name="adequacao" id="adequacao2" value="Nao" >
                                 <label class="form-check-label" for="adequacao2">Não</label>
 
                               </div>
@@ -556,27 +563,31 @@
                             </div>
                             </div>
 
-                        <hr class="mt-4 mb-4">
-                        <div class="row">
-                            <div class="col-md">
-                                <div class="input-group mb-3">
-                                    <div class="input-group">
-                                        <label class="ml-2 h4 font-weight-bold text-info h4">Capacitação:</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <label class="ml-2 font-weight-bold text-info">É necessário alguma especificação adicional?</label>
-                                    </div>
-                                   <div class="form-check form-check-inline">
+                       <hr class="mt-2 mb-2">
+
+                <div class="row">
+                    <div class="col-md d-inline-flex">
+                        <div class="input-group mb-3">
+                            <div class="input-group">
+                                <label class="ml-2 font-weight-bold text-info h4">Capacitação da Ferramenta de Atendimento</label>
+                            </div>
+                            <div class="form-check form-check-inline">                                
+                                <label class="ml-2 font-weight-bold text-info">É necessário alguma especificação adicional?</label>
+                            </div>
+
+                            <div class="form-check form-check-inline">                                
                                 <input class="form-check-input" type="radio" name="capacitacao" id="capacitacao" value="Sim">
                                 <label class="form-check-label" for="capacitacao">Sim</label>
                               </div>
                               <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="capacita" id="capacitacao2" value="Nao" checked>
-                                <label class="form-check-label" for="capacitacao2">Não</label>
-                                      </div>
-                                    </div>
-                                </div>
-                            </div>
+                                <input class="form-check-input" type="radio" name="capacitacao" id="capacitacao2" value="Nao" checked>
+                                <label class="form-check-label" for="capacitacao">Não</label>
+
+                              </div>
+
+                        </div>
+                    </div>                    
+                </div>
                         
                             
                             <div class="row">

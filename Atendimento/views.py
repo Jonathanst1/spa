@@ -48,7 +48,7 @@ class CreatePdaView(CreateView):
               'area_executora_cadastro_clientes','obs_executora_cliente','obs_executora_cadastro_clientes','obs_solicitante_cadastro_clientes','area_solicitante_cadastro_base',
               'publicacao_executora_cadastro_base','publicacao_solicitante_cadastro_base','obs_solicitante_cadastro_base','area_executora_cadastro_base',
               'obs_executora_cadastro_base','area_responsavel_capacitacao','atendimento','carga_horaria','cronograma','obs_risco',
-                'adequacao','capacitacao','responsavel']
+                'adequacao','capacitacao','responsavel','status']
 
     success_url = reverse_lazy('index')
     def get_queryset(self):
