@@ -17,7 +17,7 @@
             <h4 class="card-header text-center font-weight-bold text-info">Proposta de Atendimento - PDA</h4>
             <br>
     
-            <form method="post" target="_blank" action="">
+            <form method="post" target="_blank" action="" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="container">
                     <div class="row">
@@ -73,9 +73,9 @@
                                         <label class="ml-2 font-weight-bold text-info">Status:</label>
                                     </div>
                                     
-                                    <select class="custom-select mr-sm-2" name="status" id="status">
+                                    <select class="custom-select mr-sm-2" name="status" id="status" required>
 
-                                        <option selected>Escolha o Status do Plano</option>
+                                        <option  selected>Escolha o Status do Plano</option>
                                         <option value="1" >Ativo</option>
                                         <option value="2">Em Elaboração</option>
                                         <option value="3">Inativo</option>
@@ -180,7 +180,7 @@
                                 <div class="input-group">
                                     <label class="ml-2 font-weight-bold text-info">Anexo de contexto:</label>
                                 </div>
-                                <input type="file" accept="image/*" class="form-control bg-white" name="anexo_contexto" id="anexo_contexto" value="" enabled>
+                                <input type="file" accept="application/pdf,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" class="form-control bg-white" name="anexo_contexto" id="anexo_contexto" value="" enabled>
                             </div>
                             <div class="input-group mb-3">
                             <small id="passwordHelpBlock1" class="form-text text-muted">
