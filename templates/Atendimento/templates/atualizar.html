@@ -20,7 +20,7 @@
             <h4 class="card-header text-center font-weight-bold text-info">Editar Proposta de Atendimento - PDA</h4>
             <br>
 
-            <form method="post" target="_blank" action="">
+            <form method="post" target="_blank" action="" enctype="multipart/form-data">
 
                 {% csrf_token %}
                 <div class="container">
@@ -183,9 +183,13 @@
                             <div class="input-group">
                                 <div class="input-group">
                                     <label class="ml-2 font-weight-bold text-info">Anexo de contexto:</label>
+                                    <p>Atualmente</p>
                                 </div>
-                                <input type="file" accept="image/*" class="form-control bg-white" name="anexo_contexto" id="anexo_contexto" value="" disabled>
+                                
+                                <input type="text"  src="{{ anexo_contexto.url }}"  class="form-control bg-white" name="anexo_contexto" id="anexo_contexto" value="{{ plano.anexo_contexto }}"    enabled>
+                                <p>substituir</p><input type="file" accept="" class="form-control bg-white" name="anexo_contexto" id="anexo_contexto" value="" enabled>
                             </div>
+                            <p><a href="{{ plano.anexo_contexto.url }}">Visualizar arquivo atual</a></p>
                             <div class="input-group mb-3">
                             <small id="HelpBlock" class="form-text text-muted">
                                 Insira no campo acima os anexos de contexto.
