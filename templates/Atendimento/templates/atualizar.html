@@ -182,14 +182,26 @@
                         <div class="col-sm">
                             <div class="input-group">
                                 <div class="input-group">
-                                    <label class="ml-2 font-weight-bold text-info">Anexo de contexto:</label>
-                                    <p>Atualmente</p>
+                                    <label class="ml-2 font-weight-bold text-info">Anexo de contexto:</label> 
                                 </div>
-                                
-                                <input type="text"  src="{{ anexo_contexto.url }}"  class="form-control bg-white" name="anexo_contexto" id="anexo_contexto" value="{{ plano.anexo_contexto }}"    enabled>
-                                <p>substituir</p><input type="file" accept="" class="form-control bg-white" name="anexo_contexto" id="anexo_contexto" value="" enabled>
+                                <div class="input-group mb-3">
+                                    <small>
+                                        Atualmente:
+                                    </small>
+                                    </div>
+
+                                <input type="text"  src="{{ anexo_contexto.url }}"  class="form-control bg-white" name="anexo_contexto" id="anexo_contexto" value="{{ plano.anexo_contexto }}"    disabled>
+                               
                             </div>
                             <p><a href="{{ plano.anexo_contexto.url }}">Visualizar arquivo atual</a></p>
+
+                            <div class="input-group mb-3">
+                                <small>
+                                    Substituir:
+                                </small>
+                                </div>
+                            <input type="file" accept="application/pdf,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" class="form-control bg-white" name="anexo_contexto" id="anexo_contexto" value="" enabled>
+                            
                             <div class="input-group mb-3">
                             <small id="HelpBlock" class="form-text text-muted">
                                 Insira no campo acima os anexos de contexto.
@@ -204,11 +216,29 @@
                                     <div class="input-group">
                                         <label class="ml-2 font-weight-bold text-info">Telas do sistema:</label>
                                     </div>
-                                    <input type="file" accept="image/*" class="form-control bg-white" name="telas_sistema" id="telas_sistema" value="" disabled>
+                                    <div class="input-group mb-3">
+                                        <small>
+                                            Atualmente:
+                                        </small>
+                                        </div>
+                                    <input type="text"  class="form-control bg-white" name="telas_sistema" id="telas_sistema" value="{{ plano.telas_sistema }}" disabled>
                                 </div>
+                                <small>
+                                <p><a href="{{ plano.telas_sistema.url }}">Visualizar arquivo atual</a></p>
+                            </small>
+                                <div class="input-group mb-3">
+                                    <small>
+                                        Substituir:
+                                    </small>
+                                    </div>
+
+                                    <input type="file" accept="application/pdf,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"  class="form-control bg-white" name="telas_sistema" id="telas_sistema"  enabled>
+
+
+
                                 <div class="input-group mb-3">
                                     <small id="HelpBlock2" class="form-text text-muted">
-                                        Insira no campo acima os anexo com as imagens de telas do sistema.
+                                        Insira no campo acima os anexo  de telas do sistema.
                                       </small>
                                     </div>
                             </div>
@@ -220,8 +250,23 @@
                                     <div class="input-group">
                                         <label class="ml-2 font-weight-bold text-info">Cronograma de Implantação da Solução:</label>
                                     </div>
-                                    <input type="file" accept="image/*" class="form-control bg-white" name="cronograma_implantacao" id="cronograma_implantacao" value="" disabled>
+                                    <div class="input-group mb-3">
+                                        <small>
+                                            Atualmente:
+                                        </small>
+                                        </div>
+                                    <input type="text"  class="form-control bg-white" name="cronograma_implantacao" id="cronograma_implantacao" value="{{ plano.cronograma_implantacao }}" disabled>
                                 </div>
+                                <small>
+                                    <p><a href="{{ plano.cronograma_implantacao.url }}">Visualizar arquivo atual</a></p>
+                                </small>
+                                    <div class="input-group mb-3">
+                                        <small>
+                                            Substituir:
+                                        </small>
+                                        </div>
+                                        <input type="file" accept="application/pdf,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"  class="form-control bg-white" name="cronograma_implantacao" id="cronograma_implantacao"  enabled>
+
                                 <div class="input-group mb-3">
                                     <small id="passwordHelpBlock" class="form-text text-muted">
                                         Insira no campo acima o anexo com o cronograma detalhado com as entregas.
@@ -682,10 +727,27 @@
                                         <div class="input-group">
                                             <label class="ml-2 font-weight-bold text-info">Cronograma:</label>
                                         </div>
-                                        <input type="file" class="form-control bg-white" name="cronograma" id="cronograma" placeholder="" value="{{ plano.cronograma }}" enabled>
+                                        <div class="input-group mb-3">
+                                            <small>
+                                                Atualmente:
+                                            </small>
+                                            </div>
+                                        <input type="text" class="form-control bg-white" name="cronograma" id="cronograma" placeholder="" value="{{ plano.cronograma }}" enabled>
                                     </div>
+                                    <small>
+                                        <p><a href="{{ plano.cronograma.url }}">Visualizar arquivo atual</a></p>
+                                    </small>
+                                    
+                                    <div class="input-group mb-3">
+                                        <small>
+                                            Substituir:
+                                        </small>
+                                        </div>
+    
+                                        <input type="file" accept="application/pdf,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"  class="form-control bg-white" name="cronograma" id="cronograma"  enabled>
                                 </div>
                             </div>
+                            <br>
 
                             <div class="row">
                                 <div class="col-md">
