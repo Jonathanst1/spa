@@ -206,11 +206,11 @@
                                 </div>
                                 <input type="file-upload"  src="{{ anexo_contexto.url }}"  class="form-control bg-white" name="anexo_contexto" id="anexo_contexto" value="{{ anexo_contexto }}"    disabled>
                             </div>
-                            <a href="{{ anexo_contexto.url }}">Visualizar Arquivo enviado</a>
+                            
                             <div class="input-group mb-3">
-                            <small id="HelpBlock" class="form-text text-muted">
-                                Insira no campo acima os anexos de contexto.
-                              </small>
+                            <small>
+                                <a href="{{ anexo_contexto.url }}">Visualizar Arquivo enviado</a>
+                            </small>
                             </div>
                         </div>
                     </div>
@@ -221,12 +221,11 @@
                                     <div class="input-group">
                                         <label class="ml-2 font-weight-bold text-info">Telas do sistema:</label>
                                     </div>
-                                    <input type="file" accept="image/*" class="form-control bg-white" name="telas_sistema" id="telas_sistema" value="" disabled>
+                                    <input type="text" src="{{ telas_sistema.url }}"" class="form-control bg-white" name="telas_sistema" id="telas_sistema" value="{{ telas_sistema }}" disabled>
                                 </div>
+                                
                                 <div class="input-group mb-3">
-                                    <small id="HelpBlock2" class="form-text text-muted">
-                                        Insira no campo acima os anexo com as imagens de telas do sistema.
-                                      </small>
+                                    <small><a href="{{ telas_sistema.url }}">Visualizar Arquivo enviado</a></small>
                                     </div>
                             </div>
                         </div>
@@ -237,12 +236,12 @@
                                     <div class="input-group">
                                         <label class="ml-2 font-weight-bold text-info">Cronograma de Implantação da Solução:</label>
                                     </div>
-                                    <input type="file" accept="image/*" class="form-control bg-white" name="cronograma_implantacao" id="cronograma_implantacao" value="" disabled>
+                                    <input type="texto" src="{{ cronograma_implantacao }}" class="form-control bg-white" name="cronograma_implantacao" id="cronograma_implantacao" value="{{ cronograma_implantacao }}" disabled>
                                 </div>
                                 <div class="input-group mb-3">
-                                    <small id="passwordHelpBlock" class="form-text text-muted">
-                                        Insira no campo acima o anexo com o cronograma detalhado com as entregas.
-                                      </small>
+                                    <small> 
+                                         <a href="{{ cronograma_implantacao.url }}">Visualizar Arquivo enviado</a>
+                                    </small>
                                     </div>
                                 </div>
                             </div>
@@ -699,8 +698,9 @@
                                         <div class="input-group">
                                             <label class="ml-2 font-weight-bold text-info">Cronograma:</label>
                                         </div>
-                                        <input type="file" class="form-control bg-white" name="cronograma" id="cronograma" placeholder="" value="{{ plano.cronograma }}" enabled>
+                                        <input type="text" class="form-control bg-white" name="cronograma" id="cronograma" placeholder="" value="{{ cronograma }}" enabled>
                                     </div>
+                                    <a href="{{ cronograma.url }}">Visualizar Arquivo enviado</a>
                                 </div>
                             </div>
 
