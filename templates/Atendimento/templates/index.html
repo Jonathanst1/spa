@@ -63,8 +63,8 @@
                 {% endif %}
                 <th scope="row" >{{ pl.id }}</th>
                 <td>{{ pl.sistema }}</td>
-                <td>{{ pl.created }}</td>
-                <td>{{ pl.modified }}</td>
+                <td>{{ pl.created|date:'d/m/Y H:i' }}</td>
+                <td>{{pl.modified|date:'d/m/Y H:i' }}</td>
                 
                 {% if pl.status == '1' %}
                 
