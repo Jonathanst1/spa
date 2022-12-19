@@ -193,8 +193,10 @@
                                 <input type="text"  src="{{ anexo_contexto.url }}"  class="form-control bg-white" name="anexo_contexto" id="anexo_contexto" value="{{ plano.anexo_contexto }}"    disabled>
                                
                             </div>
-                            <p><a href="{{ plano.anexo_contexto.url }}">Visualizar arquivo atual</a></p>
-
+                            {% if plano.anexo_contexto != 'Nenhum arquivo anexado' %}
+                            <p ><a href="{{ plano.anexo_contexto.url }}">Visualizar arquivo atual</a></p>
+                            
+                            {% endif %}
                             <div class="input-group mb-3">
                                 <small>
                                     Substituir:
@@ -223,9 +225,11 @@
                                         </div>
                                     <input type="text"  class="form-control bg-white" name="telas_sistema" id="telas_sistema" value="{{ plano.telas_sistema }}" disabled>
                                 </div>
+                                {% if plano.telas_sistema != 'Nenhum arquivo anexado' %}
                                 <small>
-                                <p><a href="{{ plano.telas_sistema.url }}">Visualizar arquivo atual</a></p>
+                                <p  ><a href="{{ plano.telas_sistema.url }}">Visualizar arquivo atual</a></p>
                             </small>
+                            {% endif %}
                                 <div class="input-group mb-3">
                                     <small>
                                         Substituir:
@@ -257,9 +261,11 @@
                                         </div>
                                     <input type="text"  class="form-control bg-white" name="cronograma_implantacao" id="cronograma_implantacao" value="{{ plano.cronograma_implantacao }}" disabled>
                                 </div>
-                                <small>
+                                {% if plano.cronograma_implantacao != 'Nenhum arquivo anexado'%}
+                                <small ">
                                     <p><a href="{{ plano.cronograma_implantacao.url }}">Visualizar arquivo atual</a></p>
                                 </small>
+                                {% endif %}
                                     <div class="input-group mb-3">
                                         <small>
                                             Substituir:
@@ -464,11 +470,17 @@
                             </div>
                         </div>
                         <div class="col-lg">
-                            <div class="input-group mb-3">
+                            <div class="d-flex flex-column bd-highlight mb-3">
                                 <div class="input-group">
                                     <label class="ml-2 font-weight-bold text-info">Publicação:</label>
+                                    <br>
+                                   
                                 </div>
-                                <input type="date" formaction="dd/mm/aaaa" class="form-control bg-white" name="publicacao_solicitante_base" id="publicacao_solicitante_base" placeholder="Ex:30/01/2000" value="{{plano.publicacao_solicitante_base}}">
+                                
+                                
+                                <input type="text"  class="form-control bg-white" name="publicacao_solicitante_base" id="publicacao_solicitante_base" placeholder="Ex: 30/01/2000" value="{{plano.publicacao_solicitante_base|date:'d/m/Y '}}" disabled>
+                                <small>Editar data : </small>
+                                <input type="date"  class="form-control bg-white" name="publicacao_solicitante_base" id="publicacao_solicitante_base" placeholder="Ex: 30/01/2000" value="{{plano.publicacao_solicitante_base|date:'d/m/Y '}}">
                             </div>
                         </div>
                         <div class="col-lg">
@@ -476,7 +488,7 @@
                                 <div class="input-group">
                                     <label class="ml-2 font-weight-bold text-info">Observações:</label>
                                 </div>
-                                <textarea class="form-control bg-white" name="obs_solicitante_base" id="obs_solicitante_base" rows="1" maxlength="255">{{plano.obs_solicitante_base}}</textarea>
+                                <textarea class="form-control bg-white" name="obs_solicitante_base" id="obs_solicitante_base" rows="4" maxlength="255">{{plano.obs_solicitante_base}}</textarea>
                             </div>
                         </div>
                         </div>
@@ -487,14 +499,18 @@
                                         <label class="ml-2 font-weight-bold text-info">Área Executora:</label>
                                     </div>
                                     <input type="text" class="form-control bg-white" name="area_executora_base" id="area_executora_base" placeholder="" value="{{plano.area_executora_base}}" maxlength="100">
+
                                 </div>
                             </div>
                             <div class="col-lg">
-                                <div class="input-group mb-3">
+                                <div class="d-flex flex-column bd-highlight mb-3">
                                     <div class="input-group">
                                         <label class="ml-2 font-weight-bold text-info">Publicação:</label>
                                     </div>
+                                    <input type="text" class="form-control bg-white" name="publicacão_executora_base" id="publicacão_executora_base" placeholder="Ex:30/01/2000" value="{{plano.publicacao_executora_base|date:'d/m/Y '}}" disabled>
+                                    <small>Editar data : </small>
                                     <input type="date" class="form-control bg-white" name="publicacão_executora_base" id="publicacão_executora_base" placeholder="Ex:30/01/2000" value="{{plano.publicacao_executora_base}}">
+
                                 </div>
                             </div>
                             <div class="col-lg">
@@ -502,7 +518,7 @@
                                     <div class="input-group">
                                         <label class="ml-2 font-weight-bold text-info">Observações:</label>
                                     </div>
-                                    <textarea class="form-control bg-white" name="obs_executora_base" id="obs_executora_base" rows="1" maxlength="255">{{plano.obs_executora_base}}</textarea>
+                                    <textarea class="form-control bg-white" name="obs_executora_base" id="obs_executora_base" rows="4" maxlength="255">{{plano.obs_executora_base}}</textarea>
                                 </div>
                             </div>
                             </div>
@@ -596,11 +612,14 @@
                             </div>
                         </div>
                         <div class="col-lg">
-                            <div class="input-group mb-3">
+                            <div class="d-flex flex-column bd-highlight mb-3">
                                 <div class="input-group">
                                     <label class="ml-2 font-weight-bold text-info">Publicação:</label>
                                 </div>
+                                <input type="text" class="form-control bg-white" name="publicacão_solicitante_cadastro_base" id="publicacão_solicitante_cadastro_base" placeholder="Ex:30/01/2000" value="{{plano.publicacao_solicitante_cadastro_base|date:'d/m/Y '}}" disabled>
+                                <small>Editar data : </small>
                                 <input type="date" class="form-control bg-white" name="publicacão_solicitante_cadastro_base" id="publicacão_solicitante_cadastro_base" placeholder="Ex:30/01/2000" value="{{plano.publicacao_solicitante_cadastro_base}}">
+
                             </div>
                         </div>
                         <div class="col-lg">
@@ -608,7 +627,7 @@
                                 <div class="input-group">
                                     <label class="ml-2 font-weight-bold text-info">Observações:</label>
                                 </div>
-                                <textarea class="form-control bg-white" name="obs_solicitante_cadastro_base" id="obs_solicitante_cadastro_base" rows="1" maxlength="255">{{plano.obs_solicitante_cadastro_base}}</textarea>
+                                <textarea class="form-control bg-white" name="obs_solicitante_cadastro_base" id="obs_solicitante_cadastro_base" rows="4" maxlength="255">{{plano.obs_solicitante_cadastro_base}}</textarea>
                             </div>
                         </div>
                         </div>
@@ -622,10 +641,12 @@
                                 </div>
                             </div>
                             <div class="col-lg">
-                                <div class="input-group mb-3">
+                                <div class="d-flex flex-column bd-highlight mb-3">
                                     <div class="input-group">
                                         <label class="ml-2 font-weight-bold text-info">Publicação:</label>
                                     </div>
+                                    <input type="text" class="form-control bg-white" name="publicacão_base" id="publicacão_executora_cadastro_base" placeholder="Ex:30/01/2000" value="{{plano.publicacao_executora_cadastro_base|date:'d/m/Y '}}" disabled>
+                                    <small>Editar data : </small>
                                     <input type="date" class="form-control bg-white" name="publicacão_base" id="publicacão_executora_cadastro_base" placeholder="Ex:30/01/2000" value="{{plano.publicacao_executora_cadastro_base}}">
                                 </div>
                             </div>
@@ -634,7 +655,7 @@
                                     <div class="input-group">
                                         <label class="ml-2 font-weight-bold text-info">Observações:</label>
                                     </div>
-                                    <textarea class="form-control bg-white" name="obs_executora_cadastro_base" id="obs_executora_cadastro_base" rows="1" maxlength="255">{{plano.obs_executora_cadastro_base}}</textarea>
+                                    <textarea class="form-control bg-white" name="obs_executora_cadastro_base" id="obs_executora_cadastro_base" rows="4" maxlength="255">{{plano.obs_executora_cadastro_base}}</textarea>
                                 </div>
                             </div>
                             </div>
@@ -732,12 +753,13 @@
                                                 Atualmente:
                                             </small>
                                             </div>
-                                        <input type="text" class="form-control bg-white" name="cronograma" id="cronograma" placeholder="" value="{{ plano.cronograma }}" enabled>
+                                        <input type="text" class="form-control bg-white" name="cronograma" id="cronograma" placeholder="" value="{{ plano.cronograma }}" disabled>
                                     </div>
-                                    <small>
+                                    {% if plano.cronograma != 'Nenhum arquivo anexado' %}
+                                    <small ">
                                         <p><a href="{{ plano.cronograma.url }}">Visualizar arquivo atual</a></p>
                                     </small>
-                                    
+                                    {% endif %}
                                     <div class="input-group mb-3">
                                         <small>
                                             Substituir:

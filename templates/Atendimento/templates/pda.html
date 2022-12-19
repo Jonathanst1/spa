@@ -208,9 +208,11 @@
                             </div>
                             
                             <div class="input-group mb-3">
-                            <small>
+                                {% if anexo_contexto != 'Nenhum arquivo anexado' %}
+                            <small >
                                 <a href="{{ anexo_contexto.url }}">Visualizar Arquivo enviado</a>
                             </small>
+                            {% endif %}
                             </div>
                         </div>
                     </div>
@@ -225,8 +227,12 @@
                                 </div>
                                 
                                 <div class="input-group mb-3">
-                                    <small><a href="{{ telas_sistema.url }}">Visualizar Arquivo enviado</a></small>
+                                    {% if telas_sistema != 'Nenhum arquivo anexado' %}
+                                    <small "><a href="{{ telas_sistema.url }}">Visualizar Arquivo enviado</a></small>
+                                    {% endif %}
                                     </div>
+                                    
+                                    
                             </div>
                         </div>
 
@@ -238,10 +244,13 @@
                                     </div>
                                     <input type="texto" src="{{ cronograma_implantacao }}" class="form-control bg-white" name="cronograma_implantacao" id="cronograma_implantacao" value="{{ cronograma_implantacao }}" disabled>
                                 </div>
+                                
                                 <div class="input-group mb-3">
-                                    <small> 
+                                    {% if cronograma_implantacao != 'Nenhum arquivo anexado' %}
+                                    <small "> 
                                          <a href="{{ cronograma_implantacao.url }}">Visualizar Arquivo enviado</a>
                                     </small>
+                                    {% endif %}
                                     </div>
                                 </div>
                             </div>
@@ -439,7 +448,7 @@
                                 <div class="input-group">
                                     <label class="ml-2 font-weight-bold text-info">Publicação:</label>
                                 </div>
-                                <input type="date" formaction="dd/mm/aaaa" class="form-control bg-white" name="publicacao_solicitante_base" id="publicacao_solicitante_base" placeholder="Ex:30/01/2000" value="{{ publicacao_solicitante_base }}" disabled>
+                                <input type="text" class="form-control bg-white" name="publicacao_solicitante_base" id="publicacao_solicitante_base" placeholder="Ex:30/01/2000" value="{{ publicacao_solicitante_base|date:'d/m/Y '  }}" disabled>
                             </div>
                         </div>
                         <div class="col-lg">
@@ -465,7 +474,7 @@
                                     <div class="input-group">
                                         <label class="ml-2 font-weight-bold text-info">Publicação:</label>
                                     </div>
-                                    <input type="date" class="form-control bg-white" name="publicacão_executora_base" id="publicacão_executora_base" placeholder="Ex:30/01/2000" value="{{ publicacao_executora_base }}" disabled>
+                                    <input type="text" class="form-control bg-white" name="publicacão_executora_base" id="publicacão_executora_base" placeholder="Ex:30/01/2000" value="{{ publicacao_executora_base|date:'d/m/Y ' }}" disabled>
                                 </div>
                             </div>
                             <div class="col-lg">
@@ -571,7 +580,7 @@
                                 <div class="input-group">
                                     <label class="ml-2 font-weight-bold text-info">Publicação:</label>
                                 </div>
-                                <input type="date" class="form-control bg-white" name="publicacão_solicitante_cadastro_base" id="publicacão_solicitante_cadastro_base" placeholder="Ex:30/01/2000" value="{{ publicacao_solicitante_cadastro_base }}" disabled>
+                                <input type="text" class="form-control bg-white" name="publicacão_solicitante_cadastro_base" id="publicacão_solicitante_cadastro_base" placeholder="Ex:30/01/2000" value="{{ publicacao_solicitante_cadastro_base|date:'d/m/Y ' }}" disabled>
                             </div>
                         </div>
                         <div class="col-lg">
@@ -597,7 +606,7 @@
                                     <div class="input-group">
                                         <label class="ml-2 font-weight-bold text-info">Publicação:</label>
                                     </div>
-                                    <input type="date" class="form-control bg-white" name="publicacão_base" id="publicacão_executora_cadastro_base" placeholder="Ex:30/01/2000" value="{{plano.publicacao_executora_cadastro_base}}" disabled>
+                                    <input type="text" class="form-control bg-white" name="publicacao_executora_cadastro_base" id="publicacao_executora_cadastro_base" placeholder="Ex:30/01/2000" value="{{publicacao_executora_cadastro_base|date:'d/m/Y '}}" disabled>
                                 </div>
                             </div>
                             <div class="col-lg">
@@ -698,10 +707,12 @@
                                         <div class="input-group">
                                             <label class="ml-2 font-weight-bold text-info">Cronograma:</label>
                                         </div>
-                                        <input type="text" class="form-control bg-white" name="cronograma" id="cronograma" placeholder="" value="{{ cronograma }}" enabled>
+                                        <input type="text" class="form-control bg-white" name="cronograma" id="cronograma" placeholder="" value="{{ cronograma }}" disabled>
                                     </div>
-                                    <a href="{{ cronograma.url }}">Visualizar Arquivo enviado</a>
+                                    {% if cronograma != 'Nenhum arquivo anexado' %}
+                                    <a  href="{{ cronograma.url }}">Visualizar Arquivo enviado</a>
                                 </div>
+                                    {% endif %}
                             </div>
 
                             <div class="row">
