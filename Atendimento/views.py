@@ -146,7 +146,7 @@ class UpdatePda(UpdateView):
               'publicacao_executora_cadastro_base','obs_solicitante_cadastro_base','area_executora_cadastro_base',
               'publicacao_executora_cadastro_base','obs_executora_cadastro_base','capacitacao',
               'area_responsavel_capacitacao','atendimento','carga_horaria','cronograma','obs_risco','adequacao'
-              ,'responsavel','obs_solicitante_cadastro_clientes']
+              ,'responsavel','obs_solicitante_cadastro_clientes','publicacao_solicitante_base']
 
     success_url = reverse_lazy('index')
 
