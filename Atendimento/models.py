@@ -1,5 +1,6 @@
 from django.db import models
 from datetime import datetime
+
 # Create your models here.
 
 class plano(models.Model):
@@ -72,8 +73,6 @@ class plano(models.Model):
 
 
 
-
-
     def __str__(self):
         if not self.id:
             self.created = datetime.now()
@@ -82,6 +81,13 @@ class plano(models.Model):
         return self.inquilino + '-' + self.sistema
 
 
+class User(models.Model):
+    username = models.CharField(max_length=50)
+    password = models.CharField(max_length=50)
+    
+
+    def __str__(self):
+        return self.username
 
 '''CreateDate DATETIME
 DEFAULT

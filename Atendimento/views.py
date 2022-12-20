@@ -1,22 +1,48 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
+from .forms import LoginForm
 from django.views import generic
 from .models import plano
 from django.template import loader
 from django.contrib import messages
-
 from docx import Document
-
 from django.http.response import HttpResponse
-
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-
 from django.urls import reverse_lazy
+from django.contrib.auth import authenticate,logout,login
 # Create your views here.
 
-class Login(generic.ListView):
+
+
+def view_login(request):
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+
+            
+            
+            user = authenticate(
+                request,
+                username = form.cleaned_data['username'],
+                password = form.cleaned_data['password']
+
+                )
+            
+            if user is not None:
+                login(request,user)
+                return redirect('index')
+            else:
+                messages.error(request,'Credenciais Inválidas')
+                return redirect('login')
+    else:
+        form = LoginForm()
+    return render(request, 'Atendimento/templates/login2.html', {'form':form})
+
+
+
+'''class Login(generic.ListView):
     model = plano
-    template_name = 'Atendimento/templates/login.html'
+    template_name = 'Atendimento/templates/login.html'''
 
 
 class IndexView(generic.ListView):
