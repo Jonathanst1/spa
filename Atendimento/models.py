@@ -1,5 +1,6 @@
 from django.db import models
 from datetime import datetime
+
 # Create your models here.
 
 class plano(models.Model):
@@ -65,8 +66,6 @@ class plano(models.Model):
     obs_risco = models.TextField(blank=True,max_length=500)
     capacitacao = models.TextField(max_length=20,  choices=CHOICES, blank=True ,default="Nao")
     adequacao = models.TextField(max_length=20, choices=CHOICES, blank=True, default="Nao")
-
-
 
 
 

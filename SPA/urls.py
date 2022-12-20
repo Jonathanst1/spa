@@ -14,24 +14,25 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from Atendimento import views
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.auth.decorators import login_required
 
 
 
 urlpatterns = [
-    path('login/', views.Login.as_view(), name='login'),
+    
     path('admin/', admin.site.urls),
-    path('pdas/', views.IndexView.as_view(), name='index'),
-    path('novoplano/', views.CreatePdaView.as_view(), name='criarPlano'),
+    path('pdas/',login_required(views.IndexView.as_view()), name='index'),
+    path('novoplano/',login_required( views.CreatePdaView.as_view()), name='criarPlano'),
     path('<int:pda_id>/', views.ver, name='ver'),
-    path('<int:pk>/atualizar/',views.UpdatePda.as_view(),  name='atualizar'),
+    path('<int:pk>/atualizar/',login_required( views.UpdatePda.as_view()),  name='atualizar'),
     path('world/<int:pk>', views.download_world, name='world'),
     path('<int:pk>/desativar/', views.desativar, name='desativar'),
-    path('<int:pk>/delete/', views.DeletePda.as_view(), name='del_pda'),
-   
+    path('<int:pk>/delete/',login_required(views.DeletePda.as_view()), name='del_pda'),
+    path('accounts/', include('django.contrib.auth.urls'))
 
 
 

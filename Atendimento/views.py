@@ -1,25 +1,26 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
+
 from django.views import generic
 from .models import plano
 from django.template import loader
 from django.contrib import messages
-
 from docx import Document
-
 from django.http.response import HttpResponse
-
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-
 from django.urls import reverse_lazy
+from django.contrib.auth import authenticate,logout,login
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
-class Login(generic.ListView):
-    model = plano
-    template_name = 'Atendimento/templates/login.html'
+
+
+
+
 
 
 class IndexView(generic.ListView):
+    
     model = plano
     template_name = 'Atendimento/templates/index.html'
     def get_queryset(self):
@@ -32,6 +33,8 @@ class IndexView(generic.ListView):
         return plano.objects.order_by('-created')'''
 
 # classe para criar o pda
+
+
 class CreatePdaView(CreateView):
     model = plano
     CHOICES = plano.CHOICES
@@ -56,6 +59,7 @@ class CreatePdaView(CreateView):
 
 
 # função para visualização
+@login_required
 def ver(request, pda_id):
     pda = plano.objects.filter(id=pda_id)
     pda = pda[0]
@@ -164,7 +168,7 @@ class DeletePda(DeleteView):
 
 
     
-
+@login_required
 def desativar(request, pk):
     template = loader.get_template('Atendimento/templates/desativado.html')
     pda = plano.objects.filter(id=pk)
@@ -229,7 +233,7 @@ def desativar(request, pk):
     template = loader.get_template('Atendimento/templates/editar.html')
 
     return HttpResponse(template.render(context, request))'''
-
+@login_required
 def download_world(request,pk):
     pda_ed = plano.objects.filter(id=pk)
     pda_ed = pda_ed[0]
