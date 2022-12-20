@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -16,6 +17,11 @@
 </head>
 
 <body class="bg-secondary container-fluid">
+ {% if user.is_authenticated %}
+  <p>Usuário: {{ user.get_username }} </p>
+  <a class="nav-link" href="/accounts/logout">Sair</a>
+
+  {% endif %}
 
   <div class="row bg-secondary justify-content-center mt-5 mb-5">
     {% load static %}
