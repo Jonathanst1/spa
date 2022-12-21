@@ -25,7 +25,7 @@ from django.contrib.auth.decorators import login_required
 urlpatterns = [
     
     path('admin/', admin.site.urls),
-    path('pdas/',login_required(views.IndexView.as_view()), name='index'),
+    path('',login_required(views.IndexView.as_view()), name='index'),
     path('novoplano/',login_required( views.CreatePdaView.as_view()), name='criarPlano'),
     path('<int:pda_id>/', views.ver, name='ver'),
     path('<int:pk>/atualizar/',login_required( views.UpdatePda.as_view()),  name='atualizar'),

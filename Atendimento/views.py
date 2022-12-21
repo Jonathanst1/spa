@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-
+from Atendimento.forms import LoginForm
 from django.views import generic
 from .models import plano
 from django.template import loader
@@ -14,7 +14,29 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 
+def view_login(request):
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
 
+            
+            
+            user = authenticate(
+                request,
+                username = form.cleaned_data['username'],
+                password = form.cleaned_data['password']
+
+                )
+            
+            if user is not None:
+                login(request,user)
+                return redirect('index')
+            else:
+                messages.error(request,'Credenciais Inválidas')
+                return redirect('login')
+    else:
+        form = LoginForm()
+    return render(request, 'Atendimento/templates/login2.html', {'form':form})
 
 
 
