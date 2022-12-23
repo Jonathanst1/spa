@@ -14,7 +14,7 @@ class plano(models.Model):
     responsavel = models.CharField(max_length=100, blank=True)
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True )
-    sistema = models.CharField(max_length=100, blank=True)
+    sistema = models.CharField(max_length=100, blank=True, unique=True)
     inquilino = models.CharField(max_length=100, blank=True)
     demanda = models.CharField(max_length=100, blank=True)
     sub_demanda = models.CharField(max_length=100, blank=True)
