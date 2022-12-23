@@ -16,6 +16,13 @@
 
 
     <div class="container tab-pane active"><br>
+        {% if form.errors %}
+        {% for sistema in form %}
+            {% for error in sistema.errors %}
+                <p class="error-message" style="color: white;background-color: coral;"> O {{ error }}</p>
+            {% endfor %}
+        {% endfor %}
+    {% endif %}
         <div class="card-body">
             <h4 class="card-header text-center font-weight-bold text-info">Editar Proposta de Atendimento - PDA</h4>
             <br>
