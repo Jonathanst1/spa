@@ -66,8 +66,9 @@
 
 
 {% if plano_list %}
-<div >
-    <table  class="table table-sm table-light table-hover table-bordered "  >
+<div  >
+  
+    <table  class="table table-sm table-light table-hover table-bordered " id="tabela">
       <thead  class="thead-dark" align="center" >
         <tr >
           <th scope="col">#Id</th>
@@ -81,11 +82,10 @@
         </tr>
       </thead>
       
-      <tbody  >
+      <tbody align="center" >
     {% for pl in plano_list %}
     {% if pl.status == '4' %}
               <tr  class="desativ" style="visibility: collapse;">
-                
                 {% endif %}
                 <th scope="row" >{{ pl.id }}</th>
                 <td>{{ pl.sistema }}</td>
@@ -94,7 +94,7 @@
                 
                 {% if pl.status == '1' %}
                 
-                <td>
+                <td >
                   
                   <div class="d-flex justify-content-center mt-2">
 
@@ -157,8 +157,8 @@
                 </td>
                 <td>
                   
-
-                  <div class="d-flex justify-content-end bd-highlight">
+                    <!-- class="d-flex justify-content-end bd-highlight" -->
+                  <div align="center">
 
 
                     <a href="{% url 'ver' pl.id %}">
@@ -213,6 +213,9 @@
     {% endfor %}
     </tbody>
   </table>
+  <div class="text-white mb-5 text-center" id="pagination">
+    
+  </div>
 
   </div>
   <script>
@@ -272,6 +275,41 @@
     
     
         </script>
+
+
+
+
+<script>
+  // Divide os dados da tabela em pedaços de 10 linhas cada
+  var rowsPerPage = 10;
+  var rows = $('#tabela tbody tr');
+  var numPages = Math.ceil(rows.length / rowsPerPage);
+  // Exibe a primeira página
+  showPage(1);
+
+  // Cria os botões de paginação
+  for (var i = 1; i <= numPages; i++) {
+    $('#pagination').append('<button class="page-button">' + i + '</button>');
+  }
+  // Adiciona um evento de clique aos botões de paginação
+  $('.page-button').on('click', function() {
+    showPage(parseInt($(this).text()));
+
+    
+
+  });
+
+ 
+
+  // Exibe uma determinada página da tabela
+  function showPage(page) {
+    // Esconde todas as linhas da tabela
+    rows.hide();
+    // Exibe apenas as linhas da página atual
+    rows.slice((page - 1) * rowsPerPage, page * rowsPerPage).show();
+  }
+</script>
+
 </body>
 </html>
 

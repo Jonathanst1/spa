@@ -170,7 +170,7 @@ def ver(request, pda_id):
 class UpdatePda(UpdateView):
     model = plano
     template_name = 'Atendimento/templates/atualizar.html'
-    fields = ['versao', 'sistema','inquilino','demanda','sub_demanda',
+    fields = ['versao','status', 'sistema','inquilino','demanda','sub_demanda',
               'desc_produto','n_contrato','aditivo','ans',
               'necessidades','requisitos_LDPA','solucoes_impactadas',
               'anexo_contexto','telas_sistema','cronograma_implantacao',
