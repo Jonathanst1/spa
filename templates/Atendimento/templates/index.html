@@ -12,10 +12,50 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <title>Sistema de Plano de Atendimento</title>
+    <style>
 
+table {
+  width: 100%; /* Largura da tabela */
+  height: 100px;
+  overflow: auto; /* Adiciona rolagem se a tabela for maior que o container */
+}
+
+.rolagem {
+  width: 100%; /* Largura da tabela */
+  height: 400px;
+  overflow: auto; /* Adiciona rolagem se a tabela for maior que o container */ /* Adiciona rolagem se a tabela for maior que o container */
+}
+
+
+thead {
+  position: sticky; /* Fixa o cabeçalho na parte superior da tabela quando a rolagem é atingida */
+  top: 0; /* Posiciona o cabeçalho no topo da tabela */
+  background-color: #333; /* Cor de fundo do cabeçalho */
+  color: #fff; /* Cor da fonte do cabeçalho */
+}
+
+tbody {
+  overflow: auto; /* Adiciona rolagem se o conteúdo da tabela for maior que o container */
+  
+}
+
+
+::-webkit-scrollbar {
+  width: 0.4em;
+  background-color: #F5F5F5;
+}
+
+/* Adiciona uma borda arredondada à barra de rolagem */
+::-webkit-scrollbar-thumb {
+  background-color: #000000;
+  
+}
+
+    </style>
  
 </head>
 <div class="pos-f-t">
+  
   <div class="collapse" id="navbarToggleExternalContent">
     <div class="bg-dark p-4">
       {% if user.is_authenticated %}
@@ -66,10 +106,10 @@
 
 
 {% if plano_list %}
-<div  >
+<div class="rolagem">
   
     <table  class="table table-sm table-light table-hover table-bordered " id="tabela">
-      <thead  class="thead-dark" align="center" >
+      <thead  class="thead-dark" align="center"  >
         <tr >
           <th scope="col">#Id</th>
           <th scope="col">Sistema</th>
@@ -81,7 +121,7 @@
           <th scope="col">Ações</th>
         </tr>
       </thead>
-      
+
       <tbody align="center" >
     {% for pl in plano_list %}
     {% if pl.status == '4' %}
@@ -206,6 +246,7 @@
                       </a>
 
                 </div>
+                
 
               </tr>
 
@@ -213,11 +254,13 @@
     {% endfor %}
     </tbody>
   </table>
+  
+
+  </div>
   <div class="text-white mb-5 text-center" id="pagination">
     
   </div>
-
-  </div>
+  
   <script>
 
 
@@ -279,7 +322,12 @@
 
 
 
+
+
+<!--
 <script>
+
+
   // Divide os dados da tabela em pedaços de 10 linhas cada
   var rowsPerPage = 10;
   var rows = $('#tabela tbody tr');
@@ -308,8 +356,11 @@
     // Exibe apenas as linhas da página atual
     rows.slice((page - 1) * rowsPerPage, page * rowsPerPage).show();
   }
-</script>
 
+  
+
+</script>
+-->
 </body>
 </html>
 
