@@ -18,7 +18,7 @@
    {% if form.errors %}
         {% for sistema in form %}
             {% for error in sistema.errors %}
-                <p class="error-message" style="color: white;background-color: coral;"> O {{ error }}</p>
+                <p class="error-message" style="color: white;background-color: coral;"> Um {{ error }}</p>
             {% endfor %}
         {% endfor %}
     {% endif %}
@@ -52,7 +52,7 @@
                                 <div class="input-group">
                                     <label class="ml-2 font-weight-bold text-info">Demanda:</label>
                                 </div>
-                                <input type="text" class="form-control bg-white" name="demanda" id="demanda" placeholder="Ex:DM.088742" value="" maxlength="100">
+                                <input type="text" class="form-control bg-white" name="demanda" id="demanda" placeholder="Ex:DM.088742" value="" maxlength="100" required>
                             </div>
                         </div>
                         <div class="col-sm">
@@ -72,7 +72,7 @@
                                     <div class="input-group">
                                         <label class="ml-2 font-weight-bold text-info" >Versão:</label>
                                     </div>
-                                    <input type="number" class="form-control bg-white" name="versao"  id="versao" placeholder="Ex:1.0" value="" maxlength="100">
+                                    <input type="number" class="form-control bg-white" name="versao"  id="versao" placeholder="Ex:1.0" value="" maxlength="100" required>
                                 </div>
                             </div>
                             
@@ -100,7 +100,7 @@
                                     <div class="input-group">
                                         <label class="ml-2 font-weight-bold text-info" >Responsável:</label>
                                     </div>
-                                    <input type="text" class="form-control bg-white" name="responsavel"  id="responsavel" placeholder="Ex:Jõao Carlos" value="" maxlength="100">
+                                    <input type="text" class="form-control bg-white" name="responsavel"  id="responsavel" placeholder="Ex:Jõao Carlos" value="" maxlength="100" required>
                                 </div>
                             </div>
                             </div>
@@ -123,7 +123,7 @@
                                 <div class="input-group">
                                     <label class="ml-2 font-weight-bold text-info">Número:</label>
                                 </div>
-                                <input type="text" class="form-control bg-white" name="n_contrato" id="n_contrato" placeholder="Ex:CJF N. 017/2019" value="" maxlength="100">
+                                <input type="text" class="form-control bg-white" name="n_contrato" id="n_contrato" placeholder="Ex:CJF N. 017/2019" value="" maxlength="100" required>
                             </div>
                         </div>          
                         <div class="col-lg">
@@ -131,7 +131,7 @@
                                 <div class="input-group">
                                     <label class="ml-2 font-weight-bold text-info">Aditivo:</label>
                                 </div>
-                                <input type="text" class="form-control bg-white" name="aditivo" id="aditivo" placeholder="Ex:001" value="" maxlength="100">
+                                <input type="text" class="form-control bg-white" name="aditivo" id="aditivo" placeholder="Ex:001" value="" maxlength="100" required>
                             </div>
                         </div>                        
                             <div class="col-sm">
@@ -139,7 +139,7 @@
                                     <div class="input-group">
                                         <label class="ml-2 font-weight-bold text-info">ANS:</label>
                                     </div>
-                                    <textarea class="form-control bg-white" name="ans" id="ans" rows="1" maxlength="255"></textarea>
+                                    <textarea class="form-control bg-white" name="ans" id="ans" rows="1" maxlength="255" required></textarea>
                                 </div>
                             </div>                         
                     </div>               
@@ -277,7 +277,7 @@
                             </div>
 
                             <div class="form-check form-check-inline">                                
-                                <input class="form-check-input" type="radio" name="adequacao" id="adequacao" value="Sim" required>
+                                <input class="form-check-input" type="radio" name="adequacao" id="adequacao" value="Sim" >
                                 <label class="form-check-label" for="adequacao">Sim</label>
                               </div>
                               <div class="form-check form-check-inline">
@@ -585,12 +585,12 @@
                                 <label class="ml-2 font-weight-bold text-info">É necessário alguma especificação adicional?</label>
                             </div>
 
-                            <div class="form-check form-check-inline">                                
-                                <input class="form-check-input" type="radio" name="capacitacao" id="capacitacao" value="Sim">
+                            <div class="form-check form-check-inline" >                                
+                                <input class="form-check-input" type="radio" name="capacitacao" id="capacitacao" value="Sim" required>
                                 <label class="form-check-label" for="capacitacao">Sim</label>
                               </div>
                               <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="capacitacao" id="capacitacao2" value="Nao" checked>
+                                <input class="form-check-input" type="radio" name="capacitacao" id="capacitacao2" value="Nao" >
                                 <label class="form-check-label" for="capacitacao">Não</label>
 
                               </div>
