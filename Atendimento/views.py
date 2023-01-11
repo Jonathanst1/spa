@@ -48,6 +48,7 @@ class IndexView(generic.ListView):
     
     model = plano
     template_name = 'Atendimento/templates/index.html'
+    
     def get_queryset(self):
         return plano.objects.order_by('-created')
 
@@ -293,7 +294,7 @@ def download_world(request,pk):
 '''
 @login_required
 def download_world(request,pk):
-    template = DocxTemplate("demo.docx")
+    template = DocxTemplate("Template_PDA.docx")
     spa = plano.objects.get(id=pk)
 
     context = {

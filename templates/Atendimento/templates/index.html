@@ -16,13 +16,13 @@
 
 table {
   width: 100%; /* Largura da tabela */
-  height: 100px;
+  height: 200px;
   overflow: auto; /* Adiciona rolagem se a tabela for maior que o container */
 }
 
 .rolagem {
   width: 100%; /* Largura da tabela */
-  height: 400px;
+  height: 700px;
   overflow: auto; /* Adiciona rolagem se a tabela for maior que o container */ /* Adiciona rolagem se a tabela for maior que o container */
 }
 
@@ -31,7 +31,7 @@ thead {
   position: sticky; /* Fixa o cabeçalho na parte superior da tabela quando a rolagem é atingida */
   top: 0; /* Posiciona o cabeçalho no topo da tabela */
   background-color: #333; /* Cor de fundo do cabeçalho */
-  color: #fff; /* Cor da fonte do cabeçalho */
+   /* Cor da fonte do cabeçalho */
 }
 
 tbody {
@@ -50,6 +50,25 @@ tbody {
   background-color: #000000;
   
 }
+.light-table-filter {
+  background-color: #ffffff;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  color: #495057;
+  font-size: 14px;
+  outline: 0;
+  padding: 6px 10px;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+}
+.light-table-filter:focus{
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+
+
 
     </style>
  
@@ -88,27 +107,28 @@ tbody {
     <img src="{% static 'logo.png' %}" class="" alt="Logo Dataprev" style="width: 130px">
   </div>
     <h1 class="text-white mb-5 text-center">Sistema de Planejamento de Atendimento</h1>
-  <div class="d-flex bd-highlight mb-3">
-  <div class="ml-auto p-2 bd-highlight">
-    <a class="btn btn-success" href="{% url 'criarPlano' %}" role="button"  >
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
-        <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
-      </svg>
-      Criar Plano de Atendimento
-      </a>
+  
+   
 
-  </div>
+  
+<div class="filtro" style="display: flex; justify-content: space-between;">
+ 
+  <input  type="search" class="light-table-filter" data-table2="table table-sm table-light table-hover table-bordered" placeholder="Pesquisar" style="margin-bottom: 10px;">
+  <a style="height:38px ;" class="btn btn-primary " href="{% url 'criarPlano' %}" role="button "  >
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"  fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+      <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+    </svg>
+    Criar Plano de Atendimento
+    </a>
 </div>
-<div class="filtro">
-  <input type="search" class="light-table-filter2" data-table2="table table-sm table-light table-hover table-bordered" placeholder="Pesquisar" style="margin-bottom: 10px;">
-</div>
+
 
 
 
 {% if plano_list %}
 <div class="rolagem">
   
-    <table  class="table table-sm table-light table-hover table-bordered " id="tabela">
+    <table  class="table table-sm table-light table-hover table-bordered  table table-striped" id="tabela">
       <thead  class="thead-dark" align="center"  >
         <tr >
           <th scope="col">#Id</th>
@@ -138,9 +158,9 @@ tbody {
                   
                   <div class="d-flex justify-content-center mt-2">
 
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" class="bi bi-circle-fill d-flex align-content-center" viewBox="0 0 16 16">
-                      <circle cx="8" cy="8" r="8"/>
-                      <p>ativo</p>
+                    
+                      
+                      <p style="color: #228b22;font-weight: bold;">ativo</p>
                     </svg>
                   </div>
                 </td>
@@ -158,19 +178,17 @@ tbody {
                 {% elif pl.status == '2' %}
                 <td>
                   <div class="d-flex justify-content-center mt-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="yellow" class="bi bi-circle-fill d-flex align-content-center" viewBox="0 0 16 16">
-                      <circle cx="8" cy="8" r="8"/>
-                      <p>Em elaboração</p>
+                    
+                      <p style="color: #f6a52f;font-weight: bold;">Em elaboração</p>
                     </svg>
                   </div>
                 </td>
                 {% elif pl.status == '3' %}
                 <td>
-                  <div class="d-flex justify-content-center mt-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-circle-fill d-flex align-content-center" viewBox="0 0 16 16">
+                  
                       
-                      <circle cx="8" cy="8" r="8"/>
-                      <p>Inativo</p>
+                      
+                      <p style="color: red;font-weight: bold;">Inativo</p>
                     </svg>
                   </div>
                 </td>
@@ -256,10 +274,7 @@ tbody {
   </table>
   
 
-  </div>
-  <div class="text-white mb-5 text-center" id="pagination">
-    
-  </div>
+  
   
   <script>
 
@@ -293,7 +308,7 @@ tbody {
     
         return {
           init: function() {
-            var inputs = document.getElementsByClassName('light-table-filter2');
+            var inputs = document.getElementsByClassName('light-table-filter');
             
     
             Arr.find.call(inputs, function(input) {
@@ -361,6 +376,11 @@ tbody {
 
 </script>
 -->
+
+
+
+  <!-- Copyright -->
+</footer>
 </body>
 </html>
 
