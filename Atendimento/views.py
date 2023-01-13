@@ -13,6 +13,10 @@ from django.urls import reverse_lazy
 from django.contrib.auth import authenticate,logout,login
 from django.contrib.auth.decorators import login_required
 from docxtpl import DocxTemplate
+from django.shortcuts import render
+from .models import Acesso
+from datetime import date
+import datetime
 
 # Create your views here.
 
@@ -45,12 +49,27 @@ def view_login(request):
 
 
 class IndexView(generic.ListView):
-    
     model = plano
     template_name = 'Atendimento/templates/index.html'
-    
     def get_queryset(self):
-        return plano.objects.order_by('-created')
+        
+        return plano.objects.order_by('-created') 
+    def increment_access_count(self):
+        today = date.today()
+    
+        access_count, created = Acesso.objects.get_or_create(date=today)
+        access_count.count += 1
+        access_count.save()
+    def get(self, request, *args, **kwargs):
+        self.increment_access_count()
+        return super().get(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['today'] = datetime.datetime.now()
+        return context
+
+
 
 '''class CreateView(generic.ListView):
     model = plano
@@ -369,6 +388,15 @@ def download_world(request,pk):
 
 
 
+
+
+
+def increment_access_count():
+    today = date.today()
+    
+    access_count, created = AccessCount.objects.get_or_create(date=today)
+    access_count.count += 1
+    access_count.save()
 
 
 

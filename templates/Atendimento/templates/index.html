@@ -73,42 +73,41 @@ tbody {
     </style>
  
 </head>
+{% load static %}
 <div class="pos-f-t">
   
-  <div class="collapse" id="navbarToggleExternalContent">
-    <div class="bg-dark p-4">
-      {% if user.is_authenticated %}
-      <h5 class="text-white">Bem vindo(a) ao SPA {{ user.get_username }}.</h5>
-      <span class="text-muted"></span>
+ 
 
-      <a class="btn btn-danger" style="max-width: 3rem; max-height: 3rem;" role="button" href="/accounts/logout">Sair</a>
-      
-    </div>
-    
-  </div>
+
   <nav class="navbar navbar-dark bg-dark">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        {% if user.is_authenticated %}
+        <img src="{% static 'logo.png' %}" alt="" width="50" height="38" class="d-inline-block align-text-top"> 
+        <a class="btn btn-danger" style="max-width: 3rem; max-height: 3rem;" role="button" href="/accounts/logout">Sair</a>
+      </a>
+      
+      <div style="color: white;">
+        <h6 style="margin-left:3 px ;">Olá {{ user.get_username }}.</h6>
+        <h6 >{{ today|date:'d/m/Y H:i' }}</h6>
+      </div>
+    </div>
   </nav>
-</div>
-{% endif %}
-
+  {% endif %}
 
 
 <body class="bg-secondary container-fluid">
-
 
   
 
 
   <div class="row bg-secondary justify-content-center mt-5 mb-5">
-    {% load static %}
+    
     <img src="{% static 'logo.png' %}" class="" alt="Logo Dataprev" style="width: 130px">
   </div>
     <h1 class="text-white mb-5 text-center">Sistema de Planejamento de Atendimento</h1>
   
-   
+  
 
   
 <div class="filtro" style="display: flex; justify-content: space-between;">
