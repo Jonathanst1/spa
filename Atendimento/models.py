@@ -3,6 +3,9 @@ from datetime import datetime
 
 # Create your models here.
 
+
+
+
 class plano(models.Model):
     CHOICES = (
         ('Sim', 'Sim'),
@@ -80,6 +83,13 @@ class plano(models.Model):
         self.modified = datetime.now()
         return self.inquilino + '-' + self.sistema
 
+
+class Acesso(models.Model):
+    date = models.DateField()
+    count = models.IntegerField(default=0)
+    
+    def __str__(self):
+        return f'{self.date.strftime("%d-%m-%Y")} - {self.count} acessos'
 
 
 '''CreateDate DATETIME

@@ -66,49 +66,59 @@ tbody {
   border-color: #80bdff;
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
-
-
+#botaoSair{
+  color: rgb(228, 215, 215);
+  text-decoration: none;
+  font-size: 13px;
+  
+  border-radius: 2px;
+}
+#botaoSair:hover{
+  color: red;
+}
 
 
     </style>
  
 </head>
+{% load static %}
 <div class="pos-f-t">
   
-  <div class="collapse" id="navbarToggleExternalContent">
-    <div class="bg-dark p-4">
-      {% if user.is_authenticated %}
-      <h5 class="text-white">Bem vindo(a) ao SPA {{ user.get_username }}.</h5>
-      <span class="text-muted"></span>
+ 
 
-      <a class="btn btn-danger" style="max-width: 3rem; max-height: 3rem;" role="button" href="/accounts/logout">Sair</a>
+
+  <nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+      <div style="color: white; ">
+        {% if user.is_authenticated %}
+        <h6 style="margin-left:3 px ;font-size: 13px;">Olá {{ user.get_username }}.</h6>
+        <h6 style="font-size: 13px;">{{ today|date:'d/m/Y H:i' }}</h6>
+        <a id="botaoSair"    href="/accounts/logout">Sair</a>
+      </div>
+      <a class="navbar-brand" href="#">
+        
+        <img src="{% static 'logo.png' %}" alt="" width="66" height="50" class="d-inline-block align-text-top"> 
+        
+      </a>
+      
       
     </div>
-    
-  </div>
-  <nav class="navbar navbar-dark bg-dark">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
   </nav>
-</div>
-{% endif %}
-
+  {% endif %}
 
 
 <body class="bg-secondary container-fluid">
-
 
   
 
 
   <div class="row bg-secondary justify-content-center mt-5 mb-5">
-    {% load static %}
+    
     <img src="{% static 'logo.png' %}" class="" alt="Logo Dataprev" style="width: 130px">
   </div>
     <h1 class="text-white mb-5 text-center">Sistema de Planejamento de Atendimento</h1>
   
-   
+  
 
   
 <div class="filtro" style="display: flex; justify-content: space-between;">
@@ -381,13 +391,20 @@ tbody {
 
   <!-- Copyright -->
 </footer>
-</body>
-</html>
 
-{% else %}
-    <p>Nenhum Plano Cadastrado ou Disponivel</p>
+<br>
+
 </div>
-
+<!-- Footer -->
+<footer class="bg-dark text-center text-white">
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: #343a40;">
+    © 2022 Copyright:
+    <a class="text-white" href="https://www.dataprev.gov.br/">Dataprev</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
 </body>
 </html>
 {% endif %}
