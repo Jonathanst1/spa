@@ -17,6 +17,8 @@
 
     <div class="container tab-pane active"><br>
         <div class="card-body">
+            <a href="{% url 'index' %}" class="btn col-6 col-md-1 btn btn-info ml-2 mt-2 mr-2" tabindex="-1" role="button" aria-disabled="true">Voltar</a>                            
+
             <h4 class="card-header text-center font-weight-bold text-info">Visualizar Proposta de Atendimento - PDA</h4>
             <br>
 
@@ -729,10 +731,11 @@
 
                         <div class="row d-flex justify-content-center mb-3 mr-2">
                             
-                            <a href="{% url 'index' %}">   <button type="reset" class="col-12 col-md-4 btn btn-info ml-2 mt-2">Voltar</button></a>
-                        
+                            <a href="{% url 'index' %}">   
+                                <a href="{% url 'index' %}" class="btn col-12 col-md-4 btn btn-info ml-2 mt-2 mr-2" tabindex="-1" role="button" aria-disabled="true">Voltar</a>                            
+                            </a>
                         </div>
-                    </a>
+                    
                 </div>
                 <label class="form-text text-muted">O documento gerado por essa funcionalidade é somente um rascunho. O documento a ser apresentado ao cliente deverá ser conferido criteriosamente antes da assinatura.</label>
             </form>
