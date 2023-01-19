@@ -70,6 +70,27 @@ class plano(models.Model):
     capacitacao = models.TextField(max_length=20,  choices=CHOICES, blank=True ,default="Nao")
     adequacao = models.TextField(max_length=20, choices=CHOICES, blank=True, default="Nao")
 
+    # novos campos 19/01/2022
+
+    identificacao_area_solicitante = models.TextField(max_length=10,blank=True)
+    objetivo_plano_atendimento = models.TextField(max_length=200, blank=True)
+    requisitos_cadastramento_clienteEusuario = models.TextField(max_length=300, blank=True)
+    abrangencia = models.TextField(max_length=100, blank=True)
+    Estrategia_de_implan_solucao = models.TextField(max_length=100, blank=True)
+    Volumetrias = models.TextField(max_length=100, blank=True)
+    fluxo_de_atendimento = models.TextField(max_length=100, blank=True)
+    ano_contrato = models.CharField(max_length=10, blank=True) # vai para as informações contratuais no template
+    riscos_identificados = models.TextField(max_length=10, blank=True)
+    processo_de_atendimento_usu = models.TextField(max_length=100, blank=True) # verificar requisitos
+    cronograma_elaboracao_execucaoPDA = models.TextField(max_length=100, blank=True)
+    informacoes_complementares = models.TextField(max_length=100, blank=True) # verificar a posição no front
+
+
+
+
+
+
+
 
 
 
