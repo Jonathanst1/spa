@@ -73,12 +73,14 @@ class plano(models.Model):
     # novos campos 19/01/2022
 
     identificacao_area_solicitante = models.TextField(max_length=10,blank=True)
-    objetivo_plano_atendimento = models.TextField(max_length=200, blank=True)
+    objetivo_plano_atendimento = models.TextField(max_length=500, blank=True)
     requisitos_cadastramento_clienteEusuario = models.TextField(max_length=300, blank=True)
-    abrangencia = models.TextField(max_length=100, blank=True)
+    abrangencia = models.TextField(max_length=255, blank=True)
     Estrategia_de_implan_solucao = models.TextField(max_length=100, blank=True)
-    Volumetrias = models.TextField(max_length=100, blank=True)
-    fluxo_de_atendimento = models.TextField(max_length=100, blank=True)
+    Volumetrias = models.TextField(max_length=255, blank=True)
+    fluxo_de_atendimento = models.TextField(max_length=255, blank=True)
+    n1Area = models.CharField(max_length=15, blank=True)
+    n2Area = models.CharField(max_length=15, blank=True)
     ano_contrato = models.CharField(max_length=10, blank=True) # vai para as informações contratuais no template
     riscos_identificados = models.TextField(max_length=10, blank=True)
     processo_de_atendimento_usu = models.TextField(max_length=100, blank=True) # verificar requisitos

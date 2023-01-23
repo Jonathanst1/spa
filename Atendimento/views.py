@@ -96,7 +96,8 @@ class CreatePdaView(CreateView):
               'area_executora_cadastro_clientes','obs_executora_cliente','obs_executora_cadastro_clientes','obs_solicitante_cadastro_clientes','area_solicitante_cadastro_base',
               'publicacao_executora_cadastro_base','publicacao_solicitante_cadastro_base','obs_solicitante_cadastro_base','area_executora_cadastro_base',
               'obs_executora_cadastro_base','area_responsavel_capacitacao','atendimento','carga_horaria','cronograma','obs_risco',
-                'adequacao','capacitacao','responsavel','status']
+                'adequacao','capacitacao','responsavel','status','identificacao_area_solicitante','objetivo_plano_atendimento','requisitos_cadastramento_clienteEusuario',
+                'abrangencia','Estrategia_de_implan_solucao','Volumetrias','fluxo_de_atendimento','n1Area','n2Area']
 
     success_url = reverse_lazy('index')
 
@@ -178,7 +179,16 @@ def ver(request, pda_id):
         'obs_risco': pda.obs_risco,
         'responsavel': pda.responsavel,
         'obs_executora_itens':pda.obs_executora_itens,
-        'obs_solicitante_cadastro_clientes':pda.obs_solicitante_cadastro_clientes
+        'obs_solicitante_cadastro_clientes':pda.obs_solicitante_cadastro_clientes,
+        'identificacao_area_solicitante':pda.identificacao_area_solicitante,
+        'objetivo_plano_atendimento':pda.objetivo_plano_atendimento,
+        'requisitos_cadastramento_clienteEusuario':pda.requisitos_cadastramento_clienteEusuario,
+        'abrangencia':pda.abrangencia,
+        'Estrategia_de_implan_solucao':pda.Estrategia_de_implan_solucao,
+        'Volumetrias':pda.Volumetrias,
+        'fluxo_de_atendimento':pda.fluxo_de_atendimento,
+        'n1Area':pda.n1Area,
+        'n2Area':pda.n2Area
         
 
 
@@ -204,7 +214,8 @@ class UpdatePda(UpdateView):
               'publicacao_executora_cadastro_base','obs_solicitante_cadastro_base','area_executora_cadastro_base',
               'publicacao_executora_cadastro_base','obs_executora_cadastro_base','capacitacao',
               'area_responsavel_capacitacao','atendimento','carga_horaria','cronograma','obs_risco','adequacao'
-              ,'responsavel','obs_solicitante_cadastro_clientes','publicacao_solicitante_base']
+              ,'responsavel','obs_solicitante_cadastro_clientes','publicacao_solicitante_base','identificacao_area_solicitante','objetivo_plano_atendimento','requisitos_cadastramento_clienteEusuario',
+              'abrangencia','Estrategia_de_implan_solucao','Volumetrias','fluxo_de_atendimento','n1Area','n2Area']
 
     success_url = reverse_lazy('index')
     def form_valid(self, form):
@@ -376,7 +387,16 @@ def download_world(request,pk):
         'obs_risco': spa.obs_risco,
         'responsavel': spa.responsavel,
         'obs_executora_itens':spa.obs_executora_itens,
-        'obs_solicitante_cadastro_clientes':spa.obs_solicitante_cadastro_clientes
+        'obs_solicitante_cadastro_clientes':spa.obs_solicitante_cadastro_clientes,
+        'identificacao_area_solicitante':spa.identificacao_area_solicitante,
+        'objetivo_plano_atendimento':spa.objetivo_plano_atendimento,
+        'requisitos_cadastramento_clienteEusuario':spa.requisitos_cadastramento_clienteEusuario,
+        'abrangencia':spa.abrangencia,
+        'Estrategia_de_implan_solucao':spa.Estrategia_de_implan_solucao,
+        'Volumetrias':spa.Volumetrias,
+        'fluxo_de_atendimento':spa.fluxo_de_atendimento,
+        'n1Area':spa.n1Area,
+        'n2Area':spa.n2Area
     }
     template.render(context)
 
@@ -386,17 +406,6 @@ def download_world(request,pk):
 
     return response
 
-
-
-
-
-
-def increment_access_count():
-    today = date.today()
-    
-    access_count, created = AccessCount.objects.get_or_create(date=today)
-    access_count.count += 1
-    access_count.save()
 
 
 
