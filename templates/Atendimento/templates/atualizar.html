@@ -120,6 +120,14 @@
                                     <input type="text" class="form-control bg-white" name="responsavel"  id="responsavel" placeholder="Ex:Jõao Carlos" value="{{ plano.responsavel }}" maxlength="100">
                                 </div>
                             </div>
+                            <div class="col-sm">
+                                <div class="input-group mb-3">
+                                    <div class="input-group">
+                                        <label class="ml-2 font-weight-bold text-info">Identificação/Área Solicitante</label>
+                                    </div>
+                                    <input type="text" class="form-control bg-white" name="identificacao_area_solicitante" id="identificacao_area_solicitante" placeholder="Ex: Departamento/Divisão" value="{{ plano.identificacao_area_solicitante }}" maxlength="100" >
+                                </div>
+                            </div>
                             </div>
 
                     <div class="row">
@@ -131,6 +139,16 @@
                                 <textarea class="form-control bg-white" name="desc_produto" id="desc_produto" rows="3" placeholder="Ex:Descrição da solução, quantidade de entregas, cronograma de cada entrega, Requisitos Funcionais e Não Funcionais de cada entrega a ser implantada, quais Clientes, etc "   maxlength="255">{{ plano.desc_produto}}</textarea>
                             </div>
                         </div>
+
+                        <div class="col-sm">
+                            <div class="input-group mb-3">
+                                <div class="input-group">
+                                    <label class="ml-2 font-weight-bold text-info">Objetivo do Plano de Atendimento - PDA:</label>
+                                </div>
+                                <textarea class="form-control bg-white" name="objetivo_plano_atendimento" id="objetivo_plano_atendimento" rows="3" placeholder="Ex: O propósito desse artefato é descrever todas as informações de disponibilidade da área de Atendimento ao Usuário, especificando os requisitos necessários para atender uma solução. "  maxlength="255">{{ plano.objetivo_plano_atendimento }}</textarea>
+                            </div>
+                        </div>
+
                     </div>
 
                     <label class="ml-2 h5 font-weight-bold text-info">Informações Contratuais</label>
@@ -184,6 +202,14 @@
                                     <label class="ml-2 font-weight-bold text-info">Requisitos de cadastramento no LDAP:</label>
                                 </div>
                                 <textarea class="form-control bg-white" rows="3" name="requisitos_LDPA" id="requisitos_LDPA" placeholder="Descrição detalhada dos requisitos do LDAP" maxlength="255">{{plano.requisitos_LDPA}}</textarea>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="input-group mb-3">
+                                <div class="input-group">
+                                    <label class="ml-2 font-weight-bold text-info">Requisitos de cadastramentos do Cliente e dos Usuários no SDM ou Pronto Cliente:</label>
+                                </div>
+                                <textarea class="form-control bg-white" rows="3" name="requisitos_cadastramento_clienteEusuario" id="requisitos_cadastramento_clienteEusuario" placeholder="Descrever os requisitos de cadastramento do cliente e dos usuários na ferramenta de registro de tickets homologada, sendo o SDM ou Pronto Cliente,Caso não tenha nada a descrever, informar: Não se aplica. " maxlength="255" disabled>{{plano.requisitos_cadastramento_clienteEusuario}}</textarea>
                             </div>
                         </div>
                     </div>
@@ -332,6 +358,25 @@
                                 <label class="ml-2 font-weight-bold text-info">Nível 2:</label>
                             </div>
                             <input type="text"  class="form-control bg-white" name="n2" id="n2" placeholder="Ex:GSCXX" value="{{plano.n2}}" maxlength="100">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg">
+                        <div class="input-group mb-3">
+                            <div class="input-group">
+                                <label class="ml-2 font-weight-bold text-info">Área 1:</label>
+                            </div>
+                            <input type="text" class="form-control bg-white" name="n1Area" id="n1Area" placeholder="Ex:N1.Gerid" value="{{ plano.n1Area }}" maxlength="100" >
+                        </div>
+                    </div>
+                    <div class="col-lg">
+                        <div class="input-group mb-3">
+                            <div class="input-group">
+                                <label class="ml-2 font-weight-bold text-info">Área 2:</label>
+                            </div>
+                            <input type="text" class="form-control bg-white" name="n2Area" id="n2Area" placeholder="Ex:GSCXX" value="{{ plano.n2Area }}" maxlength="100" >
                         </div>
                     </div>
                 </div>
@@ -730,6 +775,54 @@
 
                                 </div>
                             </div>
+
+                            <div class="row">
+                                <div class="col-sm">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group">
+                                            <label class="ml-2 font-weight-bold text-info">Abrangência: </label>
+                                        </div>                                
+                                        <textarea class="form-control bg-white" name="abrangencia" id=" abrangencia" rows="3" placeholder="Ex:-Descrever a abrangência definida para a implantação da solução, se nacional ou se somente alguns estados. Se não for nacional, explicitar os estados,Caso não tenha nada a descrever, informar: Não se aplica." maxlength="255" >{{ plano.agrangencia }}</textarea>                              
+                                   </div>
+                                </div>
+                            </div>  
+                            
+                            <div class="row">
+                                <div class="col-sm">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group">
+                                            <label class="ml-2 font-weight-bold text-info">Estratégia de Implantação da Solução: </label>
+                                        </div>                                
+                                        <textarea class="form-control bg-white" name="Estrategia_de_implan_solucao" id="Estrategia_de_implan_solucao" rows="3" 
+                                        placeholder="Ex:-Descrever a estratégia definida para implantação da solução, informar se será disponibilizada para todos os usuários ao mesmo tempo ou se haverá projeto piloto. Exemplo: Algumas Agências, alguns Entes Federativos, alguns Estados, Municípios, etc.
+                                        Caso não tenha nada a descrever, informar: Não se aplica." maxlength="255">{{ plano.Estrategia_de_implan_solucao }}</textarea>                              
+                                   </div>
+                                </div>
+                            </div> 
+
+                            <div class="row">
+                                <div class="col-sm">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group">
+                                            <label class="ml-2 font-weight-bold text-info">Volumetrias: </label>
+                                        </div>                                
+                                        <textarea class="form-control bg-white" name="Volumetrias" id="Volumetrias" rows="3" 
+                                        placeholder="Ex:-Informar o quantitativo previsto de usuários e o quantitativo previsto de tickets que serão registrados por período.
+                                        Caso não tenha nada a descrever, informar: Não se aplica." maxlength="255">{{ plano.Volumetrias }}</textarea>                              
+                                   </div>
+                                </div>
+                            </div> 
+
+                            <div class="row">
+                                <div class="col-sm">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group">
+                                            <label class="ml-2 font-weight-bold text-info">Fluxo de Atendimento: </label>
+                                        </div>                                
+                                        <textarea class="form-control bg-white" name="fluxo_de_atendimento" id="fluxo_de_atendimento" rows="3" placeholder="Ex:-Esta seção descreve o fluxo de atendimento da Superintendência de Atendimento e Produtos, sendo de conteúdo fixo e não devendo ser alterada.O fluxo de Atendimento ao Usuário que será utilizado está descrito no Processo de Atendimento ao Usuário, publicado na Cadeia de Valor da DATAPREV." maxlength="255">{{ plano.fluxo_de_atendimento }}</textarea>                              
+                                   </div>
+                                </div>
+                            </div> 
 
 
                             <div class="row">
