@@ -82,10 +82,22 @@ class plano(models.Model):
     n1Area = models.CharField(max_length=15, blank=True)
     n2Area = models.CharField(max_length=15, blank=True)
     ano_contrato = models.CharField(max_length=10, blank=True) # vai para as informações contratuais no template
-    riscos_identificados = models.TextField(max_length=10, blank=True)
+
+    riscos_identificados = models.TextField(max_length=1000, blank=True)
+    impactos = models.TextField(max_length=1000, blank=True)
+    mitigacoes = models.TextField(max_length=1000, blank=True)
+
     processo_de_atendimento_usu = models.TextField(max_length=100, blank=True) # verificar requisitos
     cronograma_elaboracao_execucaoPDA = models.TextField(max_length=100, blank=True)
-    informacoes_complementares = models.TextField(max_length=100, blank=True) # verificar a posição no front
+    # campos do cronograma
+    atividadeCronograma = models.TextField(max_length=30, blank=True)
+    AreaCronograma = models.TextField(max_length=30, blank=True)
+    ResponsavelCronograma = models.TextField(max_length=30, blank=True)
+    DatainiCronograma = models.TextField(max_length=30, blank=True)
+    DatafimCronograma = models.TextField(max_length=30, blank=True)
+    statusCronograma = models.TextField(max_length=30, blank=True)
+
+    informacoes_complementares = models.TextField(max_length=300, blank=True) # verificar a posição no front
 
 
 
