@@ -217,7 +217,7 @@
                                 <div class="input-group">
                                     <label class="ml-2 font-weight-bold text-info">Requisitos de cadastramentos do Cliente e dos Usuários no SDM ou Pronto Cliente:</label>
                                 </div>
-                                <textarea class="form-control bg-white" rows="3" name="requisitos_cadastramento_clienteEusuario" id="requisitos_cadastramento_clienteEusuario" placeholder="Descrever os requisitos de cadastramento do cliente e dos usuários na ferramenta de registro de tickets homologada, sendo o SDM ou Pronto Cliente,Caso não tenha nada a descrever, informar: Não se aplica. " maxlength="255" disabled>{{plano.requisitos_cadastramento_clienteEusuario}}</textarea>
+                                <textarea class="form-control bg-white" rows="3" name="requisitos_cadastramento_clienteEusuario" id="requisitos_cadastramento_clienteEusuario" placeholder="Descrever os requisitos de cadastramento do cliente e dos usuários na ferramenta de registro de tickets homologada, sendo o SDM ou Pronto Cliente,Caso não tenha nada a descrever, informar: Não se aplica. " maxlength="255" >{{plano.requisitos_cadastramento_clienteEusuario}}</textarea>
                             </div>
                         </div>
                     </div>
@@ -583,9 +583,9 @@
                                     <div class="input-group">
                                         <label class="ml-2 font-weight-bold text-info">Publicação:</label>
                                     </div>
-                                    <input type="text" class="form-control bg-white" name="publicacão_executora_base" id="publicacão_executora_base" placeholder="Ex:30/01/2000" value="{{plano.publicacao_executora_base|date:'d/m/Y '}}" disabled>
+                                    <input type="text" class="form-control bg-white" name="publicacao_executora_base" id="publicacao_executora_base" placeholder="Ex:30/01/2000" value="{{plano.publicacao_executora_base|date:'d/m/Y '}}" disabled>
                                     <small>Editar data : </small>
-                                    <input type="date" class="form-control bg-white" name="publicacão_executora_base" id="publicacão_executora_base" placeholder="Ex:30/01/2000" value="{{plano.publicacao_executora_base}}">
+                                    <input type="date" class="form-control bg-white" name="publicacao_executora_base" id="publicacao_executora_base" placeholder="Ex:30/01/2000" value="{{plano.publicacao_executora_base}}">
 
                                 </div>
                             </div>
@@ -598,44 +598,18 @@
                                 </div>
                             </div>
                             </div>
-
+                            <div class="row">
                         <label class="ml-2 font-weight-bold text-info h5">Cadastramento de Itens de Catálogo</label>
-                        <div class="row">
-                            <div class="col-lg">
-                                <div class="input-group mb-3">
-                                    <div class="input-group">
-                                        <label class="ml-2 font-weight-bold text-info">Área Solicitante:</label>
-                                    </div>
-                                    <input type="text" class="form-control bg-white" name="area_solicitante_itens" id="area_solicitante_itens" placeholder="" value="{{plano.area_solicitante_itens}}" maxlength="100">
-                                </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group">
+                                
                             </div>
-                            <div class="col-lg">
-                                <div class="input-group mb-3">
-                                    <div class="input-group">
-                                        <label class="ml-2 font-weight-bold text-info">Observações:</label>
-                                    </div>
-                                    <textarea class="form-control bg-white" id="obs_solicitante_itens" rows="1" maxlength="255">{{plano.obs_solicitante_itens}}</textarea>
-                                </div>
-                            </div>
+                            <textarea class="form-control bg-white" rows="5" name="cadastramento_itens_catalogo" id="cadastramento_itens_catalogo" placeholder="Descrever os requisitos de cadastramentos ou ajustes no Catálogo de Serviços na ferramenta de registro de tickets homologada e em produção, sendo SDM ou Pronto Cliente.
+                            Caso não tenha nada a descrever, informar: Não se aplica.
+                             " maxlength="300" >{{ plano.cadastramento_itens_catalogo }}</textarea>
                         </div>
+                    </div>
 
-                        <div class="row">
-                            <div class="col-lg">
-                                <div class="input-group mb-3">
-                                    <div class="input-group">
-                                        <label class="ml-2 font-weight-bold text-info">Área Executora:</label>
-                                    </div>
-                                    <input type="text" class="form-control bg-white" name="area_executora_itens" id="area_executora_itens" placeholder="" value="{{plano.area_executora_itens}}" maxlength="100">
-                                </div>
-                            </div>
-                            <div class="col-lg">
-                                <div class="input-group mb-3">
-                                    <div class="input-group">
-                                        <label class="ml-2 font-weight-bold text-info">Observações:</label>
-                                    </div>
-                                    <textarea class="form-control bg-white" name="area_executora_itens" id="obs_executora_itens" rows="1" maxlength="255">{{plano.obs_executora_itens}}</textarea>
-                                </div>
-                            </div>
                         </div>
 
                         <label class="ml-2 font-weight-bold text-info h5">Cadastramento de Cliente</label>
@@ -645,7 +619,7 @@
                                     <div class="input-group">
                                         <label class="ml-2 font-weight-bold text-info">Área Solicitante:</label>
                                     </div>
-                                    <input type="text" class="form-control bg-white" name="area_solicitante_cadastro_cliente" id="area_solicitante_cadastro_clientes" placeholder="" value="{{plano.area_solicitante_cadastro_clientes}}" maxlength="100">
+                                    <input type="text" class="form-control bg-white" name="area_solicitante_cadastro_clientes" id="area_solicitante_cadastro_clientes" placeholder="" value="{{plano.area_solicitante_cadastro_clientes}}" maxlength="100">
                                 </div>
                             </div>
                             <div class="col-lg">
@@ -692,9 +666,9 @@
                                 <div class="input-group">
                                     <label class="ml-2 font-weight-bold text-info">Publicação:</label>
                                 </div>
-                                <input type="text" class="form-control bg-white" name="publicacão_solicitante_cadastro_base" id="publicacão_solicitante_cadastro_base" placeholder="Ex:30/01/2000" value="{{plano.publicacao_solicitante_cadastro_base|date:'d/m/Y '}}" disabled>
+                                <input type="text" class="form-control bg-white" name="publicacao_solicitante_cadastro_base" id="publicacao_solicitante_cadastro_base" placeholder="Ex:30/01/2000" value="{{plano.publicacao_solicitante_cadastro_base|date:'d/m/Y '}}" disabled>
                                 <small>Editar data : </small>
-                                <input type="date" class="form-control bg-white" name="publicacão_solicitante_cadastro_base" id="publicacão_solicitante_cadastro_base" placeholder="Ex:30/01/2000" value="{{plano.publicacao_solicitante_cadastro_base}}">
+                                <input type="date" class="form-control bg-white" name="publicacao_solicitante_cadastro_base" id="publicacao_solicitante_cadastro_base" placeholder="Ex:30/01/2000" value="{{plano.publicacao_solicitante_cadastro_base}}">
 
                             </div>
                         </div>
@@ -721,9 +695,9 @@
                                     <div class="input-group">
                                         <label class="ml-2 font-weight-bold text-info">Publicação:</label>
                                     </div>
-                                    <input type="text" class="form-control bg-white" name="publicacão_base" id="publicacão_executora_cadastro_base" placeholder="Ex:30/01/2000" value="{{plano.publicacao_executora_cadastro_base|date:'d/m/Y '}}" disabled>
+                                    <input type="text" class="form-control bg-white" name="publicacão_base" id="publicacao_executora_cadastro_base" placeholder="Ex:30/01/2000" value="{{plano.publicacao_executora_cadastro_base|date:'d/m/Y '}}" disabled>
                                     <small>Editar data : </small>
-                                    <input type="date" class="form-control bg-white" name="publicacão_base" id="publicacão_executora_cadastro_base" placeholder="Ex:30/01/2000" value="{{plano.publicacao_executora_cadastro_base}}">
+                                    <input type="date" class="form-control bg-white" name="publicacão_base" id="publicacao_executora_cadastro_base" placeholder="Ex:30/01/2000" value="{{plano.publicacao_executora_cadastro_base}}">
                                 </div>
                             </div>
                             <div class="col-lg">
@@ -790,7 +764,7 @@
                                         <div class="input-group">
                                             <label class="ml-2 font-weight-bold text-info">Abrangência: </label>
                                         </div>                                
-                                        <textarea class="form-control bg-white" name="abrangencia" id=" abrangencia" rows="3" placeholder="Ex:-Descrever a abrangência definida para a implantação da solução, se nacional ou se somente alguns estados. Se não for nacional, explicitar os estados,Caso não tenha nada a descrever, informar: Não se aplica." maxlength="255" >{{ plano.agrangencia }}</textarea>                              
+                                        <textarea class="form-control bg-white" name="abrangencia" id=" abrangencia" rows="3" placeholder="Ex:-Descrever a abrangência definida para a implantação da solução, se nacional ou se somente alguns estados. Se não for nacional, explicitar os estados,Caso não tenha nada a descrever, informar: Não se aplica." maxlength="255" >{{ plano.abrangencia }}</textarea>                              
                                    </div>
                                 </div>
                             </div>  

@@ -49,7 +49,7 @@ class plano(models.Model):
     publicacao_executora_base = models.DateField(blank=True, null=True)
     obs_executora_base = models.TextField(blank=True,max_length=500)
     area_solicitante_itens = models.CharField(max_length=100, blank=True)
-    obs_solicitante_itens = models.TextField(blank=True,max_length=500)
+    obs_solicitante_itens = models.TextField(max_length=500,blank=True)
     area_executora_itens = models.CharField(max_length=100, blank=True)
     obs_executora_itens = models.TextField(blank=True,max_length=500)
     area_solicitante_cadastro_clientes = models.CharField(max_length=100, blank=True)
@@ -72,7 +72,7 @@ class plano(models.Model):
 
     # novos campos 19/01/2022
 
-    identificacao_area_solicitante = models.TextField(max_length=10,blank=True)
+    identificacao_area_solicitante = models.TextField(max_length=20,blank=True)
     objetivo_plano_atendimento = models.TextField(max_length=500, blank=True)
     requisitos_cadastramento_clienteEusuario = models.TextField(max_length=300, blank=True)
     abrangencia = models.TextField(max_length=255, blank=True)
@@ -99,6 +99,8 @@ class plano(models.Model):
 
     informacoes_complementares = models.TextField(max_length=300, blank=True) # verificar a posição no front
 
+    cadastramento_itens_catalogo = models.TextField(max_length=500, blank=True)
+
 
 
 
@@ -118,6 +120,7 @@ class plano(models.Model):
         self.modified = datetime.now()
         return self.inquilino + '-' + self.sistema
 
+    
 
 class Acesso(models.Model):
     date = models.DateField()

@@ -99,7 +99,7 @@ class CreatePdaView(CreateView):
                 'adequacao','capacitacao','responsavel','status','identificacao_area_solicitante','objetivo_plano_atendimento','requisitos_cadastramento_clienteEusuario',
                 'abrangencia','Estrategia_de_implan_solucao','Volumetrias','fluxo_de_atendimento','n1Area','n2Area','ano_contrato','riscos_identificados',
                 'mitigacoes','impactos','atividadeCronograma', 'AreaCronograma','ResponsavelCronograma', 'DatainiCronograma', 'DatafimCronograma', 'statusCronograma',
-                'informacoes_complementares']
+                'informacoes_complementares','cadastramento_itens_catalogo']
 
     success_url = reverse_lazy('index')
 
@@ -202,7 +202,8 @@ def ver(request, pda_id):
         'DatainiCronograma':pda.DatainiCronograma,
         'DatafimCronograma':pda.DatafimCronograma,
         'statusCronograma':pda.statusCronograma,
-        'informacoes_complementares':pda.informacoes_complementares
+        'informacoes_complementares':pda.informacoes_complementares,
+        'cadastramento_itens_catalogo':pda.cadastramento_itens_catalogo
 
         
 
@@ -232,7 +233,7 @@ class UpdatePda(UpdateView):
               ,'responsavel','obs_solicitante_cadastro_clientes','publicacao_solicitante_base','identificacao_area_solicitante','objetivo_plano_atendimento','requisitos_cadastramento_clienteEusuario',
               'abrangencia','Estrategia_de_implan_solucao','Volumetrias','fluxo_de_atendimento','n1Area','n2Area','ano_contrato',
               'riscos_identificados','impactos','mitigacoes','atividadeCronograma', 'AreaCronograma','ResponsavelCronograma', 'DatainiCronograma', 'DatafimCronograma', 'statusCronograma',
-              'informacoes_complementares']
+              'informacoes_complementares','cadastramento_itens_catalogo']
 
     success_url = reverse_lazy('index')
     def form_valid(self, form):
@@ -424,7 +425,8 @@ def download_world(request,pk):
         'DatainiCronograma':spa.DatainiCronograma,
         'DatafimCronograma':spa.DatafimCronograma,
         'statusCronograma':spa.statusCronograma,
-        'informacoes_complementares':spa.informacoes_complementares
+        'informacoes_complementares':spa.informacoes_complementares,
+        'cadastramento_itens_catalogo':spa.cadastramento_itens_catalogo
     }
     template.render(context)
 
