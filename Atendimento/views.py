@@ -97,7 +97,9 @@ class CreatePdaView(CreateView):
               'publicacao_executora_cadastro_base','publicacao_solicitante_cadastro_base','obs_solicitante_cadastro_base','area_executora_cadastro_base',
               'obs_executora_cadastro_base','area_responsavel_capacitacao','atendimento','carga_horaria','cronograma','obs_risco',
                 'adequacao','capacitacao','responsavel','status','identificacao_area_solicitante','objetivo_plano_atendimento','requisitos_cadastramento_clienteEusuario',
-                'abrangencia','Estrategia_de_implan_solucao','Volumetrias','fluxo_de_atendimento','n1Area','n2Area']
+                'abrangencia','Estrategia_de_implan_solucao','Volumetrias','fluxo_de_atendimento','n1Area','n2Area','ano_contrato','riscos_identificados',
+                'mitigacoes','impactos','atividadeCronograma', 'AreaCronograma','ResponsavelCronograma', 'DatainiCronograma', 'DatafimCronograma', 'statusCronograma',
+                'informacoes_complementares','cadastramento_itens_catalogo']
 
     success_url = reverse_lazy('index')
 
@@ -188,7 +190,21 @@ def ver(request, pda_id):
         'Volumetrias':pda.Volumetrias,
         'fluxo_de_atendimento':pda.fluxo_de_atendimento,
         'n1Area':pda.n1Area,
-        'n2Area':pda.n2Area
+        'n2Area':pda.n2Area,
+        'ano_contrato':pda.ano_contrato,
+        'riscos_identificados':pda.riscos_identificados,
+        'impactos':pda.impactos,
+        'mitigacoes':pda.mitigacoes,
+
+        'atividadeCronograma':pda.atividadeCronograma,
+        'AreaCronograma':pda.AreaCronograma,
+        'ResponsavelCronograma':pda.ResponsavelCronograma,
+        'DatainiCronograma':pda.DatainiCronograma,
+        'DatafimCronograma':pda.DatafimCronograma,
+        'statusCronograma':pda.statusCronograma,
+        'informacoes_complementares':pda.informacoes_complementares,
+        'cadastramento_itens_catalogo':pda.cadastramento_itens_catalogo
+
         
 
 
@@ -215,7 +231,9 @@ class UpdatePda(UpdateView):
               'publicacao_executora_cadastro_base','obs_executora_cadastro_base','capacitacao',
               'area_responsavel_capacitacao','atendimento','carga_horaria','cronograma','obs_risco','adequacao'
               ,'responsavel','obs_solicitante_cadastro_clientes','publicacao_solicitante_base','identificacao_area_solicitante','objetivo_plano_atendimento','requisitos_cadastramento_clienteEusuario',
-              'abrangencia','Estrategia_de_implan_solucao','Volumetrias','fluxo_de_atendimento','n1Area','n2Area']
+              'abrangencia','Estrategia_de_implan_solucao','Volumetrias','fluxo_de_atendimento','n1Area','n2Area','ano_contrato',
+              'riscos_identificados','impactos','mitigacoes','atividadeCronograma', 'AreaCronograma','ResponsavelCronograma', 'DatainiCronograma', 'DatafimCronograma', 'statusCronograma',
+              'informacoes_complementares','cadastramento_itens_catalogo']
 
     success_url = reverse_lazy('index')
     def form_valid(self, form):
@@ -396,7 +414,19 @@ def download_world(request,pk):
         'Volumetrias':spa.Volumetrias,
         'fluxo_de_atendimento':spa.fluxo_de_atendimento,
         'n1Area':spa.n1Area,
-        'n2Area':spa.n2Area
+        'n2Area':spa.n2Area,
+        'ano_contrato':spa.ano_contrato,
+        'riscos_identificados':spa.riscos_identificados,
+        'impactos':spa.impactos,
+        'mitigacoes':spa.mitigacoes,
+        'atividadeCronograma':spa.atividadeCronograma,
+        'AreaCronograma':spa.AreaCronograma,
+        'ResponsavelCronograma':spa.ResponsavelCronograma,
+        'DatainiCronograma':spa.DatainiCronograma,
+        'DatafimCronograma':spa.DatafimCronograma,
+        'statusCronograma':spa.statusCronograma,
+        'informacoes_complementares':spa.informacoes_complementares,
+        'cadastramento_itens_catalogo':spa.cadastramento_itens_catalogo
     }
     template.render(context)
 

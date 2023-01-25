@@ -161,7 +161,16 @@
                                     </div>
                                     <textarea class="form-control bg-white" name="ans" id="ans" rows="1" maxlength="255" required></textarea>
                                 </div>
-                            </div>                         
+                            </div> 
+                            
+                            <div class="col-sm">
+                                <div class="input-group mb-3">
+                                    <div class="input-group">
+                                        <label class="ml-2 font-weight-bold text-info">Ano:</label>
+                                    </div>
+                                    <textarea class="form-control bg-white" name="ano_contrato" id="ano_contrato" rows="1" maxlength="10" ></textarea>
+                                </div>
+                            </div>    
                     </div>               
                     
                     <div class="row">
@@ -194,7 +203,7 @@
                                 <div class="input-group">
                                     <label class="ml-2 font-weight-bold text-info">Requisitos de cadastramentos do Cliente e dos Usuários no SDM ou Pronto Cliente:</label>
                                 </div>
-                                <textarea class="form-control bg-white" rows="5" name="requisitos_cadastramento_clienteEusuario" id="requisitos_cadastramento_clienteEusuario" placeholder="Descrever os requisitos de cadastramento do cliente e dos usuários na ferramenta de registro de tickets homologada, sendo o SDM ou Pronto Cliente,Caso não tenha nada a descrever, informar: Não se aplica. " maxlength="300" disabled></textarea>
+                                <textarea class="form-control bg-white" rows="5" name="requisitos_cadastramento_clienteEusuario" id="requisitos_cadastramento_clienteEusuario" placeholder="Descrever os requisitos de cadastramento do cliente e dos usuários na ferramenta de registro de tickets homologada, sendo o SDM ou Pronto Cliente,Caso não tenha nada a descrever, informar: Não se aplica. " maxlength="300" ></textarea>
                             </div>
                         </div>
                     </div>
@@ -489,24 +498,20 @@
                             </div>
 
                         <label class="ml-2 font-weight-bold text-info h5">Cadastramento de Itens de Catálogo</label>
-                        <div class="row">
-                            <div class="col-lg">
-                                <div class="input-group mb-3">
-                                    <div class="input-group">
-                                        <label class="ml-2 font-weight-bold text-info">Área Solicitante:</label>
-                                    </div>
-                                    <input type="text" class="form-control bg-white" name="area_solicitante_itens" id="area_solicitante_itens" placeholder="" value="" maxlength="100">
+                        
+                       
+                            <div class="input-group mb-3">
+                                <div class="input-group">
+                                    
                                 </div>
-                            </div>          
-                            <div class="col-lg">
-                                <div class="input-group mb-3">
-                                    <div class="input-group">
-                                        <label class="ml-2 font-weight-bold text-info">Observações:</label>
-                                    </div>
-                                    <textarea class="form-control bg-white" name="obs_solicitante_itens" id="obs_solicitante_itens" rows="1" maxlength="255"></textarea>
-                                </div>
+                                <textarea class="form-control bg-white" rows="5" name="cadastramento_itens_catalogo" id="cadastramento_itens_catalogo" placeholder="Descrever os requisitos de cadastramentos ou ajustes no Catálogo de Serviços na ferramenta de registro de tickets homologada e em produção, sendo SDM ou Pronto Cliente.
+                                Caso não tenha nada a descrever, informar: Não se aplica.
+                                 " maxlength="300" ></textarea>
                             </div>
-                        </div>
+                      
+                   
+               
+                           
         
                         <div class="row">
                             <div class="col-lg">
@@ -516,15 +521,9 @@
                                     </div>
                                     <input type="text" class="form-control bg-white" name="area_executora_itens" id="area_executora_itens" placeholder="" value="" maxlength="100">
                                 </div>
-                            </div>          
-                            <div class="col-lg">
-                                <div class="input-group mb-3">
-                                    <div class="input-group">
-                                        <label class="ml-2 font-weight-bold text-info">Observações:</label>
-                                    </div>
-                                    <textarea class="form-control bg-white" name="obs_executora_itens" id="obs_executora_itens" rows="1" maxlength="255"></textarea>
-                                </div>
-                            </div>
+                            </div>     
+
+                            
                         </div> 
 
                         <label class="ml-2 font-weight-bold text-info h5">Cadastramento de Cliente</label>
@@ -747,18 +746,126 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="row">
-                                <div class="col-md">
+                                <div class="col-md d-inline-flex">
                                     <div class="input-group mb-3">
                                         <div class="input-group">
-                                            <label class="ml-2 font-weight-bold text-info">Observações de risco e impacto:</label>
+                                            <label class="ml-2 font-weight-bold text-info h4">Riscos identificados</label>
                                         </div>
-                                        <textarea class="form-control bg-white" name="obs_risco" id="obs_risco" rows="3" maxlength="255"></textarea>
-                                    </div>
+
+                                    <div class="input-group mb-3">
+                                        <div class="input-group">
+                                            <label class="ml-2 font-weight-bold text-info">Riscos:</label>
+                                        </div>
+                                        <textarea class="form-control bg-white" name="riscos_identificados" id="riscos_identificados" rows="3" maxlength="500" placeholder="Descrever todos os riscos identificados que devem ser gerenciados em prol do não comprometimento dos objetivos do projeto e, por conseguinte, da sua impossibilidade de sucesso relacionados aos requisitos do Atendimento aos Usuários.
+                                        Caso não tenha nada a descrever, informar: Não se aplica.
+                                        "></textarea>
                                 </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group">
+                                        <label class="ml-2 font-weight-bold text-info">Impactos:</label>
+                                    </div>
+                                    <textarea class="form-control bg-white" name="impactos" id="impactos" rows="3" maxlength="500" placeholder="Descrever os impactos associados aos riscos identificados,Caso não tenha nada a descrever, informar: Não se aplica."></textarea>
                             </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group">
+                                    <label class="ml-2 font-weight-bold text-info">Mitigações:</label>
+                                </div>
+                                <textarea class="form-control bg-white" name="mitigacoes" id="mitigacoes" rows="3" maxlength="500" placeholder="Informar as soluções para os impactos associados,Caso não tenha nada a descrever, informar: Não se aplica."></textarea>
                         </div>
+
+                                
+                            </div>
+                            
+                        </div>
+                        
+                                </div>
+                                
+                                
+                            </div>
+
+                            <label class="ml-2 h5 font-weight-bold text-info">Cronograma da Elaboração e Execução do Plano de Atendimento(PDA)</label>
+                            <br>
+                            <small>Descrever todas as atividades da fase de Planejamento e de execução do PDA.
+                                Caso não tenha nada a descrever, informar: Não se aplica.
+                                </small>
+                                <br>
+                                <small>Status: Não Iniciada, Em Andamento, Aguardando – Concluída – Cancelada</small>
+                            
+                <div class="row">   
+                                              
+                    <div class="col-lg">
+                        <div class="input-group mb-3">
+                            <div class="input-group">
+                                <label class="ml-2 font-weight-bold text-info">Atividade:</label>
+                            </div>
+                            <input type="text" class="form-control bg-white" name="atividadeCronograma" id="atividadeCronograma" placeholder="Ex:N1.Gerid" value="" maxlength="100">
+                        </div>
+                    </div>
+                    <div class="col-lg">
+                        <div class="input-group mb-3">
+                            <div class="input-group">
+                                <label class="ml-2 font-weight-bold text-info">Área:</label>
+                            </div>
+                            <input type="text" class="form-control bg-white" name="AreaCronograma" id="AreaCronograma" placeholder="Ex:GSCXX" value="" maxlength="100">
+                        </div>
+                    </div>                    
+                </div>     
+                
+                <div class="row">
+                    <div class="col-lg">
+                        <div class="input-group mb-3">
+                            <div class="input-group">
+                                <label class="ml-2 font-weight-bold text-info">Responsavel:</label>
+                            </div>
+                            <input type="text" class="form-control bg-white" name="ResponsavelCronograma" id="ResponsavelCronograma" placeholder="Ex:N1.Gerid" value="" maxlength="100" >
+                        </div>
+                    </div>
+                    <div class="col-lg">
+                        <div class="input-group mb-3">
+                            <div class="input-group">
+                                <label class="ml-2 font-weight-bold text-info">Data Inicio:</label>
+                            </div>
+                            <input type="text" class="form-control bg-white" name=" DatainiCronograma" id="DatainiCronograma" placeholder="Ex:GSCXX" value="" maxlength="100" >
+                        </div>
+                    </div>
+                    <div class="col-lg">
+                        <div class="input-group mb-3">
+                            <div class="input-group">
+                                <label class="ml-2 font-weight-bold text-info">Data Fim:</label>
+                            </div>
+                            <input type="text" class="form-control bg-white" name=" DatafimCronograma" id=" DatafimCronograma" placeholder="Ex:GSCXX" value="" maxlength="100" >
+                        </div>
+                    </div>
+                    <div class="col-lg">
+                        <div class="input-group mb-3">
+                            <div class="input-group">
+                                <label class="ml-2 font-weight-bold text-info">Status:</label>
+                            </div>
+                            <input type="text" class="form-control bg-white" name="statusCronograma" id="statusCronograma" placeholder="Ex:GSCXX" value="" maxlength="100" >
+                        </div>
+                    </div>
+
+                    
+                </div>
+
+                <div class="row">
+                    <div class="col-sm">
+                        <div class="input-group mb-3">
+                            <div class="input-group">
+                                <label class="ml-2 font-weight-bold text-info">Informações Complementares:</label>
+                            </div>                                
+                            <textarea class="form-control bg-white" name="informacoes_complementares" id="informacoes_complementares" rows="4" 
+                            placeholder="Ex:-Descrever as considerações relevantes e complementares para o Planejamento do Atendimento, por exemplo, Requisitos de negócios não informados na solicitação. No que couber, descrever pré-requisitos de Atendimento definidos pelo cliente, descritos no Documento de Visão (DV), no Modelo de Negócios ou na Proposta Comercial, informando se são aplicáveis ou não.
+                            Caso não tenha nada a descrever, informar: Não se aplica." maxlength="255">
+</textarea>                              
+                       </div>
+                    </div>
+                </div>
+
+
+                   
 
                     <div class="row d-flex justify-content-center mb-3 mr-2">
                         <button type="submit" class="col-12 col-md-4 btn btn-info ml-2 mt-2 mr-2" id="Enviar">Salvar Proposta</button>
