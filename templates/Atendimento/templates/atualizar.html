@@ -91,21 +91,21 @@
                                     <select class="custom-select mr-sm-2" name="status" id="status" >
                                         
                                         {% if plano.status == '1' %}
-                                        <option selected aria-checked="true" value="1">Ativo</option>
-                                        <option  value="2">Em Elaboração</option>
-                                        <option  value="3">Inativo</option>
+                                        <option selected aria-checked="true" value="1">Em elaboração</option>
+                                        <option  value="2">Em aprovação</option>
+                                        <option  value="3">Suspenso</option>
                                         {%endif%}
 
                                         {% if plano.status == '2' %}
-                                        <option  value="1">Ativo</option>
-                                        <option selected value="2">Em Elaboração</option>
-                                        <option  value="3">Inativo</option>
+                                        <option  value="1">Em elaboração</option>
+                                        <option selected value="2">Em Aprovação</option>
+                                        <option  value="3">Suspenso</option>
                                         {%endif%}
 
                                         {% if plano.status == '3' %}
-                                        <option  value="1">Ativo</option>
-                                        <option  value="2">Em Elaboração</option>
-                                        <option selected aria-checked="true" value="3">Inativo</option>
+                                        <option  value="1">Em elaboração</option>
+                                        <option  value="2">Em aprovação</option>
+                                        <option selected aria-checked="true" value="3">Suspenso</option>
                                         {%endif%}
 
 

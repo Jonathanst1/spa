@@ -39,7 +39,7 @@
         {% endif %} 
         <div class="modal-header">
            
-          <h5 class="modal-title" id="modalCenterDelete">Desativar Plano de Atendimento {{ sistema }}</h5>
+          <h5 class="modal-title" id="modalCenterDelete">Concluir Plano de Atendimento {{ sistema }}</h5>
             <a href="{% url 'index' %}">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -47,7 +47,7 @@
             </a>
         </div>
         <div class="modal-body">
-          Tem certeza que deseja desativar esse plano de atendimento {{ sistema}} {{ inquilino }}  ? Após a confirmação, somente o <b>administrador</b> poderá ativar o plano novamente!.
+          Após concluir o plano {{ sistema}} {{ inquilino }}  ele será retirado do template e somente <b>administrador</b> poderá ter acesso ao plano novamente!.
         </div>
         <div class="modal-footer">
             <a href="{% url 'index' %}">
@@ -55,7 +55,7 @@
             </a>
             <div>
         <a href="{% url 'index' %}">
-          <button type="submit" class="btn btn-danger">Desativar</button>
+          <button type="submit" class="btn btn-primary">Concluir</button>
         </a>
        
            

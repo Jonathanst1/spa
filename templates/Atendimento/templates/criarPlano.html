@@ -86,9 +86,9 @@
                                     <select class="custom-select mr-sm-2" name="status" id="status" required>
 
                                         
-                                        <option value="1" >Ativo</option>
-                                        <option value="2">Em Elaboração</option>
-                                        <option value="3">Inativo</option>
+                                        <option value="1">Em Elaboração</option>
+                                        <option value="2">Em Aprovação</option>
+                                        <option value="3">Suspenso</option>
                                       </select>
                                      
                                 </div>
@@ -195,7 +195,8 @@
                                 <div class="input-group">
                                     <label class="ml-2 font-weight-bold text-info">Requisitos de cadastramento no LDAP:</label>
                                 </div>
-                                <textarea class="form-control bg-white" rows="6" name="requisitos_LDPA" id="requisitos_LDPA" placeholder="Descrição detalhada dos requisitos do LDAP" value="" maxlength="255"></textarea>
+                                <textarea class="form-control bg-white" rows="6" name="requisitos_LDPA" id="requisitos_LDPA" placeholder="A área de Planejamento do Atendimento deverá solicitar a relação dos usuários previamente cadastrados, pela área responsável.Descrever os requisitos do cadastramento do cliente e dos usuários no LDAP. Informar a Organização criada e os atributos dos usuários, conforme a seguir: •o= Organização (Organization);•ou= Categoria de Negócios (BusinessCategory);•ou= Inquilino (RegistredAddress).Caso não tenha nada a descrever, informar: Não se aplica
+                                " value="" maxlength="255"></textarea>
                             </div>
                         </div>
                         <div class="col-md">
@@ -450,7 +451,7 @@
                                 <div class="input-group">
                                     <label class="ml-2 font-weight-bold text-info">Área Solicitante:</label>
                                 </div>
-                                <input type="text" class="form-control bg-white" name="area_solicitante_base" id="area_solicitante_base" placeholder="" value="" maxlength="100">
+                                <input type="text" class="form-control bg-white" name="area_solicitante_base" id="area_solicitante_base"  placeholder="" value="" maxlength="100">
                             </div>
                         </div>
                         <div class="col-lg">
@@ -466,7 +467,9 @@
                                 <div class="input-group">
                                     <label class="ml-2 font-weight-bold text-info">Observações:</label>
                                 </div>
-                                <textarea class="form-control bg-white" name="obs_solicitante_base" id="obs_solicitante_base" rows="1" maxlength="255"></textarea>
+                                <textarea class="form-control bg-white" name="obs_solicitante_base" id="obs_solicitante_base" placeholder="Descrever os requisitos da elaboração e publicação de documentações para autoatendimento dos usuários da solução e os scripts para os técnicos das áreas de Atendimento aos Usuários. Exemplos: Roteiros de Atendimento, FAQs, Scripts, etc.
+                                Caso não tenha nada a descrever, informar: Não se aplica.
+                                " rows="5" maxlength="255"></textarea>
                             </div>
                         </div>
                         </div>
@@ -492,7 +495,9 @@
                                     <div class="input-group">
                                         <label class="ml-2 font-weight-bold text-info">Observações:</label>
                                     </div>
-                                    <textarea class="form-control bg-white" name="obs_executora_base" id="obs_executora_base" rows="1" maxlength="255"></textarea>
+                                    <textarea class="form-control bg-white" name="obs_executora_base" id="obs_executora_base" rows="5" maxlength="255" placeholder="Descrever os requisitos da elaboração e publicação de documentações para autoatendimento dos usuários da solução e os scripts para os técnicos das áreas de Atendimento aos Usuários. Exemplos: Roteiros de Atendimento, FAQs, Scripts, etc.
+                                    Caso não tenha nada a descrever, informar: Não se aplica.
+                                    "></textarea>
                                 </div>
                             </div>
                             </div>
@@ -819,7 +824,7 @@
                             <div class="input-group">
                                 <label class="ml-2 font-weight-bold text-info">Responsavel:</label>
                             </div>
-                            <input type="text" class="form-control bg-white" name="ResponsavelCronograma" id="ResponsavelCronograma" placeholder="Ex:N1.Gerid" value="" maxlength="100" >
+                            <input type="text" class="form-control bg-white" name="ResponsavelCronograma" id="ResponsavelCronograma" placeholder="Nome-Sobrenome" value="" maxlength="100" >
                         </div>
                     </div>
                     <div class="col-lg">
@@ -827,7 +832,7 @@
                             <div class="input-group">
                                 <label class="ml-2 font-weight-bold text-info">Data Inicio:</label>
                             </div>
-                            <input type="text" class="form-control bg-white" name=" DatainiCronograma" id="DatainiCronograma" placeholder="Ex:GSCXX" value="" maxlength="100" >
+                            <input type="text" class="form-control bg-white" name=" DatainiCronograma" id="DatainiCronograma" placeholder="Ex: d/mm/aaaa" value="" maxlength="100" >
                         </div>
                     </div>
                     <div class="col-lg">
@@ -835,7 +840,7 @@
                             <div class="input-group">
                                 <label class="ml-2 font-weight-bold text-info">Data Fim:</label>
                             </div>
-                            <input type="text" class="form-control bg-white" name=" DatafimCronograma" id=" DatafimCronograma" placeholder="Ex:GSCXX" value="" maxlength="100" >
+                            <input type="text" class="form-control bg-white" name=" DatafimCronograma" id=" DatafimCronograma" placeholder="Ex: d/mm/aaaa" value="" maxlength="100" >
                         </div>
                     </div>
                     <div class="col-lg">
@@ -843,7 +848,7 @@
                             <div class="input-group">
                                 <label class="ml-2 font-weight-bold text-info">Status:</label>
                             </div>
-                            <input type="text" class="form-control bg-white" name="statusCronograma" id="statusCronograma" placeholder="Ex:GSCXX" value="" maxlength="100" >
+                            <input type="text" class="form-control bg-white" name="statusCronograma" id="statusCronograma" placeholder="Ex: Não iniciado" value="" maxlength="100" >
                         </div>
                     </div>
 
@@ -877,7 +882,7 @@
 
                 </div>
 
-                <label class="form-text text-muted">O documento gerado por essa funcionalidade é somente um rascunho. O documento a ser apresentado ao cliente deverá ser conferido criteriosamente antes da assinatura.</label>
+                <label align="center" class="form-text text-muted">O documento gerado por essa funcionalidade é somente um rascunho. O documento a ser apresentado ao cliente deverá ser conferido criteriosamente antes da assinatura.</label>
             </form>
         </div>
     </div>

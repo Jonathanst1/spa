@@ -271,9 +271,9 @@ def desativar(request, pk):
         plano.objects.filter(id=pk).update(status = '4')
         print('Desativado')
         reverse_lazy('index')
-        messages.info(request, 'Plano desativado com sucesso!')    
+        messages.info(request, 'Plano concluido com sucesso!')    
     else:
-        print('Não desativado')
+        print('(Erro!) Não concluído!.')
 
     
 
@@ -344,7 +344,7 @@ def download_world(request,pk):
 def download_world(request,pk):
     template = DocxTemplate("Template_PDA.docx")
     spa = plano.objects.get(id=pk)
-
+    
     context = {
         'id': spa.id,
         'sistema': spa.sistema,
@@ -429,9 +429,11 @@ def download_world(request,pk):
         'cadastramento_itens_catalogo':spa.cadastramento_itens_catalogo
     }
     template.render(context)
+    
 
     response = HttpResponse(content_type='application/vnd.openxmlformats-officedocument.wordprocessingml.document')
     response['Content-Disposition'] = 'attachment; filename=documento_preenchido.docx'
+    
     template.save(response)
 
     return response
