@@ -442,14 +442,127 @@ def download_world(request,pk):
 def duplicate_model(request, id):
     # Recupera o objeto a ser duplicado
     plano_original = plano.objects.get(id=id)
-
     # Cria um novo objeto com os mesmos campos
-    planoDuplicado = plano_original(
+    planoDuplicado = plano(
         versao=plano_original.versao,
+        sistema = plano_original.sistema,
+        inquilino = plano_original.inquilino,
+        desc_produto = plano_original.desc_produto,
+        status = plano_original.status,
+        responsavel = plano_original.responsavel,
+        created = plano_original.created,
+        modified = plano_original.modified,
+        demanda = plano_original.demanda,
+        sub_demanda = plano_original.sub_demanda,
+        n_contrato = plano_original.n_contrato,
+        aditivo = plano_original.aditivo,
+        ans = plano_original.ans,
+        necessidades = plano_original.necessidades,
+        requisitos_LDPA = plano_original.requisitos_LDPA,
+        solucoes_impactadas = plano_original.solucoes_impactadas,
+        anexo_contexto = plano_original.anexo_contexto,
+        telas_sistema = plano_original.telas_sistema,
+        cronograma_implantacao = plano_original.cronograma_implantacao,
+        canais = plano_original.canais,
+        n1 = plano_original.n1,
+        n2 = plano_original.n2,
+        adequacao = plano_original.adequacao,
+        area_solicitante_cliente = plano_original.area_solicitante_cliente,
+        obs_solicitante_cliente = plano_original.obs_solicitante_cliente,
+        area_executora_cliente = plano_original.area_executora_cliente,
+        obs_executora_cliente = plano_original.obs_executora_cliente,
+        area_solicitante_usuario = plano_original.area_solicitante_usuario,
+        obs_solicitante_usuario = plano_original.obs_solicitante_usuario,
+        area_executora_usuario = plano_original.area_executora_usuario,
+        obs_executora_usuario = plano_original.obs_executora_usuario,
+        area_solicitante_base = plano_original.area_solicitante_base,
+        publicacao_solicitante_base = plano_original.publicacao_solicitante_base,
+        obs_solicitante_base = plano_original.obs_solicitante_base,
+        area_executora_base = plano_original.area_executora_base,
+        publicacao_executora_base = plano_original.publicacao_executora_base,
+        obs_executora_base = plano_original.obs_executora_base,
+        area_solicitante_itens = plano_original.area_solicitante_itens,
+        obs_solicitante_itens = plano_original.obs_solicitante_itens,
+        area_executora_itens = plano_original.area_executora_itens,
+        area_solicitante_cadastro_clientes = plano_original.area_solicitante_cadastro_clientes,
+        area_executora_cadastro_clientes = plano_original.area_executora_cadastro_clientes,
+        obs_executora_cadastro_clientes = plano_original.obs_executora_cadastro_clientes,
+        area_solicitante_cadastro_base = plano_original.area_solicitante_cadastro_base,
+        publicacao_solicitante_cadastro_base = plano_original.publicacao_solicitante_cadastro_base,
+        obs_solicitante_cadastro_base = plano_original.obs_solicitante_cadastro_base,
+        area_executora_cadastro_base = plano_original.area_executora_cadastro_base,
+        publicacao_executora_cadastro_base = plano_original.publicacao_executora_cadastro_base,
+        obs_executora_cadastro_base = plano_original.obs_executora_cadastro_base,
+        capacitacao = plano_original.capacitacao,
+        area_responsavel_capacitacao = plano_original.area_responsavel_capacitacao,
+        atendimento = plano_original.atendimento,
+        carga_horaria = plano_original.carga_horaria,
+        cronograma = plano_original.cronograma,
+        obs_risco = plano_original.obs_risco,
+        obs_executora_itens = plano_original.obs_executora_itens,
+        obs_solicitante_cadastro_clientes = plano_original.obs_solicitante_cadastro_clientes,
+        identificacao_area_solicitante = plano_original.identificacao_area_solicitante,
+        objetivo_plano_atendimento = plano_original.objetivo_plano_atendimento,
+        requisitos_cadastramento_clienteEusuario = plano_original.requisitos_cadastramento_clienteEusuario,
+        abrangencia = plano_original.abrangencia,
+        Estrategia_de_implan_solucao = plano_original.Estrategia_de_implan_solucao,
+        Volumetrias = plano_original.Volumetrias,
+        fluxo_de_atendimento = plano_original.fluxo_de_atendimento,
+        n1Area = plano_original.n1Area,
+        n2Area = plano_original.n2Area,
+        ano_contrato = plano_original.ano_contrato,
+        riscos_identificados = plano_original.riscos_identificados,
+        impactos = plano_original.impactos,
+        mitigacoes = plano_original.mitigacoes,
+        atividadeCronograma = plano_original.atividadeCronograma,
+        AreaCronograma = plano_original.AreaCronograma,
+        ResponsavelCronograma = plano_original.ResponsavelCronograma,
+        DatainiCronograma = plano_original.DatainiCronograma,
+        DatafimCronograma = plano_original.DatafimCronograma,
+        statusCronograma = plano_original.statusCronograma,
+        informacoes_complementares = plano_original.informacoes_complementares,
+        cadastramento_itens_catalogo = plano_original.cadastramento_itens_catalogo,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         
-        # ...
+
+        
     )
     planoDuplicado.save()
 
+    
+    
+
     # Renderiza a página atual
-    return render(request, 'Atendimento/templates/pda.html', {'planoDuplicado': planoDuplicado})
+    return render(request, 'Atendimento/templates/duplicado.html', {'planoDuplicado': planoDuplicado})
