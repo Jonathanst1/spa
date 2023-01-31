@@ -25,9 +25,6 @@ def view_login(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
         if form.is_valid():
-
-            
-            
             user = authenticate(
                 request,
                 username = form.cleaned_data['username'],
@@ -440,4 +437,19 @@ def download_world(request,pk):
 
 
 
+# duplicar plano
 
+def duplicate_model(request, id):
+    # Recupera o objeto a ser duplicado
+    plano_original = plano.objects.get(id=id)
+
+    # Cria um novo objeto com os mesmos campos
+    planoDuplicado = plano_original(
+        versao=plano_original.versao,
+        
+        # ...
+    )
+    planoDuplicado.save()
+
+    # Renderiza a página atual
+    return render(request, 'Atendimento/templates/pda.html', {'planoDuplicado': planoDuplicado})
