@@ -12,7 +12,7 @@ class plano(models.Model):
         ('Nao', 'Nao'))
 
     CHOICES2 = [('1', 'Em Elaboracao'), ('2', 'Em Aprovação'), ('3', 'Suspenso'),('4', 'Concluído')]
-    versao = models.CharField(max_length=5, blank=True)
+    versao = models.CharField (max_length=5, blank=True)
     status = models.CharField(max_length=13, choices = CHOICES2, default='Ativo')
     responsavel = models.CharField(max_length=100, blank=True)
     created = models.DateTimeField(auto_now_add=True)

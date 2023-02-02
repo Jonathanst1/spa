@@ -536,8 +536,10 @@ def versionar(request, id):
     # Recupera o objeto a ser duplicado
     plano_original = plano.objects.get(id=id)
     # Cria um novo objeto com os mesmos campos
+    
+   
     planoDuplicado = plano(
-        versao=plano_original.versao,
+        versao=float(plano_original.versao) +  round(0.1,2),
         sistema = plano_original.sistema,
         inquilino = plano_original.inquilino,
         desc_produto = plano_original.desc_produto,
