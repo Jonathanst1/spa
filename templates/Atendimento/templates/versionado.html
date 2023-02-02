@@ -1,0 +1,74 @@
+<!DOCTYPE html><html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Versionar</title>
+</head>
+<body  class="bg-secondary bg-secondary"  >
+    <!--<form method="post">
+    {% csrf_token %}
+        <p>Tem certeza que deseja excluir o plano  "{{ object }}" ? </p>
+        <button type="submit" >Confirmar</button>    <button type="button">
+        <a href="{% url 'index' %}">Cancelar</a>
+        </button>
+    </form> -->
+
+    <!-- Button trigger modal -->
+
+   
+  <!-- Modal -->
+  <form method="post">
+   
+    {% csrf_token %}
+    <div  class="modal-show" id="deleteModal" tabindex="-1" role="" aria-labelledby="ModalCenterDelete" aria-hidden="true">
+
+       
+    <div  class="modal-dialog modal-dialog-centered" role="document">
+      <div  class="modal-content">
+        {% if messages %}
+        <div class="alert alert-success" role="alert">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </div>
+        {% endif %} 
+        <div class="modal-header">
+           
+          <h5 class="modal-title" id="modalCenterDelete">Criar nova versão do  Plano de Atendimento {{ sistema }}</h5>
+            <a href="{% url 'index' %}">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+            </a>
+        </div>
+        <div class="modal-body">
+           {{ sistema}} {{ inquilino }}
+        </div>
+        <div class="modal-footer">
+            <a href="{% url 'index' %}">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Voltar</button>
+            </a>
+            <div>
+        <a href="{% url 'index' %}">
+          <button type="submit" class="btn btn-primary">Concluir</button>
+        </a>
+       
+           
+        
+       
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+
+</body>
+</html>
