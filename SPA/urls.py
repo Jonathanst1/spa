@@ -33,7 +33,8 @@ urlpatterns = [
     path('<int:pk>/desativar/', views.desativar, name='desativar'),
     path('<int:pk>/delete/',login_required(views.DeletePda.as_view()), name='del_pda'),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('duplicate/<int:id>/', views.duplicate_model, name='duplicar')
+    path('duplicate/<int:id>/', views.duplicate_model, name='duplicar'),
+    path('<int:id>/versionar/', views.versionar, name='versionar')
     
 
 
