@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-
+ 
 
 <html lang="pt-BR">
 <head>
@@ -94,13 +94,6 @@ tbody {
         <h6 style="font-size: 13px;">{{ today|date:'d/m/Y H:i' }}</h6>
         <a id="botaoSair"    href="/accounts/logout">Sair</a >
       </div>
-      <a class="navbar-brand" href="#">
-        
-        <img src="{% static 'logo.png' %}" alt="" width="66" height="50" class="d-inline-block align-text-top"> 
-        
-      </a>
-      
-      
     </div>
   </nav>
   {% endif %}
@@ -164,10 +157,8 @@ tbody {
                 <td >
                   
                   <div class="d-flex justify-content-center mt-2">
-
-                    
-                      
-                      <p style="color: #228b22;font-weight: bold;">Em elaboração</p>
+ 
+                      <p style="color:rgb(32, 82, 122);font-weight: bold;">Em elaboração</p>
                     </svg>
                   </div>
                 </td>
@@ -203,8 +194,8 @@ tbody {
                 <td>
                   <div id="desativado2" class="d-flex justify-content-center mt-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-circle-fill d-flex align-content-center" viewBox="0 0 16 16">
-                      <circle cx="8" cy="8" r="8"/>
-                      <p>Concluído</p>
+                      
+                      <p style="color: #228b22;font-weight: bold;font-weight: bold;">Concluído</p>
                     </svg>
                   </div>
                 </td>
@@ -257,17 +248,16 @@ tbody {
 
                       <a href="{% url 'desativar' pl.id %}">
                       
-                        <button  type="button" class="btn btn-outline-success ml-2 mr-2" title="Concluir Plano" data-toggle="modal" data-target="#deleteModal" name="status" id="status"   value="4">
+                        <button  type="button" class="btn btn-outline-success ml-2" title="Concluir Plano" data-toggle="modal" data-target="#deleteModal" name="status" id="status" >
                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-square" viewBox="0 0 16 16">
                             <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
                             <path d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.235.235 0 0 1 .02-.022z"/>
                           </svg>
-                           </button></a>
+                        </button>
+                      </a>
 
-
-
-                      <a href="{% url 'duplicar' pl.id %}"">
-                        <button  type="button" class="btn btn-outline-dark ml-2 mr-2" title="Duplicar" data-toggle="modal" data-target="#deleteModal" >
+                      <a href="{% url 'duplicar' pl.id %}">
+                        <button  type="button" class="btn btn-outline-dark ml-2" title="Duplicar" data-toggle="modal" data-target="#deleteModal" >
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"  fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
                           <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
                           <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
@@ -275,7 +265,7 @@ tbody {
                            </button></a>
 
                            <a href="{% url 'versionar' pl.id %}">
-                            <button  type="button" class="btn btn-outline-dark ml-2 mr-2" title="Versionar" data-toggle="modal" data-target="#deleteModal" >
+                            <button  type="button" class="btn btn-outline-dark ml-2" title="Versionar" data-toggle="modal" data-target="#deleteModal" >
                               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-node-plus" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M11 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM6.025 7.5a5 5 0 1 1 0 1H4A1.5 1.5 0 0 1 2.5 10h-1A1.5 1.5 0 0 1 0 8.5v-1A1.5 1.5 0 0 1 1.5 6h1A1.5 1.5 0 0 1 4 7.5h2.025zM11 5a.5.5 0 0 1 .5.5v2h2a.5.5 0 0 1 0 1h-2v2a.5.5 0 0 1-1 0v-2h-2a.5.5 0 0 1 0-1h2v-2A.5.5 0 0 1 11 5zM1.5 7a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1z"/>
                               </svg>
